@@ -1,16 +1,58 @@
-# React + Vite
+# Educational Physics Simulation Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
+This project is an interactive educational platform designed for the CERN Beamline for Schools competition. It features:
+- **3D Physics Simulation**: A real-time visualization of particle decay (Pions vs Kaons) built with React Three Fiber.
+- **Physics Engine**: A custom JavaScript physics engine simulating relativistic kinematics and Monte Carlo decay events.
+- **Educational Curriculum**: A 30-module interactive course.
+- **Data Analysis**: Tools for students to analyze simulation results.
 
-Currently, two official plugins are available:
+## Technology Stack
+- **Framework**: React 19 + Vite
+- **Styling**: Tailwind CSS + Framer Motion
+- **3D**: Three.js + React Three Fiber + Drei
+- **Charts**: Recharts
+- **Math**: KaTeX
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Getting Started
 
-## React Compiler
+### Prerequisites
+- Node.js (v18+)
+- npm
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Installation
+1. Clone the repository:
+   ```bash
+   git clone <repo-url>
+   cd website
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-## Expanding the ESLint configuration
+### Development
+Start the development server:
+```bash
+npm run dev
+```
+Open [http://localhost:5173](http://localhost:5173) in your browser.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Building for Production
+1. Build the app:
+   ```bash
+   npm run build
+   ```
+2. Preview the production build:
+   ```bash
+   npm run preview
+   ```
+
+## Project Structure
+- `src/components`: Reusable UI and 3D components.
+- `src/pages`: Main application routes (Home, Simulator, Learn, etc.).
+- `src/utils/physicsEngine.js`: Core logic for particle simulation.
+- `src/data`: Static content for modules and presets.
+
+## License
+MIT

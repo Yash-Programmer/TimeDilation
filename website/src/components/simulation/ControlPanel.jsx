@@ -47,7 +47,7 @@ const ControlPanel = ({ simulation, onShowResults }) => {
 
   const handlePresetChange = (e) => {
     // In a real app, this would load the preset params
-    console.log("Loading preset:", e.target.value);
+    // Placeholder for preset loading logic
   };
 
   return (

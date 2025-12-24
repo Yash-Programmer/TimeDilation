@@ -13,13 +13,12 @@ import ParticleSystem from './ParticleSystem';
 
 const Scene3D = ({
     interactive = true,
-    showLabels = true,
-    simulationState = { running: true }
 }) => {
   return (
     <div className="w-full h-full bg-gradient-to-b from-[#0a0a1a] to-[#1a1a2e]">
       <Canvas camera={{ position: [0, 2, 12], fov: 50 }} dpr={[1, 2]}>
-        <ambientLight intensity={0.5} />
+        <Suspense fallback={null}>
+          <ambientLight intensity={0.5} />
         <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} intensity={1} castShadow />
         <pointLight position={[-10, -10, -10]} intensity={0.5} />
 
@@ -65,6 +64,7 @@ const Scene3D = ({
             minPolarAngle={Math.PI / 4}
             maxPolarAngle={Math.PI / 1.5}
         />
+        </Suspense>
       </Canvas>
     </div>
   );
