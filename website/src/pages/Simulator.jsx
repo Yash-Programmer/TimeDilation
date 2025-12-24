@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { PanelLeftClose, PanelLeftOpen, GripVertical } from 'lucide-react';
+import { GripVertical } from 'lucide-react';
 import Scene3D from '../components/simulation/Scene3D';
 import ControlPanel from '../components/simulation/ControlPanel';
 import ResultsModal from '../components/simulation/ResultsModal';

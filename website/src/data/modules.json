@@ -13,6 +13,9 @@
           "interactive": {
             "type": "particle-builder"
           },
+          "task": {
+            "description": "Go to the Simulator and select the 'Time Dilation Test' preset. Observe the different types of particles (Pions vs Kaons) represented by different colors."
+          },
           "quiz": [
             {
               "question": "Which quark combination makes a proton?",
@@ -28,8 +31,32 @@
             }
           ]
         },
-        { "id": "1.2", "title": "The Speed of Light", "duration": "10 min", "icon": "Zap" },
-        { "id": "1.3", "title": "What is Time Dilation?", "duration": "20 min", "icon": "Clock" },
+        {
+            "id": "1.2",
+            "title": "The Speed of Light",
+            "duration": "10 min",
+            "icon": "Zap",
+            "description": "Why c is constant and the ultimate speed limit.",
+            "content": "# The Speed of Light\n\nThe speed of light in a vacuum, denoted by **c**, is exactly 299,792,458 meters per second. According to Einstein's theory of relativity, nothing can travel faster than light.\n\n### Why is it special?\n\nUnlike sound waves that need air to travel, light can travel through empty space. Furthermore, the speed of light is **constant** for all observers, regardless of how fast they are moving. This counter-intuitive fact leads to time dilation.",
+            "task": { "description": "In the simulator, set the Momentum to maximum (15 GeV/c) and observe the velocity (β) value. Does it ever reach exactly 1.0?" },
+            "quiz": [
+                { "question": "What is the symbol for the speed of light?", "options": ["v", "c", "lambda", "g"], "correct": 1, "explanation": "c comes from the Latin 'celeritas' meaning swiftness." },
+                { "question": "Can massive particles reach the speed of light?", "options": ["Yes", "No", "Only if they have enough energy", "Only in a vacuum"], "correct": 1, "explanation": "It would take infinite energy to accelerate a massive object to c." }
+            ]
+        },
+        {
+            "id": "1.3",
+            "title": "What is Time Dilation?",
+            "duration": "20 min",
+            "icon": "Clock",
+            "description": "Moving clocks run slower. The Twin Paradox.",
+            "content": "# Time Dilation\n\nTime dilation is the phenomenon where time moves slower for an object that is moving at high speed compared to an observer at rest.\n\n### The Twin Paradox\n\nImagine two twins. One stays on Earth, while the other travels in a spaceship at 90% the speed of light. When the traveler returns, they will have aged less than the twin who stayed on Earth. This isn't a trick—time actually passed at a different rate for them.",
+            "task": { "description": "Run the 'Time Dilation Test' in the simulator. Compare the survival rates of Pions vs Kaons. Which one decays faster in the lab frame?" },
+            "quiz": [
+                { "question": "Does time move faster or slower for a moving object?", "options": ["Faster", "Slower", "Same speed", "Depends on direction"], "correct": 1, "explanation": "Time slows down (dilates) for the moving object relative to the stationary observer." },
+                { "question": "Is this effect noticeable in everyday life?", "options": ["Yes", "No", "Only for astronauts", "Only during earthquakes"], "correct": 1, "explanation": "The effect is only significant at speeds close to the speed of light." }
+            ]
+        },
         {
           "id": "1.4",
           "title": "The Lorentz Factor (γ)",
@@ -40,6 +67,7 @@
           "interactive": {
             "type": "lorentz-calculator"
           },
+          "task": { "description": "Use the widget above to calculate gamma for v=0.99c. Then try to verify this in the simulator by setting momentum such that beta is close to 0.99." },
           "quiz": [
             {
               "question": "What is the value of gamma if velocity is 0?",
@@ -55,42 +83,276 @@
             }
           ]
         },
-        { "id": "1.5", "title": "Rest Mass vs Relativistic Mass", "duration": "15 min", "icon": "Scale" },
-        { "id": "1.6", "title": "Particle Decay Basics", "duration": "15 min", "icon": "Activity" },
-        { "id": "1.7", "title": "What is a Particle Detector?", "duration": "20 min", "icon": "Eye" },
-        { "id": "1.8", "title": "Momentum and Energy", "duration": "15 min", "icon": "Move" },
-        { "id": "1.9", "title": "Pions, Kaons, and Muons", "duration": "20 min", "icon": "Layers" },
-        { "id": "1.10", "title": "Why CERN?", "duration": "15 min", "icon": "Globe" }
+        {
+            "id": "1.5", "title": "Rest Mass vs Relativistic Mass", "duration": "15 min", "icon": "Scale",
+            "description": "E=mc² and energy-momentum relationship.",
+            "content": "# Rest Mass vs Relativistic Mass\n\nMass is not constant. As an object moves faster, its effective mass increases.\n\n### Rest Mass ($m_0$)\n\nThis is the mass of the particle when it is not moving. For example, a proton has a rest mass of about 938 MeV/c².\n\n### Relativistic Mass\n\nAs speed increases, energy increases. Since $E=mc^2$, this energy acts like additional mass, making the object harder to accelerate further.",
+            "task": { "description": "In the simulator, check the 'Energy' badge on the home page or the Momentum value in the simulator. Notice how 8 GeV/c is much higher than the rest mass of a proton (approx 1 GeV/c^2)." },
+            "quiz": [
+                { "question": "What is rest mass?", "options": ["Mass at speed of light", "Mass when stationary", "Weight on Earth", "Volume of the particle"], "correct": 1, "explanation": "Rest mass is the intrinsic mass measured in the particle's own frame." },
+                { "question": "Does a photon have rest mass?", "options": ["Yes", "No", "Depends on frequency", "Only in glass"], "correct": 1, "explanation": "Photons are massless particles, which is why they must always travel at c." }
+            ]
+        },
+        {
+            "id": "1.6", "title": "Particle Decay Basics", "duration": "15 min", "icon": "Activity",
+            "description": "Unstable particles, half-life, exponential decay.",
+            "content": "# Particle Decay\n\nMost subatomic particles are unstable. They don't live forever; instead, they spontaneously transform (decay) into lighter particles.\n\n### Half-Life\n\nThe time it takes for half of a sample of particles to decay is called the half-life. Decay is a random process—we can't predict when a single particle will decay, but we can predict the behavior of a large group perfectly.",
+            "task": { "description": "Turn off 'Enable Decay' in the simulator settings. Run the simulation and see if the particle count at the end detector changes." },
+            "quiz": [
+                { "question": "Is particle decay predictable for a single particle?", "options": ["Yes", "No", "Only for pions", "Only at low temperature"], "correct": 1, "explanation": "Quantum decay is inherently probabilistic." },
+                { "question": "What mathematical function describes decay?", "options": ["Linear", "Quadratic", "Exponential", "Sinusoidal"], "correct": 2, "explanation": "N(t) = N0 * e^(-t/tau)" }
+            ]
+        },
+        {
+            "id": "1.7", "title": "What is a Particle Detector?", "duration": "20 min", "icon": "Eye",
+            "description": "How we 'see' particles, different detector types.",
+            "content": "# Particle Detectors\n\nWe can't see subatomic particles with our eyes. We need special devices called detectors.\n\n### Types of Detectors\n\n1.  **Scintillators**: Material that flashes light when a particle hits it.\n2.  **Trackers**: Devices that record the path of a particle without stopping it.\n3.  **Calorimeters**: Heavy blocks that stop particles to measure their total energy.\n\nIn our experiment, we use Scintillators and TOF (Time-of-Flight) detectors.",
+            "task": { "description": "Hover over the components in the 3D view of the simulator to identify which ones are the Scintillators." },
+            "quiz": [
+                { "question": "What does a scintillator do?", "options": ["Makes sound", "Emits light", "Heats up", "Vibrates"], "correct": 1, "explanation": "Scintillators convert the kinetic energy of a particle into a flash of light." },
+                { "question": "What is a TOF detector used for?", "options": ["Measuring Mass", "Measuring Velocity", "Measuring Charge", "Measuring Spin"], "correct": 1, "explanation": "TOF stands for Time-Of-Flight, used to calculate speed." }
+            ]
+        },
+        {
+            "id": "1.8", "title": "Momentum and Energy", "duration": "15 min", "icon": "Move",
+            "description": "p=mv, relativistic momentum.",
+            "content": "# Momentum\n\nIn classical physics, momentum is $p=mv$. But at high speeds, we must use the relativistic formula:\n\n$$p = \\gamma m v$$\n\nThis means that as $v$ approaches $c$, momentum goes to infinity. This is why we use momentum (GeV/c) rather than velocity to describe high-energy particles.",
+            "task": { "description": "Adjust the Momentum slider in the simulator. Observe how the Beta (velocity) factor changes non-linearly." },
+            "quiz": [
+                { "question": "What unit do we use for momentum in particle physics?", "options": ["kg m/s", "Newtons", "GeV/c", "Joules"], "correct": 2, "explanation": "GeV/c is the standard unit, related to energy via c." },
+                { "question": "If momentum doubles, does velocity double?", "options": ["Yes", "No", "Only at low speeds", "Only for light"], "correct": 2, "explanation": "At relativistic speeds, doubling momentum results in a very small increase in velocity." }
+            ]
+        },
+        {
+            "id": "1.9", "title": "Pions, Kaons, and Muons", "duration": "20 min", "icon": "Layers",
+            "description": "Properties, lifetimes, how they're different.",
+            "content": "# The Particles\n\nOur experiment focuses on three types of particles:\n\n*   **Pion ($\\pi^+$)**: Made of a standard quark pair. Lightest meson.\n*   **Kaon ($K^+$)**: Contains a 'strange' quark. Heavier than the pion.\n*   **Muon ($\\mu^+$)**: A heavy cousin of the electron. It is a lepton, not a hadron.\n\nBecause the Kaon is heavier, it has a different Time Dilation factor (gamma) than the Pion at the same momentum!",
+            "task": { "description": "Select different particle types in the simulator. Note the 'Expected Gamma' value shown in the results." },
+            "quiz": [
+                { "question": "Which particle contains a strange quark?", "options": ["Pion", "Kaon", "Muon", "Proton"], "correct": 1, "explanation": "The Kaon is defined by containing a strange quark." },
+                { "question": "Which is a lepton?", "options": ["Pion", "Kaon", "Muon", "Proton"], "correct": 2, "explanation": "Muons are leptons, like electrons." }
+            ]
+        },
+        {
+            "id": "1.10", "title": "Why CERN?", "duration": "15 min", "icon": "Globe",
+            "description": "History, purpose, accelerators.",
+            "content": "# CERN\n\nCERN (European Organization for Nuclear Research) is the world's largest particle physics laboratory. It is home to the Large Hadron Collider (LHC).\n\n### Why do we go there?\n\nTo test time dilation, we need particles moving at 99.9% the speed of light. You can't do that in a high school lab! CERN's accelerators provide the high-energy beams necessary for our experiment.",
+            "task": { "description": "Check the 'Supplementary' tab to see photos and data related to the actual CERN beamline." },
+            "quiz": [
+                { "question": "Where is CERN located?", "options": ["USA", "Japan", "Switzerland/France border", "Germany"], "correct": 2, "explanation": "It sits on the border near Geneva." },
+                { "question": "What is the LHC?", "options": ["Large Hadron Collider", "Light Heavy Cannon", "Long Horizontal Cable", "Linear Heat Conductor"], "correct": 0, "explanation": "The world's largest and most powerful particle collider." }
+            ]
+        }
       ]
     },
     {
       "level": "intermediate",
       "items": [
-        { "id": "2.1", "title": "Special Relativity Principles", "duration": "20 min", "icon": "BookOpen" },
-        { "id": "2.2", "title": "Deriving Time Dilation", "duration": "25 min", "icon": "PenTool" },
-        { "id": "2.3", "title": "Length Contraction", "duration": "20 min", "icon": "Minimize2" },
-        { "id": "2.4", "title": "Relativistic Kinematics", "duration": "30 min", "icon": "Share2" },
-        { "id": "2.5", "title": "Time-of-Flight (TOF) Detectors", "duration": "25 min", "icon": "Clock" },
-        { "id": "2.6", "title": "Scintillation Detectors", "duration": "20 min", "icon": "Zap" },
-        { "id": "2.7", "title": "Cherenkov Radiation", "duration": "25 min", "icon": "Sun" },
-        { "id": "2.8", "title": "Particle Identification", "duration": "30 min", "icon": "Search" },
-        { "id": "2.9", "title": "Statistical Analysis in Physics", "duration": "35 min", "icon": "BarChart2" },
-        { "id": "2.10", "title": "Designing an Experiment", "duration": "40 min", "icon": "Layout" }
+        {
+            "id": "2.1", "title": "Special Relativity Principles", "duration": "20 min", "icon": "BookOpen",
+            "description": "Postulates, inertial frames, spacetime.",
+            "content": "# Postulates of Special Relativity\n\nEinstein based his theory on two simple ideas:\n\n1.  **The Principle of Relativity**: The laws of physics are the same in all inertial frames of reference.\n2.  **The Constancy of c**: The speed of light in a vacuum is the same for all observers, regardless of the motion of the light source or observer.\n\nFrom these two statements, all the weirdness of time dilation and length contraction logically follows.",
+            "task": { "description": "In the simulator, imagine you are riding on the particle. To you, the detector is moving towards you at 0.99c. The physics must work out the same!" },
+            "quiz": [
+                { "question": "Do the laws of physics change if you are moving at constant speed?", "options": ["Yes", "No", "Only electromagnetism", "Only gravity"], "correct": 1, "explanation": "Inertial frames are equivalent." },
+                { "question": "If you chase a light beam at 0.99c, how fast does it move away from you?", "options": ["0.01c", "0.99c", "c", "2c"], "correct": 2, "explanation": "The speed of light is always c relative to any observer." }
+            ]
+        },
+        {
+            "id": "2.2", "title": "Deriving Time Dilation", "duration": "25 min", "icon": "PenTool",
+            "description": "Light clock thought experiment, mathematical derivation.",
+            "content": "# The Light Clock\n\nImagine a clock made of a photon bouncing between two mirrors. \n\n*   **Rest Frame**: The photon goes up and down. Distance = $2L$.\n*   **Moving Frame**: The mirrors move sideways. The photon must travel a diagonal path. Distance = $2D$.\n\nSince $D > L$ and the speed of light $c$ is constant, the time taken must be longer in the moving frame. This simple geometry gives us the formula:\n\n$$\\Delta t = \\frac{\\Delta t_0}{\\sqrt{1 - v^2/c^2}}$$",
+            "task": { "description": "Use the Lorentz Calculator widget in Module 1.4 to verify how the factor grows." },
+            "quiz": [
+                { "question": "Why does the photon travel further in the moving frame?", "options": ["Mirrors are further apart", "It moves diagonally", "Space expands", "Gravity pulls it"], "correct": 1, "explanation": "The horizontal motion of the mirrors adds a horizontal component to the photon's path." },
+                { "question": "Which time interval is shortest?", "options": ["Proper time (rest frame)", "Dilated time (moving frame)", "Both equal", "Depends on clock type"], "correct": 0, "explanation": "Proper time is always the shortest interval between two events." }
+            ]
+        },
+        {
+            "id": "2.3", "title": "Length Contraction", "duration": "20 min", "icon": "Minimize2",
+            "description": "Lorentz contraction, relativistic effects.",
+            "content": "# Length Contraction\n\nTime dilation isn't the only effect. Objects moving at high speeds appear shorter along the direction of motion.\n\n$$L = L_0 \\sqrt{1 - v^2/c^2}$$\n\nIf you were riding a muon, the 15-meter beamline at CERN would effectively shrink to only a few centimeters! This explains why the muon thinks it can reach the end before decaying, even though its lifetime is short.",
+            "task": { "description": "In the simulator, pretend you are the particle. If gamma is 50, how long does the 15m beamline look to you?" },
+            "quiz": [
+                { "question": "Does an object shrink in all directions?", "options": ["Yes", "No, only along motion", "No, only perpendicular to motion", "It expands"], "correct": 1, "explanation": "Length contraction is directional." },
+                { "question": "From the muon's perspective, why does it survive?", "options": ["Time slows down", "Distance shortens", "It travels faster than light", "Magic"], "correct": 1, "explanation": "In the muon's frame, the distance to the detector contracts, so it has time to traverse it." }
+            ]
+        },
+        {
+            "id": "2.4", "title": "Relativistic Kinematics", "duration": "30 min", "icon": "Share2",
+            "description": "Four-vectors, invariant mass.",
+            "content": "# Four-Vectors\n\nTo handle space and time together, physicists use 4-vectors. The most important is the Energy-Momentum 4-vector:\n\n$$P = (E/c, p_x, p_y, p_z)$$\n\nThe 'length' of this vector is invariant—it's the same for all observers. This length is the **mass** of the particle.\n\n$$E^2 - (pc)^2 = (mc^2)^2$$",
+            "task": { "description": "No specific simulator task. Review the 'Results' tab in the simulator to see the statistical analysis." },
+            "quiz": [
+                { "question": "What quantity is invariant in relativity?", "options": ["Energy", "Momentum", "Mass", "Velocity"], "correct": 2, "explanation": "Rest mass is a relativistic invariant." },
+                { "question": "What is the 4th dimension in a 4-vector?", "options": ["Time (or Energy)", "Space", "Gravity", "Spin"], "correct": 0, "explanation": "Time pairs with Space; Energy pairs with Momentum." }
+            ]
+        },
+        {
+            "id": "2.5", "title": "Time-of-Flight (TOF) Detectors", "duration": "25 min", "icon": "Clock",
+            "description": "How TOF works, timing resolution.",
+            "content": "# Time of Flight\n\nA TOF detector measures the time it takes for a particle to travel between two points. \n\n$$v = \\frac{\\Delta x}{\\Delta t}$$\n\nIf we know the distance $\\Delta x$ precisely and measure $\\Delta t$ with a fast clock, we can find the velocity. At CERN, our clocks have a resolution of 100 picoseconds ($10^{-10}$ s)!",
+            "task": { "description": "Check the detector configuration in the simulator. Enable TOF1 and TOF2." },
+            "quiz": [
+                { "question": "What limits the accuracy of a TOF?", "options": ["Distance measurement", "Timing resolution", "Particle mass", "Air pressure"], "correct": 1, "explanation": "Fast timing electronics are critical for high-speed particles." },
+                { "question": "Why do we need a long beamline?", "options": ["To fit more detectors", "To increase time difference", "To slow particles down", "To cool them"], "correct": 1, "explanation": "A longer flight path makes the time difference between particles easier to measure." }
+            ]
+        },
+        {
+            "id": "2.6", "title": "Scintillation Detectors", "duration": "20 min", "icon": "Zap",
+            "description": "Light emission, PMTs, energy measurement.",
+            "content": "# Scintillators\n\nPlastic scintillators are the workhorses of particle physics. When a charged particle passes through, it excites the molecules, which then emit blue light.\n\nThis light is captured by a **Photomultiplier Tube (PMT)**, which converts the faint light flash into a strong electrical signal that a computer can record.",
+            "task": { "description": "Observe the Scintillator Array in the 3D simulator. It is the grid-like detector." },
+            "quiz": [
+                { "question": "What converts light to electricity?", "options": ["Scintillator", "PMT", "Resistor", "Lens"], "correct": 1, "explanation": "The Photomultiplier Tube amplifies the photoelectron signal." },
+                { "question": "Does a neutral particle (neutron) trigger a scintillator?", "options": ["Yes", "No", "Sometimes", "Only if fast"], "correct": 1, "explanation": "Scintillators generally detect charged particles (ionization)." }
+            ]
+        },
+        {
+            "id": "2.7", "title": "Cherenkov Radiation", "duration": "25 min", "icon": "Sun",
+            "description": "Threshold effect, particle ID.",
+            "content": "# Cherenkov Radiation\n\nWhen a particle moves through a medium (like gas or water) faster than the speed of light *in that medium*, it emits a cone of light.\n\nThis is like a sonic boom, but with light! The angle of the light cone tells us the particle's speed very precisely.",
+            "task": { "description": "The Cherenkov detector is the blue cone in the simulator. It helps us distinguish Pions from Kaons." },
+            "quiz": [
+                { "question": "Can particles travel faster than light in a medium?", "options": ["Yes", "No", "Never", "Only neutrinos"], "correct": 0, "explanation": "Yes, c_medium = c_vacuum / n. Particles can exceed this reduced speed limit." },
+                { "question": "What determines the Cherenkov angle?", "options": ["Mass", "Charge", "Velocity", "Spin"], "correct": 2, "explanation": "cos(theta) = 1 / (n * beta)." }
+            ]
+        },
+        {
+            "id": "2.8", "title": "Particle Identification", "duration": "30 min", "icon": "Search",
+            "description": "dE/dx, mass reconstruction.",
+            "content": "# PID (Particle ID)\n\nHow do we know if we saw a Pion or a Kaon? We combine information:\n\n1.  **Momentum** (from the beam magnet settings)\n2.  **Velocity** (from TOF or Cherenkov)\n\nKnowing $p$ and $v$, we can calculate mass: $m = p / (\\gamma v)$. Since every particle type has a unique mass, we can identify them!",
+            "task": { "description": "In the simulator results, look at the particle counts. How does the system know which is which? It uses this PID logic." },
+            "quiz": [
+                { "question": "If two particles have the same momentum but different speeds, do they have the same mass?", "options": ["Yes", "No", "Maybe", "Unknown"], "correct": 1, "explanation": "p = gamma * m * v. Different v implies different m." },
+                { "question": "Why is PID hard at very high energy?", "options": ["Particles decay", "Velocities are all close to c", "Detectors melt", "Magnets fail"], "correct": 1, "explanation": "As v approaches c, the differences in velocity become tiny and hard to measure." }
+            ]
+        },
+        {
+            "id": "2.9", "title": "Statistical Analysis in Physics", "duration": "35 min", "icon": "BarChart2",
+            "description": "Error bars, chi-squared test, significance.",
+            "content": "# Statistics\n\nPhysics is an experimental science, meaning measurements always have errors. We use statistics to quantify certainty.\n\n*   **Poisson Statistics**: For counting events (N), the error is $\\sqrt{N}$.\n*   **Chi-Squared Test**: Checks if data matches a theory. A value near 1 is good.\n*   **Sigma ($\\sigma$)**: Measures how significant a deviation is. 5$\\sigma$ is a discovery.",
+            "task": { "description": "Run a simulation with low intensity (100 events). Look at the error bars in the results. Then run with high intensity. Notice the difference?" },
+            "quiz": [
+                { "question": "If you count 100 particles, what is the uncertainty?", "options": ["1", "10", "50", "100"], "correct": 1, "explanation": "Sqrt(100) = 10." },
+                { "question": "What does a 5-sigma result mean?", "options": ["Likely random fluctuation", "Almost certainly real", "5% error", "Wrong experiment"], "correct": 1, "explanation": "The probability of a random fluctuation is less than 1 in 3.5 million." }
+            ]
+        },
+        {
+            "id": "2.10", "title": "Designing an Experiment", "duration": "40 min", "icon": "Layout",
+            "description": "Hypothesis, controls, systematic errors.",
+            "content": "# Experimental Design\n\nA good experiment needs:\n\n1.  **Clear Hypothesis**: What are you testing?\n2.  **Controls**: Measurements to check your equipment (like our Muon calibration).\n3.  **Systematics**: Understanding biases in your apparatus.\n\nOur experiment uses a 'comparative' design (Pion vs Kaon) to cancel out many systematic errors.",
+            "task": { "description": "Try the 'Custom Experiment' preset in the simulator. Turn off some detectors. Does the experiment still work?" },
+            "quiz": [
+                { "question": "What is a control in our experiment?", "options": ["The Pion", "The Kaon", "The Muon", "The Beam"], "correct": 2, "explanation": "The muon doesn't decay significantly, providing a stable reference." },
+                { "question": "Why compare Pions and Kaons?", "options": ["They are the same mass", "To cancel systematics", "One is positive, one negative", "Random choice"], "correct": 1, "explanation": "Common errors affect both equally, so the ratio is robust." }
+            ]
+        }
       ]
     },
     {
       "level": "advanced",
       "items": [
-        { "id": "3.1", "title": "Lorentz Invariance Tests", "duration": "30 min", "icon": "Shield" },
-        { "id": "3.2", "title": "Standard Model Overview", "duration": "40 min", "icon": "Grid" },
-        { "id": "3.3", "title": "Weak Decay Processes", "duration": "35 min", "icon": "Activity" },
-        { "id": "3.4", "title": "Transition Radiation", "duration": "30 min", "icon": "Layers" },
-        { "id": "3.5", "title": "Monte Carlo Simulation", "duration": "45 min", "icon": "Cpu" },
-        { "id": "3.6", "title": "Data Acquisition Systems", "duration": "35 min", "icon": "Server" },
-        { "id": "3.7", "title": "Systematic Uncertainties", "duration": "30 min", "icon": "AlertTriangle" },
-        { "id": "3.8", "title": "Advanced Statistical Methods", "duration": "40 min", "icon": "TrendingUp" },
-        { "id": "3.9", "title": "Beyond the Standard Model", "duration": "30 min", "icon": "Compass" },
-        { "id": "3.10", "title": "Proposing Your Experiment", "duration": "45 min", "icon": "FileText" }
+        {
+            "id": "3.1", "title": "Lorentz Invariance Tests", "duration": "30 min", "icon": "Shield",
+            "description": "Testing SR, modern theories beyond SR.",
+            "content": "# Lorentz Invariance\n\nIs relativity *always* true? Some theories of Quantum Gravity suggest it might break down at extremely high energies.\n\nTesting 'Lorentz Invariance' means looking for tiny violations of Einstein's rules. Our experiment is a test of **Universality**—do all particles feel the same time dilation?",
+            "task": { "description": "If you see a deviation in the simulator results (red flag in stats), it might indicate Lorentz Violation!" },
+            "quiz": [
+                { "question": "What implies Lorentz Invariance?", "options": ["Laws of physics depend on speed", "Laws of physics are independent of frame", "Time is absolute", "Space is absolute"], "correct": 1, "explanation": "The outcome of an experiment shouldn't depend on the velocity of the lab." },
+                { "question": "Have we found violations yet?", "options": ["Yes, many", "No, none confirmed", "Only on Mars", "In black holes"], "correct": 1, "explanation": "So far, Special Relativity has passed every test." }
+            ]
+        },
+        {
+            "id": "3.2", "title": "Standard Model Overview", "duration": "40 min", "icon": "Grid",
+            "description": "Quarks, leptons, force carriers.",
+            "content": "# The Standard Model\n\nThe most successful theory in physics history. It organizes matter into:\n\n*   **Fermions** (Matter): 6 Quarks, 6 Leptons.\n*   **Bosons** (Forces): Photon, Gluon, W/Z, Higgs.\n\nOur experiment uses Pions ($u\\bar{d}$) and Kaons ($u\\bar{s}$), which are mesons made of quarks.",
+            "task": { "description": "Use the Particle Builder in Module 1.1 again to review quark compositions." },
+            "quiz": [
+                { "question": "What force holds quarks together?", "options": ["Gravity", "Electromagnetism", "Strong Force", "Weak Force"], "correct": 2, "explanation": "The strong force (gluons) binds quarks into hadrons." },
+                { "question": "Which particle gives mass to others?", "options": ["Photon", "Higgs Boson", "Gluon", "Neutrino"], "correct": 1, "explanation": "The Higgs field interaction generates mass." }
+            ]
+        },
+        {
+            "id": "3.3", "title": "Weak Decay Processes", "duration": "35 min", "icon": "Activity",
+            "description": "Beta decay, W bosons, Feynman diagrams.",
+            "content": "# Weak Decay\n\nPions and Kaons decay via the **Weak Force**. This is the only force that can change one type of quark into another.\n\nExample: $\\pi^+ \\to \\mu^+ + \\nu_\\mu$\n\nThis involves a $W^+$ boson exchange. Because the W boson is heavy, this process is slow (on nuclear timescales), giving particles time to fly through our detector.",
+            "task": { "description": "Watch the 'Decay' animations in the simulator. The explosion represents this weak interaction event." },
+            "quiz": [
+                { "question": "Which force causes beta decay?", "options": ["Strong", "Weak", "Gravity", "EM"], "correct": 1, "explanation": "The weak interaction is responsible for flavor change." },
+                { "question": "Why is the weak force 'weak'?", "options": ["It has small charge", "The carrier (W/Z) is massive", "It only acts on neutrinos", "It is slow"], "correct": 1, "explanation": "The massive range limit makes it appear weak at low energies." }
+            ]
+        },
+        {
+            "id": "3.4", "title": "Transition Radiation", "duration": "30 min", "icon": "Layers",
+            "description": "What is TR, detection methods, applications.",
+            "content": "# Transition Radiation (TR)\n\nWhen a relativistic particle crosses the boundary between two materials with different electrical properties, it emits X-rays. \n\nThe intensity depends on $\\gamma$. Since electrons have huge $\\gamma$ (due to small mass), TR detectors are great at spotting electrons among heavier particles.",
+            "task": { "description": "Select the 'Transition Radiation' preset in the simulator to see how this detector would be set up." },
+            "quiz": [
+                { "question": "TR intensity is proportional to?", "options": ["Velocity", "Gamma factor", "Mass", "Charge"], "correct": 1, "explanation": "It scales with the Lorentz factor gamma." },
+                { "question": "What does TR emit?", "options": ["Sound", "Visible light", "X-rays", "Radio waves"], "correct": 2, "explanation": "Transition radiation is typically in the X-ray spectrum." }
+            ]
+        },
+        {
+            "id": "3.5", "title": "Monte Carlo Simulation", "duration": "45 min", "icon": "Cpu",
+            "description": "GEANT4, event generation, particle transport.",
+            "content": "# Monte Carlo Methods\n\nHow do we predict what will happen? We roll dice!\n\nMonte Carlo simulations (like GEANT4) calculate probabilities for every step of a particle's journey: 'Will it decay here?', 'Will it scatter there?'. By repeating this millions of times, we build a statistical prediction.",
+            "task": { "description": "Our 'Simulator' is a simplified web version. The 'GEANT4 Data' tab contains the rigorous supercomputer results." },
+            "quiz": [
+                { "question": "Why is it called Monte Carlo?", "options": ["Named after a scientist", "Named after the casino", "Named after a mountain", "Random acronym"], "correct": 1, "explanation": "Named after the famous casino in Monaco due to the use of randomness." },
+                { "question": "What is GEANT4 used for?", "options": ["Gaming", "Particle transport simulation", "Weather prediction", "Stock market"], "correct": 1, "explanation": "It is the standard toolkit for high energy physics simulation." }
+            ]
+        },
+        {
+            "id": "3.6", "title": "Data Acquisition Systems", "duration": "35 min", "icon": "Server",
+            "description": "Triggers, readout electronics, event building.",
+            "content": "# DAQ (Data Acquisition)\n\nDetectors generate millions of signals per second. We can't save them all.\n\n**Triggers** are logic circuits that decide instantly: 'Is this event interesting?'. If yes, the DAQ system reads the data, digitizes it, and saves it to disk.",
+            "task": { "description": "Imagine the 'Run' button in the simulator is your Trigger start signal." },
+            "quiz": [
+                { "question": "What is a Trigger?", "options": ["A mechanical switch", "A logic system to select events", "The particle source", "A computer virus"], "correct": 1, "explanation": "It filters out background noise to save only useful data." },
+                { "question": "What does 'digitization' mean?", "options": ["Converting analog signals to numbers", "Cleaning the detector", "Turning it on", "Analyzing data"], "correct": 0, "explanation": "Turning voltage pulses into 1s and 0s." }
+            ]
+        },
+        {
+            "id": "3.7", "title": "Systematic Uncertainties", "duration": "30 min", "icon": "AlertTriangle",
+            "description": "Sources, propagation, minimization.",
+            "content": "# Systematics\n\nStatistical error goes down with more data. Systematic error does not.\n\nExamples:\n*   Ruler calibration is off by 1mm.\n*   Clock runs 0.1% too fast.\n*   Detector is slightly misaligned.\n\nGood physicists spend most of their time fighting systematics.",
+            "task": { "description": "In the simulator 'Analysis Settings', check 'Show Error Bars'. These represent our uncertainties." },
+            "quiz": [
+                { "question": "Can you fix systematic error by taking more data?", "options": ["Yes", "No"], "correct": 1, "explanation": "No, you acturally measure the 'wrong' value more precisely. You must calibrate to fix it." },
+                { "question": "What is a good way to find systematics?", "options": ["Guessing", "Calibration with known source", "Ignoring them", "Using simpler math"], "correct": 1, "explanation": "Using a known reference (like our non-decaying Muon) reveals biases." }
+            ]
+        },
+        {
+            "id": "3.8", "title": "Advanced Statistical Methods", "duration": "40 min", "icon": "TrendingUp",
+            "description": "Likelihood fits, hypothesis testing.",
+            "content": "# Fitting Data\n\nOnce we have data points, we fit a function to them (like an exponential decay curve).\n\n**Maximum Likelihood Estimation (MLE)** finds the parameters that make the observed data most probable. This gives us the best estimate for values like the particle lifetime.",
+            "task": { "description": "View the 'Decay Curves' in the Results modal. The smooth lines are the Fits to the dot data points." },
+            "quiz": [
+                { "question": "What is a 'fit'?", "options": ["Matching clothes", "A mathematical function matching data", "A healthy particle", "A database"], "correct": 1, "explanation": "Modelling the data with a theoretical curve." },
+                { "question": "What tells you if a fit is good?", "options": ["Chi-squared", "The color", "The size of the plot", "The number of points"], "correct": 0, "explanation": "Chi-squared per degree of freedom should be close to 1." }
+            ]
+        },
+        {
+            "id": "3.9", "title": "Beyond the Standard Model", "duration": "30 min", "icon": "Compass",
+            "description": "Lorentz violation, extra dimensions.",
+            "content": "# New Physics?\n\nThe Standard Model is great, but incomplete. It doesn't explain Gravity or Dark Matter.\n\nPhysicists look for cracks in the theory. If Time Dilation wasn't universal, it would break Relativity, potentially pointing to 'Quantum Gravity' or Extra Dimensions.",
+            "task": { "description": "Consider what would happen if the Kaon curve in the simulator didn't match the prediction. Discovery!" },
+            "quiz": [
+                { "question": "Does the Standard Model explain Gravity?", "options": ["Yes", "No", "Partially", "Only on Earth"], "correct": 1, "explanation": "It is the biggest missing piece of modern physics." },
+                { "question": "What is 'Dark Matter'?", "options": ["Black paint", "Invisible matter holding galaxies together", "Anti-matter", "Burned toast"], "correct": 1, "explanation": "We see its gravity but not the particles themselves." }
+            ]
+        },
+        {
+            "id": "3.10", "title": "Proposing Your Experiment", "duration": "45 min", "icon": "FileText",
+            "description": "Writing a proposal, budget, feasibility.",
+            "content": "# Conclusion: Doing Science\n\nReal science starts with a proposal. You need:\n\n1.  **Motivation**: Why is this interesting?\n2.  **Method**: How will you do it?\n3.  **Feasibility**: Is it possible with current tech?\n\nThis website is based on a real winning proposal for CERN. Now it's your turn to think of an idea!",
+            "task": { "description": "You've finished the course! Go to the 'Team' page to see the students who designed this experiment." },
+            "quiz": [
+                { "question": "What is the most important part of a proposal?", "options": ["The font", "The budget", "The scientific motivation", "The pictures"], "correct": 2, "explanation": "If the science isn't interesting, the rest doesn't matter." },
+                { "question": "Can high school students propose experiments at CERN?", "options": ["No", "Yes, via Beamline for Schools", "Only PhDs", "Only if rich"], "correct": 1, "explanation": "Yes! That's exactly what this project is about." }
+            ]
+        }
       ]
     }
   ]

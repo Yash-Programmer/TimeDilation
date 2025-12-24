@@ -10,13 +10,33 @@ const ResultsModal = ({ isOpen, onClose, results }) => {
 
   if (!results) return null;
 
-  // Mock data for graph
-  const graphData = [
-      { dist: 0, pion: 1.0, kaon: 1.0, muon: 1.0 },
-      { dist: 5, pion: 0.98, kaon: 0.92, muon: 1.0 },
-      { dist: 10, pion: 0.96, kaon: 0.84, muon: 0.99 },
-      { dist: 15, pion: 0.94, kaon: 0.78, muon: 0.99 },
-  ];
+  // Calculate graph points based on results
+  const survivalRate = results.stats.survived / results.stats.total;
+  const theoreticalSurvival = results.stats.expectedSurvival;
+
+  // Generate curve for plotting
+  const graphData = [];
+  const beamLength = results.config.beamLength;
+  for (let i = 0; i <= 10; i++) {
+      const x = (beamLength / 10) * i;
+      // N(t) = N0 * exp(-t / (gamma * tau))
+      // t = x / (beta * c)
+      // Therefore: N(x) = N0 * exp( -x / (beta * c * gamma * tau) )
+      // decayLength = beta * c * gamma * tau
+      // S(x) = exp(-x / decayLength)
+
+      const decayLength = results.stats.meanBeta * 299792458 * results.stats.meanGamma * (
+          results.config.particleType === 'pion' ? 2.6033e-8 :
+          results.config.particleType === 'kaon' ? 1.2380e-8 :
+          results.config.particleType === 'muon' ? 2.1969e-6 : Infinity
+      );
+
+      graphData.push({
+          dist: x.toFixed(1),
+          survival: Math.exp(-x / decayLength).toFixed(4),
+          ideal: 1.0 // Comparison baseline
+      });
+  }
 
   const tabs = [
     { id: 'curves', label: 'Decay Curves' },
@@ -56,12 +76,10 @@ const ResultsModal = ({ isOpen, onClose, results }) => {
                <LineChart data={graphData} margin={{ top: 20, right: 30, left: 20, bottom: 20 }}>
                  <CartesianGrid strokeDasharray="3 3" stroke="#eee" />
                  <XAxis dataKey="dist" label={{ value: 'Distance (m)', position: 'insideBottom', offset: -10 }} />
-                 <YAxis label={{ value: 'Survival Fraction', angle: -90, position: 'insideLeft' }} domain={[0.5, 1]} />
+                 <YAxis label={{ value: 'Survival Fraction', angle: -90, position: 'insideLeft' }} domain={[0, 1]} />
                  <RechartsTooltip />
                  <Legend />
-                 <Line type="monotone" dataKey="pion" stroke="#E74C3C" strokeWidth={3} name="Pion (π+)" dot={{r: 4}} />
-                 <Line type="monotone" dataKey="kaon" stroke="#3498DB" strokeWidth={3} name="Kaon (K+)" dot={{r: 4}} />
-                 <Line type="monotone" dataKey="muon" stroke="#2ECC71" strokeWidth={3} name="Muon (μ+)" dot={{r: 4}} />
+                 <Line type="monotone" dataKey="survival" stroke="#0033A0" strokeWidth={3} name="Survival Rate" dot={{r: 4}} />
                </LineChart>
              </ResponsiveContainer>
              <div className="flex justify-end mt-4">
@@ -73,47 +91,35 @@ const ResultsModal = ({ isOpen, onClose, results }) => {
          {/* Tab 2: Statistics */}
          {activeTab === 'stats' && (
            <div className="space-y-6">
-              <div className="bg-green-50 border border-green-200 rounded-lg p-4 flex items-start gap-3">
-                 <div className="p-2 bg-green-100 rounded-full text-green-600">✓</div>
+              <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 flex items-start gap-3">
+                 <div className="p-2 bg-blue-100 rounded-full text-blue-600">i</div>
                  <div>
-                    <h4 className="font-bold text-green-800">Universality Confirmed!</h4>
-                    <p className="text-sm text-green-700">The normalized decay curves collapse within 1.8σ, consistent with Special Relativity predictions.</p>
+                    <h4 className="font-bold text-blue-800">Simulation Complete</h4>
+                    <p className="text-sm text-blue-700">
+                        Simulated {results.stats.total} particles with mean momentum {results.config.momentum} GeV/c.
+                    </p>
                  </div>
               </div>
 
-              <table className="w-full text-left border-collapse">
-                <thead>
-                   <tr className="border-b border-gray-200 text-gray-500 text-sm">
-                      <th className="py-2">Particle</th>
-                      <th className="py-2">Mass (MeV)</th>
-                      <th className="py-2">Expected γ</th>
-                      <th className="py-2">Measured γ</th>
-                      <th className="py-2">Difference</th>
-                   </tr>
-                </thead>
-                <tbody className="text-gray-800">
-                   <tr className="border-b border-gray-100">
-                      <td className="py-3 font-medium text-[#E74C3C]">Pion</td>
-                      <td>139.6</td>
-                      <td>57.3</td>
-                      <td>57.1 ± 0.5</td>
-                      <td>-0.3%</td>
-                   </tr>
-                   <tr className="border-b border-gray-100">
-                      <td className="py-3 font-medium text-[#3498DB]">Kaon</td>
-                      <td>493.7</td>
-                      <td>16.2</td>
-                      <td>16.3 ± 0.2</td>
-                      <td>+0.6%</td>
-                   </tr>
-                </tbody>
-              </table>
+              <div className="grid grid-cols-2 gap-4">
+                  <div className="bg-gray-50 p-4 rounded-lg">
+                      <div className="text-sm text-gray-500">Survival Rate</div>
+                      <div className="text-2xl font-bold font-mono">{(survivalRate * 100).toFixed(2)}%</div>
+                      <div className="text-xs text-gray-400">Target: {(theoreticalSurvival * 100).toFixed(2)}%</div>
+                  </div>
+                  <div className="bg-gray-50 p-4 rounded-lg">
+                      <div className="text-sm text-gray-500">Mean Gamma</div>
+                      <div className="text-2xl font-bold font-mono">{results.stats.meanGamma.toFixed(2)}</div>
+                  </div>
+              </div>
 
               <div className="bg-gray-50 p-4 rounded-lg">
-                 <h4 className="font-bold text-gray-700 mb-2">Chi-Squared Test</h4>
-                 <div className="font-mono text-sm">
-                    χ² = 1.24 (d.o.f = 3)<br/>
-                    p-value = 0.74
+                 <h4 className="font-bold text-gray-700 mb-2">Beam Statistics</h4>
+                 <div className="font-mono text-sm space-y-1">
+                    <div>Total Events: {results.stats.total}</div>
+                    <div>Survived: <span className="text-green-600">{results.stats.survived}</span></div>
+                    <div>Decayed: <span className="text-red-500">{results.stats.decayed}</span></div>
+                    <div>Beta (v/c): {results.stats.meanBeta.toFixed(5)}</div>
                  </div>
               </div>
            </div>
@@ -139,13 +145,13 @@ const ResultsModal = ({ isOpen, onClose, results }) => {
                      </thead>
                      <tbody className="divide-y divide-gray-100">
                         {results.data.map(row => (
-                           <tr key={row.eventID} className="hover:bg-gray-50">
-                              <td className="px-4 py-2 font-mono">{row.eventID}</td>
-                              <td className="px-4 py-2">{row.primaryPDG}</td>
-                              <td className="px-4 py-2">{row.primaryMom.toFixed(2)}</td>
+                           <tr key={row.id} className="hover:bg-gray-50">
+                              <td className="px-4 py-2 font-mono">{row.id}</td>
+                              <td className="px-4 py-2">{results.config.particleType}</td>
+                              <td className="px-4 py-2">{row.momentum.toFixed(2)}</td>
                               <td className="px-4 py-2">{row.tof.toFixed(2)}</td>
                               <td className="px-4 py-2">
-                                 {row.decayed ?
+                                 {!row.survived ?
                                    <span className="text-red-500 font-bold">Yes</span> :
                                    <span className="text-green-500">No</span>
                                  }

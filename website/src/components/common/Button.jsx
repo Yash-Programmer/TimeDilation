@@ -2,11 +2,11 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const variants = {
-  primary: "bg-[#0033A0] text-white hover:bg-[#002280] hover:scale-105 shadow-md",
-  secondary: "bg-white text-[#0033A0] border-2 border-[#0033A0] hover:bg-blue-50",
-  outline: "bg-transparent text-[#0033A0] border border-[#0033A0] hover:bg-blue-50",
-  ghost: "bg-transparent text-[#555577] hover:text-[#0033A0] hover:bg-gray-100",
-  danger: "bg-red-500 text-white hover:bg-red-600",
+  primary: "btn-primary",
+  secondary: "btn-secondary",
+  outline: "border-2 border-cern-blue text-cern-blue hover:bg-blue-50 px-6 py-2 rounded-lg font-medium transition-all duration-200",
+  ghost: "text-slate-600 hover:text-cern-blue hover:bg-blue-50/50 px-4 py-2 rounded-lg font-medium transition-colors",
+  danger: "bg-red-500 text-white hover:bg-red-600 shadow-lg shadow-red-500/20 px-6 py-2 rounded-lg",
 };
 
 const Button = ({
@@ -20,18 +20,21 @@ const Button = ({
   ...props
 }) => {
   const sizeClasses = {
-    sm: "px-3 py-1.5 text-sm",
-    md: "px-6 py-3 text-base",
-    lg: "px-8 py-4 text-lg",
+    sm: "text-sm px-3 py-1.5",
+    md: "text-base px-6 py-3",
+    lg: "text-lg px-8 py-4",
   };
+
+  // If variant class already has padding, don't override unless necessary
+  const finalSizeClass = variant === 'primary' || variant === 'secondary' ? '' : sizeClasses[size];
 
   return (
     <motion.button
-      whileTap={{ scale: 0.95 }}
+      whileTap={{ scale: 0.98 }}
       className={`
-        rounded-lg font-medium transition-all duration-200 flex items-center justify-center gap-2
+        flex items-center justify-center gap-2
         ${variants[variant]}
-        ${sizeClasses[size]}
+        ${finalSizeClass}
         ${disabled ? "opacity-50 cursor-not-allowed pointer-events-none" : "cursor-pointer"}
         ${className}
       `}
@@ -39,7 +42,7 @@ const Button = ({
       disabled={disabled}
       {...props}
     >
-      {Icon && <Icon size={18} />}
+      {Icon && <Icon size={size === 'lg' ? 24 : 18} />}
       {children}
     </motion.button>
   );

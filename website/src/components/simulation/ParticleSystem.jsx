@@ -9,28 +9,29 @@ const SPEED = 10; // Units per second
 
 const ParticleSystem = ({
   count = 50,
-  pionRatio = 0.7,
-  kaonRatio = 0.25,
-  muonRatio = 0.05,
   decayEnabled = true
 }) => {
+  // We use a simplified visual representation here.
+  // Ideally, this would take the 'params' prop to adjust speed/decay visually.
+  // For now, we randomize visually to show activity.
+
   const particles = useMemo(() => {
     return new Array(count).fill(0).map(() => {
-      // Determine type
+      // Visual Randomization
       const r = Math.random();
       let type = 'pion';
       let color = new THREE.Color('#E74C3C'); // Red
-      let decayProb = 0.003; // Chance per frame
+      let decayProb = 0.005;
 
-      if (r > pionRatio) {
-          if (r > pionRatio + kaonRatio) {
+      if (r > 0.7) {
+          if (r > 0.95) {
               type = 'muon';
               color = new THREE.Color('#2ECC71'); // Green
-              decayProb = 0.00001;
+              decayProb = 0.0001;
           } else {
               type = 'kaon';
               color = new THREE.Color('#3498DB'); // Blue
-              decayProb = 0.02; // Higher decay chance
+              decayProb = 0.03;
           }
       }
 
@@ -45,7 +46,7 @@ const ParticleSystem = ({
         decayTime: 0
       };
     });
-  }, [count, pionRatio, kaonRatio, muonRatio]);
+  }, [count]);
 
   const meshRef = useRef();
   const dummy = useMemo(() => new THREE.Object3D(), []);

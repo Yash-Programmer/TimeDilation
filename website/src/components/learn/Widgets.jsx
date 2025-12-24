@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export const LorentzCalculator = () => {
   const [velocity, setVelocity] = useState(0.8);

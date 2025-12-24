@@ -6,15 +6,18 @@ import { motion } from 'framer-motion';
 import Button from '../components/common/Button';
 import Badge from '../components/common/Badge';
 import Quiz from '../components/learn/Quiz';
+import SimulatorTask from '../components/learn/SimulatorTask';
 import { LorentzCalculator, ParticleBuilder } from '../components/learn/Widgets';
 import modulesData from '../data/modules.json';
 import { showToast } from '../components/common/Toast';
+import { useLocalStorage } from '../hooks/useLocalStorage';
 import confetti from 'canvas-confetti';
 
 const Learn = () => {
   const [activeLevel, setActiveLevel] = useState('beginner');
   const [selectedModuleId, setSelectedModuleId] = useState('1.1');
   const [searchTerm, setSearchTerm] = useState('');
+  const [completedModules, setCompletedModules] = useLocalStorage('completed_modules', []);
 
   // Find current module data
   const flatModules = modulesData.modules.flatMap(level => level.items.map(m => ({ ...m, level: level.level })));
@@ -22,13 +25,17 @@ const Learn = () => {
 
   // Handlers
   const handleModuleComplete = () => {
-      confetti({
-         particleCount: 150,
-         spread: 60,
-         origin: { y: 0.7 }
-      });
-      showToast("Module Completed! Progress saved.", "success");
-      // In real app, save to localStorage here
+      if (!completedModules.includes(selectedModuleId)) {
+          setCompletedModules([...completedModules, selectedModuleId]);
+          confetti({
+             particleCount: 150,
+             spread: 60,
+             origin: { y: 0.7 }
+          });
+          showToast("Module Completed! Progress saved.", "success");
+      } else {
+          showToast("Module already completed!", "info");
+      }
   };
 
   const filteredModules = modulesData.modules.find(l => l.level === activeLevel)?.items.filter(m =>
@@ -82,10 +89,15 @@ const Learn = () => {
                   `}
                 >
                    <div className={`
-                      p-2 rounded-lg shrink-0
+                      p-2 rounded-lg shrink-0 relative
                       ${selectedModuleId === module.id ? 'bg-[#0033A0] text-white' : 'bg-gray-100 text-gray-500'}
                    `}>
                       <span className="text-xs font-bold">{module.id}</span>
+                      {completedModules.includes(module.id) && (
+                          <div className="absolute -top-1 -right-1 bg-green-500 rounded-full p-0.5 border border-white">
+                              <CheckCircle size={10} className="text-white" />
+                          </div>
+                      )}
                    </div>
                    <div>
                       <h4 className={`text-sm font-medium ${selectedModuleId === module.id ? 'text-[#0033A0]' : 'text-gray-700'}`}>
@@ -136,6 +148,14 @@ const Learn = () => {
                 {/* Interactive Widgets */}
                 {currentModule.interactive?.type === 'lorentz-calculator' && <LorentzCalculator />}
                 {currentModule.interactive?.type === 'particle-builder' && <ParticleBuilder />}
+
+                {/* Simulator Task */}
+                {currentModule.task && (
+                    <SimulatorTask
+                        taskDescription={currentModule.task.description}
+                        targetPreset={currentModule.task.preset}
+                    />
+                )}
 
                 {/* Quiz Section */}
                 {currentModule.quiz && (

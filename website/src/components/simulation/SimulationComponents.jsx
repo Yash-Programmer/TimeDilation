@@ -1,7 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { useFrame } from '@react-three/fiber';
 import { Html, Text } from '@react-three/drei';
-import { motion, AnimatePresence } from 'framer-motion';
 
 // --- Shared Material/Styles ---
 const metallicMaterial = {

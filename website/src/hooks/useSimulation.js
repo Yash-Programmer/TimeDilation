@@ -1,5 +1,5 @@
 import { useState, useCallback } from 'react';
-import { geant4Data, getStats } from '../data/geant4Data';
+import { PhysicsEngine } from '../utils/physicsEngine';
 
 export const useSimulation = () => {
   const [isRunning, setIsRunning] = useState(false);
@@ -38,29 +38,37 @@ export const useSimulation = () => {
     setParams(prev => ({ ...prev, [key]: value }));
   };
 
-  const runSimulation = useCallback(() => {
+  const runSimulation = useCallback(async () => {
     if (isRunning) return;
 
     setIsRunning(true);
     setProgress(0);
     setResults(null);
 
+    // Run simulation in chunks to allow UI updates
+    const engine = new PhysicsEngine(params);
+
     // Simulate "Running" process
+    let p = 0;
     const interval = setInterval(() => {
-      setProgress(prev => {
-        if (prev >= 100) {
-          clearInterval(interval);
-          setIsRunning(false);
-          // Generate fake results based on params
-          setResults({
-            stats: getStats(),
-            data: geant4Data.slice(0, 50), // Sample
-            timestamp: new Date().toISOString()
-          });
-          return 100;
-        }
-        return prev + 1; // 2 seconds total roughly
-      });
+      p += 2;
+      setProgress(p);
+
+      if (p >= 100) {
+        clearInterval(interval);
+
+        // Execute Physics Calculations
+        const simResults = engine.run();
+
+        setResults({
+          stats: simResults.stats,
+          data: simResults.events,
+          timestamp: new Date().toISOString(),
+          config: params
+        });
+
+        setIsRunning(false);
+      }
     }, 20);
 
   }, [isRunning, params]);
