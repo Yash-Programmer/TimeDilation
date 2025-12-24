@@ -1,0 +1,97 @@
+{
+  "modules": [
+    {
+      "level": "beginner",
+      "items": [
+        {
+          "id": "1.1",
+          "title": "What is a Particle?",
+          "duration": "15 min",
+          "icon": "Atom",
+          "description": "Introduction to subatomic particles, quarks, leptons",
+          "content": "# What is a Particle?\n\nEverything in the universe is made of tiny building blocks called particles. But what exactly are they?\n\n### The Standard Model\n\nPhysicists use a theory called the **Standard Model** to describe the fundamental particles and forces. It's like the periodic table, but for the subatomic world.\n\n*   **Quarks**: These make up protons and neutrons. Up and Down quarks are the most common.\n*   **Leptons**: These include electrons and neutrinos.\n*   **Bosons**: These carry forces, like the photon (light) and the gluon (strong force).\n\n### Interactive: Build a Particle\n\nTry dragging quarks together to see what they make!",
+          "interactive": {
+            "type": "particle-builder"
+          },
+          "quiz": [
+            {
+              "question": "Which quark combination makes a proton?",
+              "options": ["Up-Up-Down", "Up-Down-Down", "Strange-Charm-Top", "Bottom-Up-Strange"],
+              "correct": 0,
+              "explanation": "A proton consists of two Up quarks and one Down quark (uud)."
+            },
+            {
+              "question": "Are electrons quarks or leptons?",
+              "options": ["Quarks", "Leptons", "Bosons", "Mesons"],
+              "correct": 1,
+              "explanation": "Electrons are a type of Lepton."
+            }
+          ]
+        },
+        { "id": "1.2", "title": "The Speed of Light", "duration": "10 min", "icon": "Zap" },
+        { "id": "1.3", "title": "What is Time Dilation?", "duration": "20 min", "icon": "Clock" },
+        {
+          "id": "1.4",
+          "title": "The Lorentz Factor (γ)",
+          "duration": "25 min",
+          "icon": "Sigma",
+          "description": "Formula explanation, when it matters",
+          "content": "# The Lorentz Factor (γ)\n\nThe **Lorentz Factor**, denoted by the Greek letter gamma ($\\gamma$), is the key that unlocks the strange effects of Special Relativity.\n\n### The Formula\n\nThe formula for gamma is:\n\n$$\\gamma = \\frac{1}{\\sqrt{1 - \\frac{v^2}{c^2}}}$$\n\nWhere:\n*   $v$ is the velocity of the object\n*   $c$ is the speed of light (~300,000 km/s)\n\n### What does it mean?\n\n*   When $v$ is small (like a car), $v^2/c^2$ is close to 0, so $\\gamma \\approx 1$. Newtonian physics works fine.\n*   As $v$ gets close to $c$, the denominator gets close to 0, and $\\gamma$ shoots up to infinity!\n\nThis $\\gamma$ factor tells us how much time slows down ($t' = \\gamma t$) and how much mass increases ($m_{rel} = \\gamma m_0$).",
+          "interactive": {
+            "type": "lorentz-calculator"
+          },
+          "quiz": [
+            {
+              "question": "What is the value of gamma if velocity is 0?",
+              "options": ["0", "1", "Infinity", "Undefined"],
+              "correct": 1,
+              "explanation": "At v=0, the denominator is sqrt(1-0) = 1, so gamma = 1."
+            },
+            {
+               "question": "What happens to gamma as velocity approaches the speed of light?",
+               "options": ["It goes to 0", "It stays constant", "It goes to infinity", "It becomes negative"],
+               "correct": 2,
+               "explanation": "As v approaches c, the denominator approaches 0, making the fraction explode to infinity."
+            }
+          ]
+        },
+        { "id": "1.5", "title": "Rest Mass vs Relativistic Mass", "duration": "15 min", "icon": "Scale" },
+        { "id": "1.6", "title": "Particle Decay Basics", "duration": "15 min", "icon": "Activity" },
+        { "id": "1.7", "title": "What is a Particle Detector?", "duration": "20 min", "icon": "Eye" },
+        { "id": "1.8", "title": "Momentum and Energy", "duration": "15 min", "icon": "Move" },
+        { "id": "1.9", "title": "Pions, Kaons, and Muons", "duration": "20 min", "icon": "Layers" },
+        { "id": "1.10", "title": "Why CERN?", "duration": "15 min", "icon": "Globe" }
+      ]
+    },
+    {
+      "level": "intermediate",
+      "items": [
+        { "id": "2.1", "title": "Special Relativity Principles", "duration": "20 min", "icon": "BookOpen" },
+        { "id": "2.2", "title": "Deriving Time Dilation", "duration": "25 min", "icon": "PenTool" },
+        { "id": "2.3", "title": "Length Contraction", "duration": "20 min", "icon": "Minimize2" },
+        { "id": "2.4", "title": "Relativistic Kinematics", "duration": "30 min", "icon": "Share2" },
+        { "id": "2.5", "title": "Time-of-Flight (TOF) Detectors", "duration": "25 min", "icon": "Clock" },
+        { "id": "2.6", "title": "Scintillation Detectors", "duration": "20 min", "icon": "Zap" },
+        { "id": "2.7", "title": "Cherenkov Radiation", "duration": "25 min", "icon": "Sun" },
+        { "id": "2.8", "title": "Particle Identification", "duration": "30 min", "icon": "Search" },
+        { "id": "2.9", "title": "Statistical Analysis in Physics", "duration": "35 min", "icon": "BarChart2" },
+        { "id": "2.10", "title": "Designing an Experiment", "duration": "40 min", "icon": "Layout" }
+      ]
+    },
+    {
+      "level": "advanced",
+      "items": [
+        { "id": "3.1", "title": "Lorentz Invariance Tests", "duration": "30 min", "icon": "Shield" },
+        { "id": "3.2", "title": "Standard Model Overview", "duration": "40 min", "icon": "Grid" },
+        { "id": "3.3", "title": "Weak Decay Processes", "duration": "35 min", "icon": "Activity" },
+        { "id": "3.4", "title": "Transition Radiation", "duration": "30 min", "icon": "Layers" },
+        { "id": "3.5", "title": "Monte Carlo Simulation", "duration": "45 min", "icon": "Cpu" },
+        { "id": "3.6", "title": "Data Acquisition Systems", "duration": "35 min", "icon": "Server" },
+        { "id": "3.7", "title": "Systematic Uncertainties", "duration": "30 min", "icon": "AlertTriangle" },
+        { "id": "3.8", "title": "Advanced Statistical Methods", "duration": "40 min", "icon": "TrendingUp" },
+        { "id": "3.9", "title": "Beyond the Standard Model", "duration": "30 min", "icon": "Compass" },
+        { "id": "3.10", "title": "Proposing Your Experiment", "duration": "45 min", "icon": "FileText" }
+      ]
+    }
+  ]
+}

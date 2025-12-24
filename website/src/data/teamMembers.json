@@ -1,0 +1,94 @@
+{
+  "team": [
+    {
+      "name": "Toshani Sharma",
+      "threeWords": ["Innovative", "Analytical", "Driven"],
+      "location": "Toronto, Canada",
+      "country": "CA",
+      "description": "Fascinated by the intersection of theory and experiment. Loves building simulations that bring physics to life.",
+      "photo": "placeholder-1",
+      "social": {
+        "instagram": "toshani.physics",
+        "linkedin": "toshanisharma",
+        "email": "toshani@example.com"
+      }
+    },
+    {
+      "name": "Prithvi Sinha",
+      "threeWords": ["Curious", "Technical", "Builder"],
+      "location": "India",
+      "country": "IN",
+      "description": "Passionate about detector hardware and electronics. Always asking 'how does it work?'.",
+      "photo": "placeholder-2",
+      "social": {
+        "email": "prithvi@example.com"
+      }
+    },
+    {
+      "name": "Lakshya Mina",
+      "threeWords": ["Diligent", "Logical", "Precise"],
+      "location": "India",
+      "country": "IN",
+      "description": "Focused on data analysis and statistical validation. Ensures our results are solid.",
+      "photo": "placeholder-3",
+      "social": {
+        "email": "lakshya@example.com"
+      }
+    },
+    {
+      "name": "Aisun Slambekova",
+      "threeWords": ["Creative", "Collaborative", "Visionary"],
+      "location": "Kazakhstan",
+      "country": "KZ",
+      "description": "Brings a unique perspective to problem solving. Enthusiastic about international collaboration.",
+      "photo": "placeholder-4",
+      "social": {
+        "email": "aisun@example.com"
+      }
+    },
+    {
+      "name": "Yenlik Slambekova",
+      "threeWords": ["Organized", "Detailed", "Proactive"],
+      "location": "Kazakhstan",
+      "country": "KZ",
+      "description": "Keeps the team on track and manages our documentation. A true leader.",
+      "photo": "placeholder-5",
+      "social": {
+        "email": "yenlik@example.com"
+      }
+    },
+    {
+      "name": "Yash Varshney",
+      "threeWords": ["Energetic", "Inquisitive", "Bold"],
+      "location": "India",
+      "country": "IN",
+      "description": "Loves the high-energy physics concepts. Always pushing the boundaries of our simulation.",
+      "photo": "placeholder-6",
+      "social": {
+        "email": "yash@example.com"
+      }
+    },
+    {
+      "name": "Tranav Tyagi",
+      "threeWords": ["Methodical", "Thoughtful", "Reliable"],
+      "location": "India",
+      "country": "IN",
+      "description": "Specializes in the GEANT4 validation comparisons. A rock for the team.",
+      "photo": "placeholder-7",
+      "social": {
+        "email": "tranav@example.com"
+      }
+    },
+    {
+      "name": "Aayushi Maurya",
+      "threeWords": ["Artistic", "Scientific", "Communicator"],
+      "location": "India",
+      "country": "IN",
+      "description": "Bridges the gap between complex physics and beautiful design. Crafted our visuals.",
+      "photo": "placeholder-8",
+      "social": {
+        "email": "aayushi@example.com"
+      }
+    }
+  ]
+}
