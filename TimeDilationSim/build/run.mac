@@ -1,0 +1,13 @@
+# Run macro for batch mode
+# Use: ./TimeDilationSim run.mac
+
+# Verbose level
+/run/verbose 1
+/event/verbose 0
+/tracking/verbose 0
+
+# Initialize geometry and physics
+/run/initialize
+
+# Generate 100 events (increase for production runs)
+/run/beamOn 100

@@ -1,0 +1,4 @@
+C:/Users/Yash/Videos/one from gravity/TimeDilationSim/build/CMakeFiles/TimeDilationSim.dir
+C:/Users/Yash/Videos/one from gravity/TimeDilationSim/build/CMakeFiles/INSTALL.dir
+C:/Users/Yash/Videos/one from gravity/TimeDilationSim/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/Yash/Videos/one from gravity/TimeDilationSim/build/CMakeFiles/ZERO_CHECK.dir

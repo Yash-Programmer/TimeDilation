@@ -1,0 +1,20 @@
+# Run macro for Station 2 at x = 15 m (maximum distance)
+# Use: ./TimeDilationSim run_x15.mac
+# Output: TimeDilation_Run3.csv
+
+# Verbose level
+/run/verbose 1
+/event/verbose 0
+/tracking/verbose 0
+
+# Set Station 2 position to 15 m
+/det/setStation2Pos 15 m
+
+# Initialize the simulation
+/run/initialize
+
+# Print configuration
+/run/printProgress 100
+
+# Run production events (10000 events for statistics)
+/run/beamOn 10000

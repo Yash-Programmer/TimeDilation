@@ -1,0 +1,406 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{DBE8EC70-979A-38C8-801F-6C897F1EE257}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.22621.0</WindowsTargetPlatformVersion>
+    <Platform>x64</Platform>
+    <ProjectName>TimeDilationSim</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\Yash\Videos\one from gravity\TimeDilationSim\build\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">TimeDilationSim.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">TimeDilationSim</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\Yash\Videos\one from gravity\TimeDilationSim\build\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">TimeDilationSim.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">TimeDilationSim</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\Yash\Videos\one from gravity\TimeDilationSim\build\MinSizeRel\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">TimeDilationSim.dir\MinSizeRel\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">TimeDilationSim</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\Yash\Videos\one from gravity\TimeDilationSim\build\RelWithDebInfo\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">TimeDilationSim.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">TimeDilationSim</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</GenerateManifest>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\Yash\Videos\one from gravity\TimeDilationSim\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "C:/Geant4-install/include/Geant4"</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <BufferSecurityCheck></BufferSecurityCheck>
+      <CallingConvention></CallingConvention>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ExternalWarningLevel>TurnOffAllWarnings</ExternalWarningLevel>
+      <FloatingPointModel></FloatingPointModel>
+      <ForceConformanceInForLoopScope></ForceConformanceInForLoopScope>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RemoveUnreferencedCodeData></RemoveUnreferencedCodeData>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <SupportJustMyCode></SupportJustMyCode>
+      <TreatWChar_tAsBuiltInType></TreatWChar_tAsBuiltInType>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;G4LIB_BUILD_DLL;PTL_BUILD_DLL;G4VIS_USE_TOOLSSG_WINDOWS_GLES;G4VIS_USE_TOOLSSG_WINDOWS_ZB;G4VIS_USE_OPENGLWIN32;G4UI_USE_WIN32;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;G4LIB_BUILD_DLL;PTL_BUILD_DLL;G4VIS_USE_TOOLSSG_WINDOWS_GLES;G4VIS_USE_TOOLSSG_WINDOWS_ZB;G4VIS_USE_OPENGLWIN32;G4UI_USE_WIN32;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\Yash\Videos\one from gravity\TimeDilationSim\include;C:\Geant4-install\include\Geant4;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\Yash\Videos\one from gravity\TimeDilationSim\include;C:\Geant4-install\include\Geant4;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>C:\Geant4-install\lib\G4Tree.lib;C:\Geant4-install\lib\G4FR.lib;C:\Geant4-install\lib\G4GMocren.lib;C:\Geant4-install\lib\G4RayTracer.lib;C:\Geant4-install\lib\G4VRML.lib;C:\Geant4-install\lib\G4ToolsSG.lib;C:\Geant4-install\lib\G4OpenGL.lib;C:\Geant4-install\lib\G4vis_management.lib;C:\Geant4-install\lib\G4modeling.lib;C:\Geant4-install\lib\G4interfaces.lib;C:\Geant4-install\lib\G4mctruth.lib;C:\Geant4-install\lib\G4geomtext.lib;C:\Geant4-install\lib\G4analysis.lib;C:\Geant4-install\lib\G4error_propagation.lib;C:\Geant4-install\lib\G4readout.lib;C:\Geant4-install\lib\G4physicslists.lib;C:\Geant4-install\lib\G4run.lib;C:\Geant4-install\lib\G4event.lib;C:\Geant4-install\lib\G4tracking.lib;C:\Geant4-install\lib\G4parmodels.lib;C:\Geant4-install\lib\G4expat.lib;COMCTL32.lib;C:\Geant4-install\lib\G4processes_hadronic.lib;C:\Geant4-install\lib\G4processes_core.lib;C:\Geant4-install\lib\G4digits_hits.lib;C:\Geant4-install\lib\G4track.lib;C:\Geant4-install\lib\G4particles.lib;C:\Geant4-install\lib\G4geometry.lib;C:\Geant4-install\lib\G4graphics_reps.lib;C:\Geant4-install\lib\G4materials.lib;C:\Geant4-install\lib\G4intercoms.lib;C:\Geant4-install\lib\G4global.lib;C:\Geant4-install\lib\G4clhep.lib;C:\Geant4-install\lib\G4ptl.lib;C:\Geant4-install\lib\G4zlib.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <DataExecutionPrevention></DataExecutionPrevention>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImageHasSafeExceptionHandlers></ImageHasSafeExceptionHandlers>
+      <ImportLibrary>C:/Users/Yash/Videos/one from gravity/TimeDilationSim/build/Debug/TimeDilationSim.lib</ImportLibrary>
+      <LinkErrorReporting></LinkErrorReporting>
+      <ProgramDataBaseFile>C:/Users/Yash/Videos/one from gravity/TimeDilationSim/build/Debug/TimeDilationSim.pdb</ProgramDataBaseFile>
+      <RandomizedBaseAddress></RandomizedBaseAddress>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\Yash\Videos\one from gravity\TimeDilationSim\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "C:/Geant4-install/include/Geant4"</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <BufferSecurityCheck></BufferSecurityCheck>
+      <CallingConvention></CallingConvention>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ExternalWarningLevel>TurnOffAllWarnings</ExternalWarningLevel>
+      <FloatingPointModel></FloatingPointModel>
+      <ForceConformanceInForLoopScope></ForceConformanceInForLoopScope>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RemoveUnreferencedCodeData></RemoveUnreferencedCodeData>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <SupportJustMyCode></SupportJustMyCode>
+      <TreatWChar_tAsBuiltInType></TreatWChar_tAsBuiltInType>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;G4LIB_BUILD_DLL;PTL_BUILD_DLL;G4VIS_USE_TOOLSSG_WINDOWS_GLES;G4VIS_USE_TOOLSSG_WINDOWS_ZB;G4VIS_USE_OPENGLWIN32;G4UI_USE_WIN32;CMAKE_INTDIR="Release"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;G4LIB_BUILD_DLL;PTL_BUILD_DLL;G4VIS_USE_TOOLSSG_WINDOWS_GLES;G4VIS_USE_TOOLSSG_WINDOWS_ZB;G4VIS_USE_OPENGLWIN32;G4UI_USE_WIN32;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\Yash\Videos\one from gravity\TimeDilationSim\include;C:\Geant4-install\include\Geant4;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\Yash\Videos\one from gravity\TimeDilationSim\include;C:\Geant4-install\include\Geant4;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>C:\Geant4-install\lib\G4Tree.lib;C:\Geant4-install\lib\G4FR.lib;C:\Geant4-install\lib\G4GMocren.lib;C:\Geant4-install\lib\G4RayTracer.lib;C:\Geant4-install\lib\G4VRML.lib;C:\Geant4-install\lib\G4ToolsSG.lib;C:\Geant4-install\lib\G4OpenGL.lib;C:\Geant4-install\lib\G4vis_management.lib;C:\Geant4-install\lib\G4modeling.lib;C:\Geant4-install\lib\G4interfaces.lib;C:\Geant4-install\lib\G4mctruth.lib;C:\Geant4-install\lib\G4geomtext.lib;C:\Geant4-install\lib\G4analysis.lib;C:\Geant4-install\lib\G4error_propagation.lib;C:\Geant4-install\lib\G4readout.lib;C:\Geant4-install\lib\G4physicslists.lib;C:\Geant4-install\lib\G4run.lib;C:\Geant4-install\lib\G4event.lib;C:\Geant4-install\lib\G4tracking.lib;C:\Geant4-install\lib\G4parmodels.lib;C:\Geant4-install\lib\G4expat.lib;COMCTL32.lib;C:\Geant4-install\lib\G4processes_hadronic.lib;C:\Geant4-install\lib\G4processes_core.lib;C:\Geant4-install\lib\G4digits_hits.lib;C:\Geant4-install\lib\G4track.lib;C:\Geant4-install\lib\G4particles.lib;C:\Geant4-install\lib\G4geometry.lib;C:\Geant4-install\lib\G4graphics_reps.lib;C:\Geant4-install\lib\G4materials.lib;C:\Geant4-install\lib\G4intercoms.lib;C:\Geant4-install\lib\G4global.lib;C:\Geant4-install\lib\G4clhep.lib;C:\Geant4-install\lib\G4ptl.lib;C:\Geant4-install\lib\G4zlib.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <DataExecutionPrevention></DataExecutionPrevention>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImageHasSafeExceptionHandlers></ImageHasSafeExceptionHandlers>
+      <ImportLibrary>C:/Users/Yash/Videos/one from gravity/TimeDilationSim/build/Release/TimeDilationSim.lib</ImportLibrary>
+      <LinkErrorReporting></LinkErrorReporting>
+      <ProgramDataBaseFile>C:/Users/Yash/Videos/one from gravity/TimeDilationSim/build/Release/TimeDilationSim.pdb</ProgramDataBaseFile>
+      <RandomizedBaseAddress></RandomizedBaseAddress>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\Yash\Videos\one from gravity\TimeDilationSim\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "C:/Geant4-install/include/Geant4"</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <BufferSecurityCheck></BufferSecurityCheck>
+      <CallingConvention></CallingConvention>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ExternalWarningLevel>TurnOffAllWarnings</ExternalWarningLevel>
+      <FloatingPointModel></FloatingPointModel>
+      <ForceConformanceInForLoopScope></ForceConformanceInForLoopScope>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>MinSpace</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RemoveUnreferencedCodeData></RemoveUnreferencedCodeData>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <SupportJustMyCode></SupportJustMyCode>
+      <TreatWChar_tAsBuiltInType></TreatWChar_tAsBuiltInType>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;G4LIB_BUILD_DLL;PTL_BUILD_DLL;G4VIS_USE_TOOLSSG_WINDOWS_GLES;G4VIS_USE_TOOLSSG_WINDOWS_ZB;G4VIS_USE_OPENGLWIN32;G4UI_USE_WIN32;CMAKE_INTDIR="MinSizeRel"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;G4LIB_BUILD_DLL;PTL_BUILD_DLL;G4VIS_USE_TOOLSSG_WINDOWS_GLES;G4VIS_USE_TOOLSSG_WINDOWS_ZB;G4VIS_USE_OPENGLWIN32;G4UI_USE_WIN32;CMAKE_INTDIR=\"MinSizeRel\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\Yash\Videos\one from gravity\TimeDilationSim\include;C:\Geant4-install\include\Geant4;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\Yash\Videos\one from gravity\TimeDilationSim\include;C:\Geant4-install\include\Geant4;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>C:\Geant4-install\lib\G4Tree.lib;C:\Geant4-install\lib\G4FR.lib;C:\Geant4-install\lib\G4GMocren.lib;C:\Geant4-install\lib\G4RayTracer.lib;C:\Geant4-install\lib\G4VRML.lib;C:\Geant4-install\lib\G4ToolsSG.lib;C:\Geant4-install\lib\G4OpenGL.lib;C:\Geant4-install\lib\G4vis_management.lib;C:\Geant4-install\lib\G4modeling.lib;C:\Geant4-install\lib\G4interfaces.lib;C:\Geant4-install\lib\G4mctruth.lib;C:\Geant4-install\lib\G4geomtext.lib;C:\Geant4-install\lib\G4analysis.lib;C:\Geant4-install\lib\G4error_propagation.lib;C:\Geant4-install\lib\G4readout.lib;C:\Geant4-install\lib\G4physicslists.lib;C:\Geant4-install\lib\G4run.lib;C:\Geant4-install\lib\G4event.lib;C:\Geant4-install\lib\G4tracking.lib;C:\Geant4-install\lib\G4parmodels.lib;C:\Geant4-install\lib\G4expat.lib;COMCTL32.lib;C:\Geant4-install\lib\G4processes_hadronic.lib;C:\Geant4-install\lib\G4processes_core.lib;C:\Geant4-install\lib\G4digits_hits.lib;C:\Geant4-install\lib\G4track.lib;C:\Geant4-install\lib\G4particles.lib;C:\Geant4-install\lib\G4geometry.lib;C:\Geant4-install\lib\G4graphics_reps.lib;C:\Geant4-install\lib\G4materials.lib;C:\Geant4-install\lib\G4intercoms.lib;C:\Geant4-install\lib\G4global.lib;C:\Geant4-install\lib\G4clhep.lib;C:\Geant4-install\lib\G4ptl.lib;C:\Geant4-install\lib\G4zlib.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <DataExecutionPrevention></DataExecutionPrevention>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImageHasSafeExceptionHandlers></ImageHasSafeExceptionHandlers>
+      <ImportLibrary>C:/Users/Yash/Videos/one from gravity/TimeDilationSim/build/MinSizeRel/TimeDilationSim.lib</ImportLibrary>
+      <LinkErrorReporting></LinkErrorReporting>
+      <ProgramDataBaseFile>C:/Users/Yash/Videos/one from gravity/TimeDilationSim/build/MinSizeRel/TimeDilationSim.pdb</ProgramDataBaseFile>
+      <RandomizedBaseAddress></RandomizedBaseAddress>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\Yash\Videos\one from gravity\TimeDilationSim\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "C:/Geant4-install/include/Geant4"</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <BufferSecurityCheck></BufferSecurityCheck>
+      <CallingConvention></CallingConvention>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ExternalWarningLevel>TurnOffAllWarnings</ExternalWarningLevel>
+      <FloatingPointModel></FloatingPointModel>
+      <ForceConformanceInForLoopScope></ForceConformanceInForLoopScope>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RemoveUnreferencedCodeData></RemoveUnreferencedCodeData>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <SupportJustMyCode></SupportJustMyCode>
+      <TreatWChar_tAsBuiltInType></TreatWChar_tAsBuiltInType>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;G4LIB_BUILD_DLL;PTL_BUILD_DLL;G4VIS_USE_TOOLSSG_WINDOWS_GLES;G4VIS_USE_TOOLSSG_WINDOWS_ZB;G4VIS_USE_OPENGLWIN32;G4UI_USE_WIN32;CMAKE_INTDIR="RelWithDebInfo"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;G4LIB_BUILD_DLL;PTL_BUILD_DLL;G4VIS_USE_TOOLSSG_WINDOWS_GLES;G4VIS_USE_TOOLSSG_WINDOWS_ZB;G4VIS_USE_OPENGLWIN32;G4UI_USE_WIN32;CMAKE_INTDIR=\"RelWithDebInfo\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\Yash\Videos\one from gravity\TimeDilationSim\include;C:\Geant4-install\include\Geant4;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\Yash\Videos\one from gravity\TimeDilationSim\include;C:\Geant4-install\include\Geant4;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>C:\Geant4-install\lib\G4Tree.lib;C:\Geant4-install\lib\G4FR.lib;C:\Geant4-install\lib\G4GMocren.lib;C:\Geant4-install\lib\G4RayTracer.lib;C:\Geant4-install\lib\G4VRML.lib;C:\Geant4-install\lib\G4ToolsSG.lib;C:\Geant4-install\lib\G4OpenGL.lib;C:\Geant4-install\lib\G4vis_management.lib;C:\Geant4-install\lib\G4modeling.lib;C:\Geant4-install\lib\G4interfaces.lib;C:\Geant4-install\lib\G4mctruth.lib;C:\Geant4-install\lib\G4geomtext.lib;C:\Geant4-install\lib\G4analysis.lib;C:\Geant4-install\lib\G4error_propagation.lib;C:\Geant4-install\lib\G4readout.lib;C:\Geant4-install\lib\G4physicslists.lib;C:\Geant4-install\lib\G4run.lib;C:\Geant4-install\lib\G4event.lib;C:\Geant4-install\lib\G4tracking.lib;C:\Geant4-install\lib\G4parmodels.lib;C:\Geant4-install\lib\G4expat.lib;COMCTL32.lib;C:\Geant4-install\lib\G4processes_hadronic.lib;C:\Geant4-install\lib\G4processes_core.lib;C:\Geant4-install\lib\G4digits_hits.lib;C:\Geant4-install\lib\G4track.lib;C:\Geant4-install\lib\G4particles.lib;C:\Geant4-install\lib\G4geometry.lib;C:\Geant4-install\lib\G4graphics_reps.lib;C:\Geant4-install\lib\G4materials.lib;C:\Geant4-install\lib\G4intercoms.lib;C:\Geant4-install\lib\G4global.lib;C:\Geant4-install\lib\G4clhep.lib;C:\Geant4-install\lib\G4ptl.lib;C:\Geant4-install\lib\G4zlib.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <DataExecutionPrevention></DataExecutionPrevention>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImageHasSafeExceptionHandlers></ImageHasSafeExceptionHandlers>
+      <ImportLibrary>C:/Users/Yash/Videos/one from gravity/TimeDilationSim/build/RelWithDebInfo/TimeDilationSim.lib</ImportLibrary>
+      <LinkErrorReporting></LinkErrorReporting>
+      <ProgramDataBaseFile>C:/Users/Yash/Videos/one from gravity/TimeDilationSim/build/RelWithDebInfo/TimeDilationSim.pdb</ProgramDataBaseFile>
+      <RandomizedBaseAddress></RandomizedBaseAddress>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\Yash\Videos\one from gravity\TimeDilationSim\CMakeLists.txt">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/Yash/Videos/one from gravity/TimeDilationSim/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/Yash/Videos/one from gravity/TimeDilationSim" "-BC:/Users/Yash/Videos/one from gravity/TimeDilationSim/build" --check-stamp-file "C:/Users/Yash/Videos/one from gravity/TimeDilationSim/build/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Geant4-install\lib\cmake\Geant4\Geant4Config.cmake;C:\Geant4-install\lib\cmake\Geant4\Geant4ConfigVersion.cmake;C:\Geant4-install\lib\cmake\Geant4\Geant4LibraryDepends-release.cmake;C:\Geant4-install\lib\cmake\Geant4\Geant4LibraryDepends.cmake;C:\Geant4-install\lib\cmake\Geant4\Modules\IntelCompileFeatures.cmake;C:\Geant4-install\lib\cmake\Geant4\Modules\MSVCCompileFeatures.cmake;C:\Geant4-install\lib\cmake\Geant4\PTL\PTLConfig.cmake;C:\Geant4-install\lib\cmake\Geant4\PTL\PTLConfigVersion.cmake;C:\Geant4-install\lib\cmake\Geant4\PTL\PTLTargets-release.cmake;C:\Geant4-install\lib\cmake\Geant4\PTL\PTLTargets.cmake;C:\Geant4-install\lib\cmake\Geant4\UseGeant4.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeFindDependencyMacro.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CheckCSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CheckIncludeFile.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CheckLibraryExists.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\FindOpenGL.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\FindThreads.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Internal\CMakeCLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Internal\CMakeCXXLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Internal\CMakeCommonLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Internal\CheckSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Linker\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Linker\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Linker\MSVC.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Linker\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Linker\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Linker\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\WindowsPaths.cmake;C:\Users\Yash\Videos\one from gravity\TimeDilationSim\build\CMakeFiles\4.2.1\CMakeCCompiler.cmake;C:\Users\Yash\Videos\one from gravity\TimeDilationSim\build\CMakeFiles\4.2.1\CMakeCXXCompiler.cmake;C:\Users\Yash\Videos\one from gravity\TimeDilationSim\build\CMakeFiles\4.2.1\CMakeRCCompiler.cmake;C:\Users\Yash\Videos\one from gravity\TimeDilationSim\build\CMakeFiles\4.2.1\CMakeSystem.cmake;C:\Users\Yash\Videos\one from gravity\TimeDilationSim\run.mac;C:\Users\Yash\Videos\one from gravity\TimeDilationSim\run_x0.mac;C:\Users\Yash\Videos\one from gravity\TimeDilationSim\run_x10.mac;C:\Users\Yash\Videos\one from gravity\TimeDilationSim\run_x15.mac;C:\Users\Yash\Videos\one from gravity\TimeDilationSim\run_x5.mac;C:\Users\Yash\Videos\one from gravity\TimeDilationSim\vis.mac;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\Yash\Videos\one from gravity\TimeDilationSim\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/Yash/Videos/one from gravity/TimeDilationSim/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/Yash/Videos/one from gravity/TimeDilationSim" "-BC:/Users/Yash/Videos/one from gravity/TimeDilationSim/build" --check-stamp-file "C:/Users/Yash/Videos/one from gravity/TimeDilationSim/build/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Geant4-install\lib\cmake\Geant4\Geant4Config.cmake;C:\Geant4-install\lib\cmake\Geant4\Geant4ConfigVersion.cmake;C:\Geant4-install\lib\cmake\Geant4\Geant4LibraryDepends-release.cmake;C:\Geant4-install\lib\cmake\Geant4\Geant4LibraryDepends.cmake;C:\Geant4-install\lib\cmake\Geant4\Modules\IntelCompileFeatures.cmake;C:\Geant4-install\lib\cmake\Geant4\Modules\MSVCCompileFeatures.cmake;C:\Geant4-install\lib\cmake\Geant4\PTL\PTLConfig.cmake;C:\Geant4-install\lib\cmake\Geant4\PTL\PTLConfigVersion.cmake;C:\Geant4-install\lib\cmake\Geant4\PTL\PTLTargets-release.cmake;C:\Geant4-install\lib\cmake\Geant4\PTL\PTLTargets.cmake;C:\Geant4-install\lib\cmake\Geant4\UseGeant4.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeFindDependencyMacro.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CheckCSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CheckIncludeFile.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CheckLibraryExists.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\FindOpenGL.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\FindThreads.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Internal\CMakeCLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Internal\CMakeCXXLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Internal\CMakeCommonLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Internal\CheckSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Linker\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Linker\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Linker\MSVC.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Linker\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Linker\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Linker\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\WindowsPaths.cmake;C:\Users\Yash\Videos\one from gravity\TimeDilationSim\build\CMakeFiles\4.2.1\CMakeCCompiler.cmake;C:\Users\Yash\Videos\one from gravity\TimeDilationSim\build\CMakeFiles\4.2.1\CMakeCXXCompiler.cmake;C:\Users\Yash\Videos\one from gravity\TimeDilationSim\build\CMakeFiles\4.2.1\CMakeRCCompiler.cmake;C:\Users\Yash\Videos\one from gravity\TimeDilationSim\build\CMakeFiles\4.2.1\CMakeSystem.cmake;C:\Users\Yash\Videos\one from gravity\TimeDilationSim\run.mac;C:\Users\Yash\Videos\one from gravity\TimeDilationSim\run_x0.mac;C:\Users\Yash\Videos\one from gravity\TimeDilationSim\run_x10.mac;C:\Users\Yash\Videos\one from gravity\TimeDilationSim\run_x15.mac;C:\Users\Yash\Videos\one from gravity\TimeDilationSim\run_x5.mac;C:\Users\Yash\Videos\one from gravity\TimeDilationSim\vis.mac;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\Yash\Videos\one from gravity\TimeDilationSim\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule C:/Users/Yash/Videos/one from gravity/TimeDilationSim/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/Yash/Videos/one from gravity/TimeDilationSim" "-BC:/Users/Yash/Videos/one from gravity/TimeDilationSim/build" --check-stamp-file "C:/Users/Yash/Videos/one from gravity/TimeDilationSim/build/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Geant4-install\lib\cmake\Geant4\Geant4Config.cmake;C:\Geant4-install\lib\cmake\Geant4\Geant4ConfigVersion.cmake;C:\Geant4-install\lib\cmake\Geant4\Geant4LibraryDepends-release.cmake;C:\Geant4-install\lib\cmake\Geant4\Geant4LibraryDepends.cmake;C:\Geant4-install\lib\cmake\Geant4\Modules\IntelCompileFeatures.cmake;C:\Geant4-install\lib\cmake\Geant4\Modules\MSVCCompileFeatures.cmake;C:\Geant4-install\lib\cmake\Geant4\PTL\PTLConfig.cmake;C:\Geant4-install\lib\cmake\Geant4\PTL\PTLConfigVersion.cmake;C:\Geant4-install\lib\cmake\Geant4\PTL\PTLTargets-release.cmake;C:\Geant4-install\lib\cmake\Geant4\PTL\PTLTargets.cmake;C:\Geant4-install\lib\cmake\Geant4\UseGeant4.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeFindDependencyMacro.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CheckCSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CheckIncludeFile.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CheckLibraryExists.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\FindOpenGL.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\FindThreads.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Internal\CMakeCLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Internal\CMakeCXXLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Internal\CMakeCommonLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Internal\CheckSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Linker\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Linker\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Linker\MSVC.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Linker\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Linker\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Linker\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\WindowsPaths.cmake;C:\Users\Yash\Videos\one from gravity\TimeDilationSim\build\CMakeFiles\4.2.1\CMakeCCompiler.cmake;C:\Users\Yash\Videos\one from gravity\TimeDilationSim\build\CMakeFiles\4.2.1\CMakeCXXCompiler.cmake;C:\Users\Yash\Videos\one from gravity\TimeDilationSim\build\CMakeFiles\4.2.1\CMakeRCCompiler.cmake;C:\Users\Yash\Videos\one from gravity\TimeDilationSim\build\CMakeFiles\4.2.1\CMakeSystem.cmake;C:\Users\Yash\Videos\one from gravity\TimeDilationSim\run.mac;C:\Users\Yash\Videos\one from gravity\TimeDilationSim\run_x0.mac;C:\Users\Yash\Videos\one from gravity\TimeDilationSim\run_x10.mac;C:\Users\Yash\Videos\one from gravity\TimeDilationSim\run_x15.mac;C:\Users\Yash\Videos\one from gravity\TimeDilationSim\run_x5.mac;C:\Users\Yash\Videos\one from gravity\TimeDilationSim\vis.mac;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\Yash\Videos\one from gravity\TimeDilationSim\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule C:/Users/Yash/Videos/one from gravity/TimeDilationSim/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/Yash/Videos/one from gravity/TimeDilationSim" "-BC:/Users/Yash/Videos/one from gravity/TimeDilationSim/build" --check-stamp-file "C:/Users/Yash/Videos/one from gravity/TimeDilationSim/build/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Geant4-install\lib\cmake\Geant4\Geant4Config.cmake;C:\Geant4-install\lib\cmake\Geant4\Geant4ConfigVersion.cmake;C:\Geant4-install\lib\cmake\Geant4\Geant4LibraryDepends-release.cmake;C:\Geant4-install\lib\cmake\Geant4\Geant4LibraryDepends.cmake;C:\Geant4-install\lib\cmake\Geant4\Modules\IntelCompileFeatures.cmake;C:\Geant4-install\lib\cmake\Geant4\Modules\MSVCCompileFeatures.cmake;C:\Geant4-install\lib\cmake\Geant4\PTL\PTLConfig.cmake;C:\Geant4-install\lib\cmake\Geant4\PTL\PTLConfigVersion.cmake;C:\Geant4-install\lib\cmake\Geant4\PTL\PTLTargets-release.cmake;C:\Geant4-install\lib\cmake\Geant4\PTL\PTLTargets.cmake;C:\Geant4-install\lib\cmake\Geant4\UseGeant4.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeFindDependencyMacro.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CheckCSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CheckIncludeFile.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\CheckLibraryExists.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\FindOpenGL.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\FindThreads.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Internal\CMakeCLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Internal\CMakeCXXLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Internal\CMakeCommonLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Internal\CheckSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Linker\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Linker\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Linker\MSVC.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Linker\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Linker\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Linker\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-4.2\Modules\Platform\WindowsPaths.cmake;C:\Users\Yash\Videos\one from gravity\TimeDilationSim\build\CMakeFiles\4.2.1\CMakeCCompiler.cmake;C:\Users\Yash\Videos\one from gravity\TimeDilationSim\build\CMakeFiles\4.2.1\CMakeCXXCompiler.cmake;C:\Users\Yash\Videos\one from gravity\TimeDilationSim\build\CMakeFiles\4.2.1\CMakeRCCompiler.cmake;C:\Users\Yash\Videos\one from gravity\TimeDilationSim\build\CMakeFiles\4.2.1\CMakeSystem.cmake;C:\Users\Yash\Videos\one from gravity\TimeDilationSim\run.mac;C:\Users\Yash\Videos\one from gravity\TimeDilationSim\run_x0.mac;C:\Users\Yash\Videos\one from gravity\TimeDilationSim\run_x10.mac;C:\Users\Yash\Videos\one from gravity\TimeDilationSim\run_x15.mac;C:\Users\Yash\Videos\one from gravity\TimeDilationSim\run_x5.mac;C:\Users\Yash\Videos\one from gravity\TimeDilationSim\vis.mac;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\Yash\Videos\one from gravity\TimeDilationSim\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="C:\Users\Yash\Videos\one from gravity\TimeDilationSim\TimeDilationSim.cc" />
+    <ClCompile Include="C:\Users\Yash\Videos\one from gravity\TimeDilationSim\src\ActionInitialization.cc" />
+    <ClCompile Include="C:\Users\Yash\Videos\one from gravity\TimeDilationSim\src\DetectorConstruction.cc" />
+    <ClCompile Include="C:\Users\Yash\Videos\one from gravity\TimeDilationSim\src\DetectorMessenger.cc" />
+    <ClCompile Include="C:\Users\Yash\Videos\one from gravity\TimeDilationSim\src\EventAction.cc" />
+    <ClCompile Include="C:\Users\Yash\Videos\one from gravity\TimeDilationSim\src\PhysicsList.cc" />
+    <ClCompile Include="C:\Users\Yash\Videos\one from gravity\TimeDilationSim\src\PrimaryGeneratorAction.cc" />
+    <ClCompile Include="C:\Users\Yash\Videos\one from gravity\TimeDilationSim\src\RunAction.cc" />
+    <ClCompile Include="C:\Users\Yash\Videos\one from gravity\TimeDilationSim\src\SteppingAction.cc" />
+    <ClInclude Include="C:\Users\Yash\Videos\one from gravity\TimeDilationSim\include\ActionInitialization.hh" />
+    <ClInclude Include="C:\Users\Yash\Videos\one from gravity\TimeDilationSim\include\DetectorConstruction.hh" />
+    <ClInclude Include="C:\Users\Yash\Videos\one from gravity\TimeDilationSim\include\DetectorMessenger.hh" />
+    <ClInclude Include="C:\Users\Yash\Videos\one from gravity\TimeDilationSim\include\EventAction.hh" />
+    <ClInclude Include="C:\Users\Yash\Videos\one from gravity\TimeDilationSim\include\PhysicsConstants.hh" />
+    <ClInclude Include="C:\Users\Yash\Videos\one from gravity\TimeDilationSim\include\PhysicsList.hh" />
+    <ClInclude Include="C:\Users\Yash\Videos\one from gravity\TimeDilationSim\include\PrimaryGeneratorAction.hh" />
+    <ClInclude Include="C:\Users\Yash\Videos\one from gravity\TimeDilationSim\include\RunAction.hh" />
+    <ClInclude Include="C:\Users\Yash\Videos\one from gravity\TimeDilationSim\include\SteppingAction.hh" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="C:\Users\Yash\Videos\one from gravity\TimeDilationSim\build\ZERO_CHECK.vcxproj">
+      <Project>{EDF6E835-5725-3483-B4C2-22320D44E2DA}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -1,0 +1,28 @@
+# Geant4 VRML2FILE visualization export
+# Creates .wrl file viewable in web browsers
+
+/run/initialize
+
+# Open VRML2FILE driver
+/vis/open VRML2FILE detector_15m.wrl
+
+# Set detector configuration
+/det/setStation2Pos 15 m
+
+# Draw volume
+/vis/drawVolume
+
+# Set viewpoint
+/vis/viewer/set/viewpointThetaPhi 30 45
+/vis/viewer/set/style surface
+/vis/viewer/set/auxiliaryEdge true
+/vis/viewer/set/lineSegmentsPerCircle 100
+
+# Disable trajectories for clean geometry view
+/vis/scene/add/axes 0 0 0 2 m
+
+# Flush
+/vis/viewer/flush
+/vis/viewer/refresh
+
+exit

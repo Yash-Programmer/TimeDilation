@@ -1,0 +1,35 @@
+#class tools::wcsv::ntuple
+#title Pion-Kaon Decay Data
+#separator 44
+#vector_separator 59
+#column int EventID
+#column int RunNumber
+#column int PrimaryPDG
+#column double PrimaryMom
+#column double PrimaryPosX
+#column double PrimaryPosY
+#column double PrimaryPosZ
+#column double RICH1_Beta
+#column int RICH1_NPE
+#column double RICH2_Beta
+#column int RICH2_NPE
+#column double Calo_TotalE
+#column double Calo_EoP
+#column int DWC1_NHits
+#column double DWC1_TrackAngle
+#column int DWC2_NHits
+#column double DWC2_TrackAngle
+#column int DecayKinkDetected
+#column int SC1_Hit
+#column int SC2_Hit
+#column double TOF
+#column int Decayed
+#column double DecayPosX
+#column double DecayPosY
+#column double DecayPosZ
+#column double DecayTime
+#column int DecayProductPDG
+#column int ReconstructedPID
+#column int Survived
+1,0,211,7.79496,-0.803529,-0.165247,-50,0,0,3.81776,653,0.0183689,0.00235651,0,0,1,0,0,0,1,0,0,0,0,0,0,0,-13,1
+16,0,211,7.74045,-1.46186,-0.188948,-50,0,0,3.81869,694,0.0237384,0.0030668,0,0,20,0,0,0,1,0,0,0,0,0,0,0,-13,1

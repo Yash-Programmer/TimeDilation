@@ -1,0 +1,48 @@
+# Simple image export using OpenGL offscreen
+# Generates PNG files directly from Geant4
+
+/run/initialize
+
+# Use offscreen OpenGL with image export
+/vis/open TOOLSSG_OFFSCREEN 1600x1200
+
+# Setup detector
+/det/setStation2Pos 15 m
+
+# Draw volume
+/vis/drawVolume
+
+# Set nice viewpoint
+/vis/viewer/set/viewpointThetaPhi 30 45
+/vis/viewer/set/style surface
+/vis/viewer/set/background 0.95 0.95 0.95 1.0
+/vis/viewer/set/auxiliaryEdge true
+
+# Add trajectories
+/vis/scene/add/trajectories smooth
+/vis/scene/endOfEventAction accumulate
+
+# Color particles
+/vis/modeling/trajectories/create/drawByParticleID
+/vis/modeling/trajectories/drawByParticleID-0/set pi+ red
+/vis/modeling/trajectories/drawByParticleID-0/set kaon+ blue
+/vis/modeling/trajectories/drawByParticleID-0/set mu+ green
+
+# Add scale and axes
+/vis/scene/add/axes 0 0 0 2 m
+/vis/scene/add/scale 5 m
+
+# Refresh
+/vis/viewer/refresh
+
+# Save initial geometry view
+/vis/viewer/flush
+
+# Run events
+/run/beamOn 15
+
+# Refresh and save final view with tracks
+/vis/viewer/refresh
+/vis/viewer/flush
+
+exit

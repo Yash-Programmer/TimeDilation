@@ -1,0 +1,20 @@
+# ASCIITree visualization - text-based geometry dump
+
+/run/initialize
+
+# Open ASCIITree
+/vis/open ATree
+
+# Set detector configuration
+/det/setStation2Pos 15 m
+
+# Set verbosity
+/vis/ASCIITree/verbose 13
+
+# Draw volume
+/vis/drawVolume
+
+# Scene
+/vis/viewer/flush
+
+exit

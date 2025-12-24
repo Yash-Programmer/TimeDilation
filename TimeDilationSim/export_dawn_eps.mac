@@ -1,0 +1,36 @@
+# DAWNFILE visualization - generates EPS/PostScript files
+# Vector graphics output from Geant4
+
+/run/initialize
+
+# Open DAWNFILE
+/vis/open DAWNFILE
+
+# Set detector configuration
+/det/setStation2Pos 10 m
+
+# Draw volume
+/vis/drawVolume
+
+# Set viewpoint
+/vis/viewer/set/viewpointThetaPhi 30 45
+/vis/viewer/set/style surface
+/vis/viewer/set/auxiliaryEdge true
+
+# Add trajectories
+/vis/scene/add/trajectories smooth
+/vis/modeling/trajectories/create/drawByParticleID
+/vis/modeling/trajectories/drawByParticleID-0/set pi+ red
+/vis/modeling/trajectories/drawByParticleID-0/set kaon+ blue
+/vis/modeling/trajectories/drawByParticleID-0/set mu+ green
+
+# Add axes
+/vis/scene/add/axes 0 0 0 2 m
+
+# Run events
+/run/beamOn 15
+
+# Flush to file
+/vis/viewer/flush
+
+exit

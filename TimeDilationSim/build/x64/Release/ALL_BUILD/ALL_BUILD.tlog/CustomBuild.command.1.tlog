@@ -1,0 +1,10 @@
+^C:\USERS\YASH\VIDEOS\ONE FROM GRAVITY\TIMEDILATIONSIM\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" "-SC:/Users/Yash/Videos/one from gravity/TimeDilationSim" "-BC:/Users/Yash/Videos/one from gravity/TimeDilationSim/build" --check-stamp-file "C:/Users/Yash/Videos/one from gravity/TimeDilationSim/build/CMakeFiles/generate.stamp"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

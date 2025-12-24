@@ -1,0 +1,45 @@
+# Event display with particle tracks
+# Multiple events with different particles
+
+/run/initialize
+
+/vis/open TOOLSSG_OFFSCREEN 1600x1200
+
+/det/setStation2Pos 15 m
+
+# Draw detector
+/vis/drawVolume
+
+# Setup view
+/vis/viewer/set/viewpointThetaPhi 25 40
+/vis/viewer/set/style surface
+/vis/viewer/set/background 0.9 0.9 0.95 1.0
+
+# Add trajectories with accumulation
+/vis/scene/add/trajectories smooth
+/vis/scene/endOfEventAction accumulate
+
+# Color by particle type
+/vis/modeling/trajectories/create/drawByParticleID
+/vis/modeling/trajectories/drawByParticleID-0/set pi+ red
+/vis/modeling/trajectories/drawByParticleID-0/set kaon+ blue
+/vis/modeling/trajectories/drawByParticleID-0/set mu+ green
+/vis/modeling/trajectories/drawByParticleID-0/set mu- yellow
+/vis/modeling/trajectories/drawByParticleID-0/set nu_mu cyan
+/vis/modeling/trajectories/drawByParticleID-0/set anti_nu_mu magenta
+
+# Add decorations
+/vis/scene/add/axes 0 0 0 2 m
+
+# Draw step points
+/vis/modeling/trajectories/drawByParticleID-0/default/setDrawStepPts true
+/vis/modeling/trajectories/drawByParticleID-0/default/setStepPtsSize 1
+
+# Run multiple events
+/run/beamOn 25
+
+# Final view
+/vis/viewer/refresh
+/vis/viewer/flush
+
+exit

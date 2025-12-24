@@ -1,0 +1,40 @@
+# Geant4 VRML2FILE with particle tracks
+# Creates 3D visualization with events
+
+/run/initialize
+
+# Open VRML2FILE driver
+/vis/open VRML2FILE events_with_tracks.wrl
+
+# Set detector configuration
+/det/setStation2Pos 15 m
+
+# Draw volume
+/vis/drawVolume
+
+# Setup trajectory visualization
+/vis/scene/add/trajectories smooth
+/vis/modeling/trajectories/create/drawByParticleID
+/vis/modeling/trajectories/drawByParticleID-0/set pi+ red
+/vis/modeling/trajectories/drawByParticleID-0/set kaon+ blue
+/vis/modeling/trajectories/drawByParticleID-0/set mu+ green
+/vis/modeling/trajectories/drawByParticleID-0/set mu- yellow
+/vis/modeling/trajectories/drawByParticleID-0/set opticalphoton cyan
+
+# Accumulate events
+/vis/scene/endOfEventAction accumulate
+
+# Add axes
+/vis/scene/add/axes 0 0 0 2 m
+
+# Set viewpoint
+/vis/viewer/set/viewpointThetaPhi 25 50
+/vis/viewer/set/style surface
+
+# Run events
+/run/beamOn 25
+
+# Flush
+/vis/viewer/flush
+
+exit

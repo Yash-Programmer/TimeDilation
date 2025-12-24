@@ -1,0 +1,20 @@
+# Run macro for Station 2 at x = 0 m (reference position)
+# Use: ./TimeDilationSim run_x0.mac
+# Output: TimeDilation_Run0.csv
+
+# Verbose level
+/run/verbose 1
+/event/verbose 0
+/tracking/verbose 0
+
+# Set Station 2 position to 0 m
+/det/setStation2Pos 0 m
+
+# Initialize the simulation
+/run/initialize
+
+# Print configuration
+/run/printProgress 100
+
+# Run production events (10000 events for statistics)
+/run/beamOn 10000

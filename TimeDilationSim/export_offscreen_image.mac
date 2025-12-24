@@ -1,0 +1,41 @@
+# OpenGL offscreen rendering to file
+# Uses TOOLSSG_OFFSCREEN for image generation
+
+/run/initialize
+
+# Open offscreen OpenGL
+/vis/open TOOLSSG_OFFSCREEN 1200x900
+
+# Set detector
+/det/setStation2Pos 15 m
+
+# Draw volume
+/vis/drawVolume
+
+# Set viewpoint
+/vis/viewer/set/viewpointThetaPhi 25 50
+/vis/viewer/set/style surface
+/vis/viewer/set/background 1 1 1 1
+
+# Add trajectories with colors
+/vis/scene/add/trajectories smooth
+/vis/modeling/trajectories/create/drawByParticleID
+/vis/modeling/trajectories/drawByParticleID-0/set pi+ red
+/vis/modeling/trajectories/drawByParticleID-0/set kaon+ blue
+/vis/modeling/trajectories/drawByParticleID-0/set mu+ green
+/vis/modeling/trajectories/drawByParticleID-0/set opticalphoton yellow
+
+# Accumulate events
+/vis/scene/endOfEventAction accumulate
+
+# Add axes and scale
+/vis/scene/add/axes 0 0 0 2 m
+/vis/scene/add/scale 10 m
+
+# Run events
+/run/beamOn 20
+
+# Save image
+/vis/ogl/export detector_with_events
+
+exit

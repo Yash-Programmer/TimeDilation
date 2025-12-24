@@ -1,0 +1,42 @@
+# RayTracer visualization - generates JPEG images
+# High quality ray-traced rendering by Geant4
+
+/run/initialize
+
+# Open RayTracer
+/vis/open RayTracer
+
+# Set image size and quality
+/vis/rayTracer/eyePosition 10 5 10 m
+/vis/rayTracer/lightDirection 1 1 1
+/vis/rayTracer/span 5 5
+/vis/rayTracer/target 0 0 8 m
+/vis/rayTracer/headAngle 0 deg
+/vis/rayTracer/columnAngle 0 deg
+
+# Set detector configuration
+/det/setStation2Pos 15 m
+
+# Draw volume
+/vis/drawVolume
+
+# Add trajectories
+/vis/scene/add/trajectories smooth
+/vis/modeling/trajectories/create/drawByParticleID
+/vis/modeling/trajectories/drawByParticleID-0/set pi+ red
+/vis/modeling/trajectories/drawByParticleID-0/set kaon+ blue
+/vis/modeling/trajectories/drawByParticleID-0/set mu+ green
+
+# Add axes
+/vis/scene/add/axes 0 0 0 1 m
+
+# Background color
+/vis/viewer/set/background 1 1 1 1
+
+# Run events
+/run/beamOn 10
+
+# Ray trace to JPEG
+/vis/rayTracer/trace detector_view1.jpg
+
+exit

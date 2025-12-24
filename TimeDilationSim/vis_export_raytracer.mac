@@ -1,0 +1,39 @@
+# RayTracer Export Macro
+# Generates high-quality ray-traced images
+
+/run/initialize
+
+# Open RayTracer driver
+/vis/open RayTracer
+
+# Set image size
+/vis/viewer/set/viewpointVector 1 0.3 0.3
+/vis/viewer/set/lightsVector -1 -0.5 0.5
+/vis/viewer/set/upVector 0 0 1
+
+# Draw geometry
+/vis/drawVolume
+
+# Add trajectories
+/vis/scene/add/trajectories smooth
+/vis/modeling/trajectories/create/drawByParticleID
+/vis/modeling/trajectories/drawByParticleID-0/set pi+ red
+/vis/modeling/trajectories/drawByParticleID-0/set kaon+ blue
+/vis/modeling/trajectories/drawByParticleID-0/set mu+ green
+
+# Add axes
+/vis/scene/add/axes 0 0 0 1 m
+
+# Configure Station 2
+/det/setStation2Pos 15 m
+
+# Set background color
+/vis/viewer/set/background white
+
+# Run events
+/run/beamOn 10
+
+# Flush and save
+/vis/viewer/flush
+
+exit

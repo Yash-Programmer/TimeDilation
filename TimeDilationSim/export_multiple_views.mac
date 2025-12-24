@@ -1,0 +1,50 @@
+# Multiple views of detector - Station 2 at different positions
+# Generates multiple PNG images
+
+/run/initialize
+
+# View 1: Station2 at 0m - Front view
+/vis/open TOOLSSG_OFFSCREEN 1600x1200
+/det/setStation2Pos 0 m
+/vis/drawVolume
+/vis/viewer/set/viewpointThetaPhi 20 30
+/vis/viewer/set/style surface
+/vis/viewer/set/background 1.0 1.0 1.0 1.0
+/vis/scene/add/axes 0 0 0 1 m
+/vis/viewer/flush
+/vis/disable
+
+# View 2: Station2 at 5m - Side view
+/vis/open TOOLSSG_OFFSCREEN 1600x1200
+/det/setStation2Pos 5 m
+/vis/drawVolume
+/vis/viewer/set/viewpointThetaPhi 10 90
+/vis/viewer/set/style surface
+/vis/viewer/set/background 1.0 1.0 1.0 1.0
+/vis/scene/add/axes 0 0 0 2 m
+/vis/viewer/flush
+/vis/disable
+
+# View 3: Station2 at 10m - Top view
+/vis/open TOOLSSG_OFFSCREEN 1600x1200
+/det/setStation2Pos 10 m
+/vis/drawVolume
+/vis/viewer/set/viewpointThetaPhi 0 0
+/vis/viewer/set/style surface
+/vis/viewer/set/background 1.0 1.0 1.0 1.0
+/vis/scene/add/axes 0 0 0 2 m
+/vis/viewer/flush
+/vis/disable
+
+# View 4: Station2 at 15m - Isometric view
+/vis/open TOOLSSG_OFFSCREEN 1600x1200
+/det/setStation2Pos 15 m
+/vis/drawVolume
+/vis/viewer/set/viewpointThetaPhi 30 45
+/vis/viewer/set/style surface
+/vis/viewer/set/background 1.0 1.0 1.0 1.0
+/vis/scene/add/axes 0 0 0 2 m
+/vis/viewer/flush
+/vis/disable
+
+exit

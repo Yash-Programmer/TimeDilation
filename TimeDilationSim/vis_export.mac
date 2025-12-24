@@ -1,0 +1,61 @@
+# Geant4 Visualization Export Macro
+# Generates VRML, DAWN, and HepRep files for offline viewing
+
+# ============================================
+# VRML Export (3D viewable in web browsers)
+# ============================================
+/vis/open VRML2FILE
+/vis/drawVolume
+/vis/viewer/set/viewpointVector 1 0.5 0.5
+/vis/scene/add/trajectories smooth
+/vis/modeling/trajectories/create/drawByParticleID
+/vis/modeling/trajectories/drawByParticleID-0/set pi+ red
+/vis/modeling/trajectories/drawByParticleID-0/set kaon+ blue
+/vis/modeling/trajectories/drawByParticleID-0/set mu+ green
+/vis/scene/add/axes 0 0 0 1 m
+
+# Set Station2 position and run events
+/det/setStation2Pos 15 m
+/run/beamOn 10
+
+/vis/viewer/flush
+/vis/disable
+
+# ============================================
+# HepRep Export (for WIRED/JAS viewers)
+# ============================================
+/vis/open HepRepFile
+/vis/drawVolume
+/vis/viewer/set/viewpointVector 1 0.5 0.5
+/vis/scene/add/trajectories smooth
+/vis/modeling/trajectories/create/drawByParticleID
+/vis/modeling/trajectories/drawByParticleID-0/set pi+ red
+/vis/modeling/trajectories/drawByParticleID-0/set kaon+ blue  
+/vis/modeling/trajectories/drawByParticleID-0/set mu+ green
+/vis/scene/add/axes 0 0 0 1 m
+/vis/scene/endOfEventAction accumulate
+
+/run/beamOn 10
+
+/vis/viewer/flush
+/vis/disable
+
+# ============================================
+# DAWN Export (raytraced image)
+# ============================================
+/vis/open DAWNFILE
+/vis/drawVolume
+/vis/viewer/set/viewpointVector 1 0.3 0.3
+/vis/scene/add/trajectories smooth
+/vis/modeling/trajectories/create/drawByParticleID
+/vis/modeling/trajectories/drawByParticleID-0/set pi+ red
+/vis/modeling/trajectories/drawByParticleID-0/set kaon+ blue
+/vis/modeling/trajectories/drawByParticleID-0/set mu+ green
+/vis/scene/add/axes 0 0 0 1 m
+
+/run/beamOn 5
+
+/vis/viewer/flush
+/vis/disable
+
+exit

@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\Yash\Videos\one from gravity\TimeDilationSim\TimeDilationSim.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Yash\Videos\one from gravity\TimeDilationSim\src\ActionInitialization.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Yash\Videos\one from gravity\TimeDilationSim\src\DetectorConstruction.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Yash\Videos\one from gravity\TimeDilationSim\src\DetectorMessenger.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Yash\Videos\one from gravity\TimeDilationSim\src\EventAction.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Yash\Videos\one from gravity\TimeDilationSim\src\PhysicsList.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Yash\Videos\one from gravity\TimeDilationSim\src\PrimaryGeneratorAction.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Yash\Videos\one from gravity\TimeDilationSim\src\RunAction.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\Yash\Videos\one from gravity\TimeDilationSim\src\SteppingAction.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\Yash\Videos\one from gravity\TimeDilationSim\include\ActionInitialization.hh">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Yash\Videos\one from gravity\TimeDilationSim\include\DetectorConstruction.hh">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Yash\Videos\one from gravity\TimeDilationSim\include\DetectorMessenger.hh">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Yash\Videos\one from gravity\TimeDilationSim\include\EventAction.hh">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Yash\Videos\one from gravity\TimeDilationSim\include\PhysicsConstants.hh">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Yash\Videos\one from gravity\TimeDilationSim\include\PhysicsList.hh">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Yash\Videos\one from gravity\TimeDilationSim\include\PrimaryGeneratorAction.hh">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Yash\Videos\one from gravity\TimeDilationSim\include\RunAction.hh">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\Yash\Videos\one from gravity\TimeDilationSim\include\SteppingAction.hh">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\Yash\Videos\one from gravity\TimeDilationSim\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{D9012904-A2DD-3ED6-85E3-A85D1505AA2A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{70701438-130D-353E-98B5-3FE021586957}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

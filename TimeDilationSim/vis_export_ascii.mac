@@ -1,0 +1,21 @@
+# ASCII Tree Export Macro
+# Generates text-based geometry description
+
+/run/initialize
+
+# Open ASCIITree driver
+/vis/open ATree
+
+# Draw geometry
+/vis/drawVolume
+
+# Set detail level
+/vis/ASCIITree/verbose 13
+
+# Configure Station 2
+/det/setStation2Pos 10 m
+
+# Draw scene
+/vis/viewer/flush
+
+exit
