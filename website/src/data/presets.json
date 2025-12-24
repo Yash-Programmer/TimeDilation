@@ -1,0 +1,88 @@
+{
+  "presets": [
+    {
+      "id": "time-dilation",
+      "name": "Time Dilation Test (CERN Proposal)",
+      "description": "Pion vs Kaon at 8 GeV/c",
+      "icon": "Activity",
+      "parameters": {
+        "particleType": "pion",
+        "momentum": 8,
+        "beamIntensity": 10000,
+        "detectors": ["TOF1", "SC1", "RICH", "TOF2"]
+      }
+    },
+    {
+      "id": "transition-radiation",
+      "name": "Transition Radiation Detection",
+      "description": "Detect TR from high-γ particles",
+      "icon": "Layers",
+      "parameters": {
+        "particleType": "electron",
+        "momentum": 5,
+        "beamIntensity": 5000,
+        "detectors": ["TRD"]
+      }
+    },
+    {
+      "id": "hadron-therapy",
+      "name": "Hadron Therapy Simulation",
+      "description": "Cancer treatment dose deposition",
+      "icon": "Target",
+      "parameters": {
+        "particleType": "proton",
+        "momentum": 0.2,
+        "beamIntensity": 1000,
+        "detectors": ["Phantom"]
+      }
+    },
+    {
+      "id": "muon-lifetime",
+      "name": "Muon Lifetime Measurement",
+      "description": "Classic SR verification (Rossi-Hall)",
+      "icon": "Clock",
+      "parameters": {
+        "particleType": "muon",
+        "momentum": 4,
+        "beamIntensity": 500,
+        "detectors": ["ScintillatorStack"]
+      }
+    },
+    {
+      "id": "calibration",
+      "name": "Multi-Particle Detector Calibration",
+      "description": "Calibrate TOF and Cherenkov",
+      "icon": "Settings",
+      "parameters": {
+        "particleType": "mixed",
+        "momentum": 8,
+        "beamIntensity": 20000,
+        "detectors": ["All"]
+      }
+    },
+    {
+      "id": "cosmic-ray",
+      "name": "Cosmic Ray Simulation",
+      "description": "Atmospheric muon shower",
+      "icon": "CloudLightning",
+      "parameters": {
+        "particleType": "muon",
+        "momentum": "variable",
+        "beamIntensity": 50,
+        "detectors": ["WideAreaArray"]
+      }
+    },
+    {
+      "id": "custom",
+      "name": "Custom Experiment",
+      "description": "Build from scratch",
+      "icon": "Tool",
+      "parameters": {
+        "particleType": "pion",
+        "momentum": 8,
+        "beamIntensity": 1000,
+        "detectors": []
+      }
+    }
+  ]
+}
