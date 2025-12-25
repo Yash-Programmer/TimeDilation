@@ -44,14 +44,9 @@ const Hero = () => {
                 style={{ y: yText, opacity }}
                 className="max-w-5xl relative z-10"
             >
-                <div className="flex flex-wrap justify-center gap-3 mb-8">
-                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-gray-200 shadow-sm">
-                        <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
-                        <span className="text-xs font-bold text-gray-500 uppercase tracking-wide">v2.1 Kernel Live</span>
-                    </div>
-                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-blue-50 to-violet-50 border border-blue-100 shadow-sm">
-                        <span className="text-xs font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-violet-600 uppercase tracking-wide">The Relativists</span>
-                    </div>
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-blue-50 to-violet-50 border border-blue-100 shadow-sm mb-8">
+                    <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
+                    <span className="text-xs font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-violet-600 uppercase tracking-wide">The Relativists</span>
                 </div>
 
                 <h1 className="font-display text-7xl md:text-9xl font-semibold tracking-tighter text-[#1d1d1f] mb-8 leading-[0.9]">
@@ -166,15 +161,13 @@ const MvpShowcase = () => {
 
                         {/* Center CTA within the MPV */}
                         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                            <motion.div
-                                initial={{ scale: 0.8, opacity: 0 }}
-                                whileInView={{ scale: 1, opacity: 1 }}
-                                transition={{ delay: 0.8 }}
-                                className="bg-white/10 backdrop-blur-md border border-white/20 px-8 py-4 rounded-full flex items-center gap-3 pointer-events-auto cursor-pointer hover:bg-white/20 transition-colors"
+                            <Link
+                                to="/simulator"
+                                className="bg-white/10 backdrop-blur-md border border-white/20 px-8 py-4 rounded-full flex items-center gap-3 pointer-events-auto cursor-pointer hover:bg-white/20 hover:scale-105 transition-all duration-300"
                             >
                                 <Play size={24} className="text-white fill-white" />
                                 <span className="text-white font-semibold tracking-wide">RUN SIMULATION</span>
-                            </motion.div>
+                            </Link>
                         </div>
                     </div>
                 </motion.div>
@@ -436,9 +429,7 @@ const Footer = () => (
                 <div>
                     <h5 className="font-semibold text-gray-900 mb-6 text-sm">Legal</h5>
                     <ul className="space-y-3">
-                        <li><a href="#" className="hover:text-black transition-colors">Privacy Policy</a></li>
-                        <li><a href="#" className="hover:text-black transition-colors">Terms of Use</a></li>
-                        <li><a href="#" className="hover:text-black transition-colors">Open Source License</a></li>
+                        <li><a href="https://github.com/Yash-Programmer/TimeDilation/blob/master/LICENSE" target="_blank" rel="noopener noreferrer" className="hover:text-black transition-colors">Apache License 2.0</a></li>
                     </ul>
                 </div>
             </div>

@@ -81,7 +81,7 @@ const Navbar = () => {
           </NavLink>
 
           {/* Desktop Nav - Perfectly Centered in Grid (Center) */}
-          <div className="hidden md:flex items-center justify-center min-w-[500px]">
+          <div className="hidden md:flex items-center justify-center">
             <div className="flex items-center gap-1 bg-neutral-100/50 rounded-full p-1.5 border border-black/5" onMouseLeave={() => setHoveredItem(null)}>
               <NavItem to="/" hoveredItem={hoveredItem} setHoveredItem={setHoveredItem} layoutId="home">Home</NavItem>
               <NavItem to="/simulator" hoveredItem={hoveredItem} setHoveredItem={setHoveredItem} layoutId="simulator">Simulator</NavItem>

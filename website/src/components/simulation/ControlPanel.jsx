@@ -243,7 +243,7 @@ const ControlPanel = ({ onShowResults, onOpenControlRoom }) => {
         </Section>
 
         {/* Beamline */}
-        <Section title="Beamline" icon={Target}>
+        <Section title="Beamline" icon={Target} defaultOpen={true}>
           <Slider
             label="Length"
             value={state.beamline.length}
@@ -283,7 +283,7 @@ const ControlPanel = ({ onShowResults, onOpenControlRoom }) => {
         </Section>
 
         {/* Physics */}
-        <Section title="Physics" icon={Settings}>
+        <Section title="Physics" icon={Settings} defaultOpen={true}>
           <label className="flex items-center justify-between p-2 rounded-lg border border-slate-100 bg-white">
             <span className="text-sm text-slate-700">Enable Decay</span>
             <button

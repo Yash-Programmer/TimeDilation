@@ -15,7 +15,7 @@ const SimulatorContent = () => {
    const [isControlRoomOpen, setIsControlRoomOpen] = useState(false);
 
    return (
-      <div className="flex h-[calc(100vh-64px)] overflow-hidden">
+      <div className="flex h-screen overflow-hidden">
 
          {/* Left Panel: 3D Scene */}
          <div className={`relative bg-slate-900 transition-all duration-500 ${is3DExpanded ? 'flex-1' : 'flex-grow'}`}>
