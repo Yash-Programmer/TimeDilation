@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import {
     ChevronRight, ArrowRight, Play, Pause, Settings,
     BarChart3, Sliders, Maximize2, MoreHorizontal,
     Cpu, ShieldCheck, Zap, Globe, Database, Scale,
     Microscope, Timer, Box, FileText, HelpCircle,
-    Atom, ChevronDown, Laptop, Layers, Share2, Download
+    Atom, ChevronDown, Laptop, Layers, Share2, Download,
+    Target
 } from 'lucide-react';
 
 // Assets
@@ -396,7 +397,321 @@ const FAQ = () => (
     </section>
 );
 
-// 8. FOOTER
+// 8. PHYSICS TOPICS COVERED - Expanded & Enhanced
+const PhysicsTopics = () => {
+    const [expandedCategory, setExpandedCategory] = useState(null);
+    const [searchTerm, setSearchTerm] = useState('');
+
+    const topics = {
+        "Special Relativity": {
+            icon: Zap,
+            color: "blue",
+            gradient: "from-blue-500 to-cyan-500",
+            description: "Einstein's theory of spacetime at relativistic velocities",
+            subtopics: [
+                { name: "Time Dilation Formula", desc: "Δt' = γ Δt₀ where γ = 1/√(1-v²/c²)" },
+                { name: "Lorentz Factor", desc: "γ = √(1 + (p/mc)²) from momentum" },
+                { name: "Relativistic Velocity", desc: "β = p/√(p²+m²) calculation" },
+                { name: "Proper Time τ₀", desc: "Time measured in particle's rest frame" },
+                { name: "Laboratory Time", desc: "Dilated time: τ_lab = γτ₀" },
+                { name: "Decay Length", desc: "λ = γβcτ₀ - distance before decay" }
+            ]
+        },
+        "Particle Physics": {
+            icon: Atom,
+            color: "purple",
+            gradient: "from-purple-500 to-pink-500",
+            description: "Fundamental particles, quantum numbers, and weak interactions",
+            subtopics: [
+                { name: "Pion (π±) Properties", desc: "Mass: 139.57 MeV/c², τ₀ = 26.03 ns" },
+                { name: "Pion Decay Mode", desc: "π⁺ → μ⁺ + ν_μ (99.99% branching)" },
+                { name: "Kaon (K±) Properties", desc: "Mass: 493.68 MeV/c², τ₀ = 12.38 ns" },
+                { name: "Kaon Decay Channels", desc: "K⁺ → μ⁺ν (63%), π⁺π⁰ (21%)" },
+                { name: "Muon (μ±) Properties", desc: "Mass: 105.66 MeV/c², τ₀ = 2.20 μs" },
+                { name: "Muon Decay", desc: "μ⁺ → e⁺ + ν_e + ν̄_μ (leptonic)" },
+                { name: "Exponential Decay Law", desc: "N(t) = N₀ exp(-t/τ) for unstable particles" },
+                { name: "Survival Probability", desc: "P(x) = exp(-x/λ) over distance x" }
+            ]
+        },
+        "Detector Technology": {
+            icon: Target,
+            color: "green",
+            gradient: "from-emerald-500 to-teal-500",
+            description: "Experimental apparatus and measurement principles",
+            subtopics: [
+                { name: "Time-of-Flight (TOF)", desc: "Velocity: β = L/(c·Δt) from flight time" },
+                { name: "Scintillation Detectors", desc: "Light emission from charged particles" },
+                { name: "Cherenkov Threshold", desc: "β > 1/n for radiation (n = 1.05 aerogel)" },
+                { name: "Cherenkov Angle", desc: "cos θ_c = 1/(nβ) - velocity measurement" },
+                { name: "Detection Efficiency η", desc: "Probabilistic particle detection (50-100%)" },
+                { name: "Timing Resolution", desc: "Gaussian smearing σ_t ~ 10-500 ps" },
+                { name: "Energy Loss dE/dx", desc: "Simplified Bethe-Bloch (educational)" }
+            ]
+        },
+        "Monte Carlo Simulation": {
+            icon: Database,
+            color: "orange",
+            gradient: "from-orange-500 to-amber-500",
+            description: "Stochastic modeling and numerical sampling techniques",
+            subtopics: [
+                { name: "Mulberry32 PRNG", desc: "32-bit seeded generator for reproducibility" },
+                { name: "Box-Muller Transform", desc: "Uniform → Gaussian: z = √(-2ln u) cos(2πv)" },
+                { name: "Inverse CDF Method", desc: "Exponential sampling: x = -λ ln(1-u)" },
+                { name: "Gaussian Sampling", desc: "Momentum spread and timing resolution" },
+                { name: "Event Generation", desc: "Individual particle trajectory simulation" },
+                { name: "Reproducibility", desc: "Fixed seed → deterministic results" },
+                { name: "Law of Large Numbers", desc: "⟨x⟩ → μ as N → ∞" },
+                { name: "Central Limit Theorem", desc: "Sample means → Gaussian for large N" }
+            ]
+        },
+        "Statistical Analysis": {
+            icon: BarChart3,
+            color: "red",
+            gradient: "from-red-500 to-rose-500",
+            description: "Hypothesis testing and uncertainty quantification",
+            subtopics: [
+                { name: "Survival Rate Analysis", desc: "Fraction surviving: observed vs theoretical" },
+                { name: "Chi-Squared Test", desc: "Goodness-of-fit: χ² = Σ(O-E)²/E" },
+                { name: "Z-Score", desc: "Standard deviations from expected value" },
+                { name: "Poisson Statistics", desc: "Counting: σ = √N for N events" },
+                { name: "Error Propagation", desc: "±1σ uncertainty bands on curves" },
+                { name: "Binomial Distribution", desc: "Survival/decay as binary outcome" },
+                { name: "Statistical Uncertainty", desc: "σ ∝ 1/√N - scales with sample size" }
+            ]
+        },
+        "Data Visualization": {
+            icon: Layers,
+            color: "cyan",
+            gradient: "from-cyan-500 to-blue-500",
+            description: "3D graphics and interactive charts",
+            subtopics: [
+                { name: "Three.js Scene Graph", desc: "WebGL 3D particle rendering" },
+                { name: "Orbit Controls", desc: "Interactive camera manipulation" },
+                { name: "Recharts Library", desc: "Declarative React charts" },
+                { name: "Area Charts", desc: "Survival curves with gradient fills" },
+                { name: "Error Bands", desc: "±1σ uncertainty visualization" },
+                { name: "Real-time Animation", desc: "60 FPS particle trajectories" },
+                { name: "Responsive Design", desc: "Adapts to screen sizes" }
+            ]
+        },
+        "Physics Units & Constants": {
+            icon: Globe,
+            color: "indigo",
+            gradient: "from-indigo-500 to-violet-500",
+            description: "Natural units and fundamental constants (PDG values)",
+            subtopics: [
+                { name: "Natural Units", desc: "Energy in GeV, distances in meters" },
+                { name: "Speed of Light c", desc: "299,792,458 m/s (exact)" },
+                { name: "Planck Constant ℏ", desc: "6.582×10⁻²⁵ GeV·s" },
+                { name: "Particle Masses", desc: "PDG 2024 values for π, K, μ" },
+                { name: "Lifetimes", desc: "Proper lifetimes τ₀ from PDG" },
+                { name: "Unit Conversions", desc: "1 ns × c ≈ 0.3 m (light travel)" }
+            ]
+        }
+    };
+
+    const colorMap = {
+        blue: { bg: "bg-blue-50", border: "border-blue-200", text: "text-blue-600", iconBg: "bg-blue-500", hoverBg: "hover:bg-blue-100" },
+        purple: { bg: "bg-purple-50", border: "border-purple-200", text: "text-purple-600", iconBg: "bg-purple-500", hoverBg: "hover:bg-purple-100" },
+        green: { bg: "bg-emerald-50", border: "border-emerald-200", text: "text-emerald-600", iconBg: "bg-emerald-500", hoverBg: "hover:bg-emerald-100" },
+        orange: { bg: "bg-orange-50", border: "border-orange-200", text: "text-orange-600", iconBg: "bg-orange-500", hoverBg: "hover:bg-orange-100" },
+        red: { bg: "bg-red-50", border: "border-red-200", text: "text-red-600", iconBg: "bg-red-500", hoverBg: "hover:bg-red-100" },
+        indigo: { bg: "bg-indigo-50", border: "border-indigo-200", text: "text-indigo-600", iconBg: "bg-indigo-500", hoverBg: "hover:bg-indigo-100" },
+        cyan: { bg: "bg-cyan-50", border: "border-cyan-200", text: "text-cyan-600", iconBg: "bg-cyan-500", hoverBg: "hover:bg-cyan-100" },
+        pink: { bg: "bg-pink-50", border: "border-pink-200", text: "text-pink-600", iconBg: "bg-pink-500", hoverBg: "hover:bg-pink-100" },
+        yellow: { bg: "bg-yellow-50", border: "border-yellow-200", text: "text-yellow-600", iconBg: "bg-yellow-500", hoverBg: "hover:bg-yellow-100" },
+        teal: { bg: "bg-teal-50", border: "border-teal-200", text: "text-teal-600", iconBg: "bg-teal-500", hoverBg: "hover:bg-teal-100" }
+    };
+
+    const totalSubtopics = Object.values(topics).reduce((sum, topic) => sum + topic.subtopics.length, 0);
+
+    return (
+        <section className="relative z-45 py-32 bg-gradient-to-b from-white via-[#fafafa] to-[#f5f5f7] overflow-hidden">
+            {/* Background Elements */}
+            <div className="absolute top-20 left-10 w-96 h-96 bg-blue-400/5 rounded-full blur-[120px] animate-pulse" />
+            <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-400/5 rounded-full blur-[120px] animate-pulse" style={{ animationDelay: '1s' }} />
+
+            <div className="w-[80%] max-w-[1600px] mx-auto px-6 relative z-10">
+                {/* Header */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="text-center mb-20"
+                >
+                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-blue-50 to-purple-50 border border-blue-100 mb-6 backdrop-blur-sm">
+                        <Atom size={16} className="text-blue-600" />
+                        <span className="text-sm font-semibold text-blue-600">Complete Physics Curriculum</span>
+                    </div>
+                    <h2 className="font-display text-5xl md:text-7xl font-semibold mb-6 text-[#1d1d1f] tracking-tight">
+                        Topics <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600">Mastered</span>
+                    </h2>
+                    <p className="text-xl md:text-2xl text-neutral-500 max-w-3xl mx-auto leading-relaxed">
+                        From quantum mechanics to computational optimization,<br className="hidden md:block" /> covering {totalSubtopics}+ concepts across modern physics.
+                    </p>
+                </motion.div>
+
+                {/* Topics Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+                    {Object.entries(topics).map(([category, data], idx) => {
+                        const Icon = data.icon;
+                        const colors = colorMap[data.color];
+                        const isExpanded = expandedCategory === category;
+
+                        return (
+                            <motion.div
+                                key={category}
+                                initial={{ opacity: 0, y: 30, scale: 0.95 }}
+                                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                                viewport={{ once: true, margin: "-50px" }}
+                                transition={{ delay: idx * 0.05, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                                whileHover={{ y: -4, transition: { duration: 0.2 } }}
+                                className={`relative bg-white/80 backdrop-blur-xl rounded-3xl p-6 border-2 ${colors.border} hover:shadow-2xl hover:shadow-${data.color}-500/20 transition-all duration-500 cursor-pointer group`}
+                                onClick={() => setExpandedCategory(isExpanded ? null : category)}
+                            >
+                                {/* Gradient Overlay on Hover */}
+                                <div className={`absolute inset-0 bg-gradient-to-br ${data.gradient} opacity-0 group-hover:opacity-5 rounded-3xl transition-opacity duration-500`} />
+
+                                {/* Icon & Chevron */}
+                                <div className="flex items-start justify-between mb-4 relative z-10">
+                                    <motion.div
+                                        className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${data.gradient} flex items-center justify-center shadow-lg`}
+                                        whileHover={{ scale: 1.1, rotate: 5 }}
+                                        transition={{ type: "spring", stiffness: 400 }}
+                                    >
+                                        <Icon size={28} className="text-white" />
+                                    </motion.div>
+                                    <motion.div
+                                        animate={{ rotate: isExpanded ? 180 : 0 }}
+                                        transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                                        className={`w-8 h-8 rounded-full ${colors.bg} ${colors.hoverBg} flex items-center justify-center transition-colors`}
+                                    >
+                                        <ChevronDown size={18} className={colors.text} />
+                                    </motion.div>
+                                </div>
+
+                                {/* Category Info */}
+                                <h3 className="text-xl font-bold mb-2 text-[#1d1d1f] relative z-10">{category}</h3>
+                                <p className="text-sm text-neutral-500 mb-4 leading-relaxed relative z-10">{data.description}</p>
+
+                                {/* Progress Bar with Count */}
+                                <div className="relative z-10">
+                                    <div className="flex items-center justify-between mb-2">
+                                        <span className="text-xs font-semibold text-neutral-400 uppercase tracking-wide">Coverage</span>
+                                        <span className={`text-xs font-bold ${colors.text}`}>{data.subtopics.length} topics</span>
+                                    </div>
+                                    <div className="h-1.5 bg-neutral-100 rounded-full overflow-hidden">
+                                        <motion.div
+                                            className={`h-full bg-gradient-to-r ${data.gradient}`}
+                                            initial={{ width: 0 }}
+                                            whileInView={{ width: "100%" }}
+                                            viewport={{ once: true }}
+                                            transition={{ delay: idx * 0.05 + 0.2, duration: 1, ease: "easeOut" }}
+                                        />
+                                    </div>
+                                </div>
+
+                                {/* Expanded Subtopics */}
+                                <AnimatePresence>
+                                    {isExpanded && (
+                                        <motion.div
+                                            initial={{ opacity: 0, height: 0 }}
+                                            animate={{ opacity: 1, height: "auto" }}
+                                            exit={{ opacity: 0, height: 0 }}
+                                            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                                            className="mt-6 space-y-3 overflow-hidden relative z-10"
+                                        >
+                                            <div className="h-px bg-gradient-to-r from-transparent via-neutral-300 to-transparent mb-4" />
+                                            {data.subtopics.map((subtopic, i) => (
+                                                <motion.div
+                                                    key={i}
+                                                    initial={{ opacity: 0, x: -10 }}
+                                                    animate={{ opacity: 1, x: 0 }}
+                                                    transition={{ delay: i * 0.03 }}
+                                                    className="pl-4 border-l-2 border-neutral-200 hover:border-gradient-to-b hover:border-l-4 transition-all duration-300 group/item"
+                                                >
+                                                    <div className="flex items-start gap-2">
+                                                        <div className={`w-1.5 h-1.5 rounded-full ${colors.iconBg} mt-1.5 group-hover/item:scale-150 transition-transform`} />
+                                                        <div className="flex-1">
+                                                            <div className="text-sm font-semibold text-neutral-700 group-hover/item:text-neutral-900 transition-colors">{subtopic.name}</div>
+                                                            <div className="text-xs text-neutral-500 mt-0.5 font-mono leading-relaxed">{subtopic.desc}</div>
+                                                        </div>
+                                                    </div>
+                                                </motion.div>
+                                            ))}
+                                        </motion.div>
+                                    )}
+                                </AnimatePresence>
+                            </motion.div>
+                        );
+                    })}
+                </div>
+
+                {/* Enhanced Summary Stats */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="mt-24 grid grid-cols-2 md:grid-cols-4 gap-6"
+                >
+                    {[
+                        { label: "Major Categories", value: Object.keys(topics).length, icon: Layers, color: "blue" },
+                        { label: "Total Sub-Topics", value: `${totalSubtopics}+`, icon: FileText, color: "purple" },
+                        { label: "Difficulty Levels", value: "HS → PhD", icon: Scale, color: "emerald" },
+                        { label: "Interactive Elements", value: "∞", icon: Zap, color: "orange" }
+                    ].map((stat, i) => {
+                        const StatIcon = stat.icon;
+                        return (
+                            <motion.div
+                                key={i}
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true }}
+                                transition={{ delay: i * 0.1 }}
+                                whileHover={{ y: -8, scale: 1.05 }}
+                                className="relative text-center p-8 bg-white/80 backdrop-blur-xl rounded-3xl border border-neutral-200 hover:border-neutral-300 hover:shadow-2xl transition-all duration-500 group overflow-hidden"
+                            >
+                                <div className={`absolute inset-0 bg-gradient-to-br from-${stat.color}-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500`} />
+                                <motion.div
+                                    className="relative z-10"
+                                    whileHover={{ rotate: [0, -10, 10, -10, 0] }}
+                                    transition={{ duration: 0.5 }}
+                                >
+                                    <StatIcon size={32} className={`mx-auto mb-4 text-${stat.color}-600`} />
+                                </motion.div>
+                                <div className={`text-4xl font-bold bg-gradient-to-br from-${stat.color}-600 to-${stat.color}-400 bg-clip-text text-transparent mb-2`}>{stat.value}</div>
+                                <div className="text-sm text-neutral-600 font-medium relative z-10">{stat.label}</div>
+                            </motion.div>
+                        );
+                    })}
+                </motion.div>
+
+                {/* Call to Action with Particles Effect */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="mt-20 text-center relative"
+                >
+                    <Link
+                        to="/learn"
+                        className="inline-flex items-center gap-3 px-10 py-5 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white rounded-full font-semibold text-lg hover:shadow-2xl hover:shadow-purple-500/50 hover:scale-105 transition-all duration-500 group relative overflow-hidden"
+                    >
+                        <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
+                        <FileText size={24} className="group-hover:rotate-12 transition-transform duration-300" />
+                        <span className="relative z-10">Explore Full Documentation</span>
+                        <ArrowRight size={24} className="group-hover:translate-x-2 transition-transform duration-300" />
+                    </Link>
+                    <p className="mt-6 text-sm text-neutral-400">
+                        Dive deeper into <span className="font-semibold text-neutral-600">{totalSubtopics}+ physics concepts</span> with interactive examples
+                    </p>
+                </motion.div>
+            </div>
+        </section>
+    );
+};
+
+// 9. FOOTER
 const Footer = () => (
     <footer className="relative z-50 bg-[#f5f5f7] py-20 text-xs text-gray-500">
         <div className="container-pro">
@@ -452,6 +767,7 @@ const Home = () => {
                 <BentoMethodology />
                 <InteractiveLab />
                 <FAQ />
+                <PhysicsTopics />
                 <Footer />
             </div>
         </div>

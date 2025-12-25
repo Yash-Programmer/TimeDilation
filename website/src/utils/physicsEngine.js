@@ -1,4 +1,27 @@
-// Constants
+// ============================================
+// SEEDED RANDOM NUMBER GENERATOR
+// ============================================
+// Mulberry32 PRNG for reproducible simulations
+function mulberry32(seed) {
+    return function () {
+        let t = seed += 0x6D2B79F5;
+        t = Math.imul(t ^ t >>> 15, t | 1);
+        t ^= t + Math.imul(t ^ t >>> 7, t | 61);
+        return ((t ^ t >>> 14) >>> 0) / 4294967296;
+    }
+}
+
+// Box-Muller transform for Gaussian random numbers
+function gaussianRandom(mean = 0, sigma = 1, rng) {
+    const u1 = rng();
+    const u2 = rng();
+    const z0 = Math.sqrt(-2 * Math.log(u1)) * Math.cos(2 * Math.PI * u2);
+    return mean + z0 * sigma;
+}
+
+// ============================================
+// CONSTANTS
+// ============================================
 const C = 299792458; // m/s
 const HBAR = 6.582119569e-25; // GeV s
 
@@ -13,11 +36,23 @@ export const PARTICLES = {
 export class PhysicsEngine {
     constructor(params) {
         this.params = params; // { particleType, momentum, beamLength, count, ... }
+
+        // Initialize seeded RNG for reproducibility
+        this.seed = params.seed || Date.now();
+        this.rng = mulberry32(this.seed);
+
+        // Detector response parameters (optional toy model)
+        this.detectorResponse = {
+            enabled: params.detectorResponse?.enabled || false,
+            efficiency: params.detectorResponse?.efficiency || 0.95,
+            timingResolution: params.detectorResponse?.timingResolution || 50e-12, // 50 ps
+            energyLoss: params.detectorResponse?.energyLoss || false
+        };
     }
 
     // Relativistic Calculations
     calculateKinematics(momentum, mass) {
-        const energy = Math.sqrt(momentum**2 + mass**2);
+        const energy = Math.sqrt(momentum ** 2 + mass ** 2);
         const beta = momentum / energy;
         const gamma = energy / mass;
         return { beta, gamma, energy };
@@ -53,7 +88,7 @@ export class PhysicsEngine {
         for (let i = 0; i < N; i++) {
             // 1. Generate Gaussian momentum spread (simulating real beam)
             // Sigma approx 1% of momentum
-            const p = momentum * (1 + (Math.random() + Math.random() + Math.random() - 1.5) * 0.02);
+            const p = momentum * (1 + (this.rng() + this.rng() + this.rng() - 1.5) * 0.02);
 
             // Re-calculate kinematics for this specific particle
             const k = this.calculateKinematics(p, particle.mass);
@@ -65,12 +100,36 @@ export class PhysicsEngine {
             const lambda = k.beta * C * k.gamma * particle.lifetime;
 
             // Random decay position
-            const decayPos = particle.lifetime === Infinity ? Infinity : -lambda * Math.log(Math.random());
+            const decayPos = particle.lifetime === Infinity ? Infinity : -lambda * Math.log(this.rng());
 
             const survived = decayPos > beamLength;
 
+            // Apply detector response if enabled
+            let detected = survived; // Start with survival status
+            let measuredTOF = beamLength / (k.beta * C) * 1e9; // ns
+            let tofUncertainty = 0;
+
+            if (this.detectorResponse.enabled && survived) {
+                // 1. Detection efficiency - probabilistic hit
+                if (this.rng() > this.detectorResponse.efficiency) {
+                    detected = false; // Particle not detected
+                }
+
+                // 2. Timing resolution - Gaussian smearing
+                if (detected) {
+                    const tofNoise = gaussianRandom(0, this.detectorResponse.timingResolution, this.rng);
+                    measuredTOF += tofNoise * 1e9; // Add noise in nanoseconds
+                    tofUncertainty = this.detectorResponse.timingResolution * 1e9;
+                }
+            }
+
             if (survived) results.stats.survived++;
             else results.stats.decayed++;
+
+            // Count detected events separately
+            if (detected && this.detectorResponse.enabled) {
+                results.stats.detected = (results.stats.detected || 0) + 1;
+            }
 
             // 3. Generate "Hit" Data
             // Store limited events for the table to avoid memory issues
@@ -82,13 +141,22 @@ export class PhysicsEngine {
                     gamma: k.gamma,
                     decayPos: survived ? null : decayPos,
                     survived: survived,
-                    tof: beamLength / (k.beta * C) * 1e9 // ns
+                    detected: this.detectorResponse.enabled ? detected : survived,
+                    tof: measuredTOF,
+                    tofUncertainty: tofUncertainty
                 });
             }
         }
 
         // Calculate expected survival for comparison
         results.stats.expectedSurvival = Math.exp(-beamLength / decayLength);
+
+        // Calculate observed survival rate
+        results.stats.survivalRate = results.stats.survived / results.stats.total;
+
+        // Include seed for reproducibility
+        results.seed = this.seed;
+        results.detectorResponseEnabled = this.detectorResponse.enabled;
 
         return results;
     }

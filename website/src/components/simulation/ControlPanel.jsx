@@ -297,6 +297,114 @@ const ControlPanel = ({ onShowResults, onOpenControlRoom }) => {
               />
             </button>
           </label>
+
+          {/* RNG Seed */}
+          <Slider
+            label="RNG Seed"
+            value={state.rngSeed}
+            min={1}
+            max={999999}
+            step={1}
+            unit=""
+            onChange={actions.setRngSeed}
+            tooltip="Random seed for reproducible simulations. Same seed = identical results every time"
+          />
+        </Section>
+
+        {/* Detector Response - Toy Model */}
+        <Section
+          title="Detector Response"
+          icon={Sliders}
+          defaultOpen={false}
+          badge={state.detectorResponse.enabled ? "⚠ TOY" : null}
+        >
+          {/* Educational Disclaimer */}
+          <div className="bg-amber-50 border border-amber-200 rounded-lg p-3 mb-3">
+            <p className="text-xs text-amber-800 leading-relaxed">
+              <strong>Educational toy detector model.</strong> Simplified physics for demonstration purposes only.
+              Not a replacement for GEANT4 or real detector simulation.
+            </p>
+          </div>
+
+          {/* Enable Toggle */}
+          <label className="flex items-center justify-between p-2 rounded-lg border border-slate-100 bg-white">
+            <span className="text-sm text-slate-700">Enable Detector Response</span>
+            <button
+              onClick={() => actions.setDetectorResponse({
+                ...state.detectorResponse,
+                enabled: !state.detectorResponse.enabled
+              })}
+              className={`w-10 h-5 rounded-full p-0.5 transition-colors ${state.detectorResponse.enabled ? 'bg-amber-500' : 'bg-slate-300'
+                }`}
+            >
+              <motion.div
+                className="w-4 h-4 bg-white rounded-full shadow"
+                animate={{ x: state.detectorResponse.enabled ? 20 : 0 }}
+              />
+            </button>
+          </label>
+
+          {/* Controls (shown when enabled) */}
+          <AnimatePresence>
+            {state.detectorResponse.enabled && (
+              <motion.div
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: 'auto' }}
+                exit={{ opacity: 0, height: 0 }}
+                className="space-y-3"
+              >
+                <Slider
+                  label="Detection Efficiency"
+                  value={state.detectorResponse.efficiency * 100}
+                  min={50}
+                  max={100}
+                  step={1}
+                  unit="%"
+                  onChange={(val) => actions.setDetectorResponse({
+                    ...state.detectorResponse,
+                    efficiency: val / 100
+                  })}
+                  tooltip="Probability a particle is detected (geometric acceptance + efficiency)"
+                />
+
+                <Slider
+                  label="Timing Resolution"
+                  value={state.detectorResponse.timingResolution * 1e12}
+                  min={10}
+                  max={500}
+                  step={10}
+                  unit="ps"
+                  onChange={(val) => actions.setDetectorResponse({
+                    ...state.detectorResponse,
+                    timingResolution: val * 1e-12
+                  })}
+                  tooltip="Gaussian smearing of arrival time measurement (σ_t)"
+                />
+
+                <label className="flex items-center justify-between p-2 rounded-lg border border-slate-100 bg-white">
+                  <div className="flex items-center gap-1">
+                    <span className="text-sm text-slate-700">Energy Loss (dE/dx)</span>
+                    <Tooltip content="Simplified Bethe-Bloch formula (no range straggling or secondaries)">
+                      <HelpCircle size={12} className="text-slate-400" />
+                    </Tooltip>
+                  </div>
+                  <button
+                    onClick={() => actions.setDetectorResponse({
+                      ...state.detectorResponse,
+                      energyLoss: !state.detectorResponse.energyLoss
+                    })}
+                    className={`w-10 h-5 rounded-full p-0.5 transition-colors ${state.detectorResponse.energyLoss ? 'bg-amber-500' : 'bg-slate-300'
+                      }`}
+                  >
+                    <motion.div
+                      className="w-4 h-4 bg-white rounded-full shadow"
+                      animate={{ x: state.detectorResponse.energyLoss ? 20 : 0 }}
+                    />
+                  </button>
+                </label>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </Section>
       </div>
 

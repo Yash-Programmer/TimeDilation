@@ -185,6 +185,17 @@ const createInitialState = () => {
             normalize: true,
         },
 
+        // RNG seed for reproducibility
+        rngSeed: Math.floor(Date.now() / 1000),
+
+        // Detector response (toy model)
+        detectorResponse: {
+            enabled: false,
+            efficiency: 0.95,
+            timingResolution: 50e-12, // 50 ps
+            energyLoss: false,
+        },
+
         // Derived physics values (auto-calculated)
         derived: {
             energy,
@@ -222,6 +233,8 @@ const ActionTypes = {
     SET_ANALYSIS_MODE: 'SET_ANALYSIS_MODE',
     SET_TARGET_EVENTS: 'SET_TARGET_EVENTS',
     TOGGLE_ANALYSIS_OPTION: 'TOGGLE_ANALYSIS_OPTION',
+    SET_RNG_SEED: 'SET_RNG_SEED',
+    SET_DETECTOR_RESPONSE: 'SET_DETECTOR_RESPONSE',
     LOAD_PRESET: 'LOAD_PRESET',
     START_SIMULATION: 'START_SIMULATION',
     UPDATE_PROGRESS: 'UPDATE_PROGRESS',
@@ -335,6 +348,18 @@ const simulationReducer = (state, action) => {
                 },
             };
 
+        case ActionTypes.SET_RNG_SEED:
+            return {
+                ...state,
+                rngSeed: action.payload,
+            };
+
+        case ActionTypes.SET_DETECTOR_RESPONSE:
+            return {
+                ...state,
+                detectorResponse: action.payload,
+            };
+
         case ActionTypes.LOAD_PRESET:
             const preset = action.payload;
             newState = {
@@ -435,6 +460,8 @@ export const SimulationProvider = ({ children }) => {
         setAnalysisMode: (mode) => dispatch({ type: ActionTypes.SET_ANALYSIS_MODE, payload: mode }),
         setTargetEvents: (n) => dispatch({ type: ActionTypes.SET_TARGET_EVENTS, payload: n }),
         toggleAnalysisOption: (opt) => dispatch({ type: ActionTypes.TOGGLE_ANALYSIS_OPTION, payload: opt }),
+        setRngSeed: (seed) => dispatch({ type: ActionTypes.SET_RNG_SEED, payload: seed }),
+        setDetectorResponse: (config) => dispatch({ type: ActionTypes.SET_DETECTOR_RESPONSE, payload: config }),
         loadPreset: (preset) => dispatch({ type: ActionTypes.LOAD_PRESET, payload: preset }),
         startSimulation: () => dispatch({ type: ActionTypes.START_SIMULATION }),
         updateProgress: (p) => dispatch({ type: ActionTypes.UPDATE_PROGRESS, payload: p }),

@@ -61,6 +61,21 @@ const ResultsModal = ({ isOpen, onClose }) => {
    const config = results?.config;
    const events = results?.events || [];
 
+   // Calculate error bands for uncertainty visualization
+   const curveDataWithErrors = useMemo(() => {
+      if (!curveData || !stats) return [];
+      return curveData.map(point => {
+         // Error on fraction = sqrt(N) / Total
+         // N ≈ point.survival * stats.total
+         const error = Math.sqrt(point.survival * stats.total) / stats.total;
+         return {
+            ...point,
+            upper: Math.min(1, point.survival + error),
+            lower: Math.max(0, point.survival - error)
+         };
+      });
+   }, [curveData, stats]);
+
    // Calculate chi-squared test (simplified) - MUST be before any early returns!
    const chiSquaredResult = useMemo(() => {
       if (!stats) return null;
@@ -158,13 +173,13 @@ ${chiSquaredResult?.pass
                      </div>
                      <div className="flex items-center gap-2">
                         <div className="w-3 h-3 rounded-full bg-slate-400" />
-                        <span className="text-sm text-slate-600">Simulated Data</span>
+                        <span className="text-sm text-slate-600">Simulated ±1σ</span>
                      </div>
                   </div>
 
                   <div ref={chartRef} className="h-[350px] w-full bg-white p-2 rounded">
                      <ResponsiveContainer width="100%" height="100%">
-                        <AreaChart data={curveData} margin={{ top: 20, right: 30, left: 20, bottom: 40 }}>
+                        <AreaChart data={curveDataWithErrors} margin={{ top: 20, right: 30, left: 20, bottom: 40 }}>
                            <defs>
                               <linearGradient id="colorSurvival" x1="0" y1="0" x2="0" y2="1">
                                  <stop offset="5%" stopColor={config.particle.color} stopOpacity={0.3} />
@@ -201,7 +216,7 @@ ${chiSquaredResult?.pass
 
                   <div className="flex justify-between items-center mt-4">
                      <div className="text-sm text-slate-500">
-                        λ = {stats.theoreticalDecayLength?.toFixed(1) || '∞'} m (decay length)
+                        λ = {stats.theoreticalDecayLength?.toFixed(1) || '∞'} m (decay length) • Seed: {results.seed}
                      </div>
                      <div className="flex gap-2">
                         <Button variant="outline" size="sm" icon={Image} onClick={downloadChartAsPNG}>

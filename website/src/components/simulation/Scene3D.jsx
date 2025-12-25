@@ -69,7 +69,7 @@ const StandaloneSceneContent = () => {
       />
 
       {detectors.scintillator && <ScintillatorArray position={[positions.scintillator, 0, 0]} />}
-      {detectors.cherenkov && <CherenkovDetector position={[positions.cherenkov, 0, 0]} />}
+      {detectors.cherenkov && <CherenkovDetector position={[positions.cherenkov, 0, 0]} beta={beam.momentum / Math.sqrt(beam.momentum ** 2 + particle.mass ** 2)} />}
       {detectors.tof2 && (
         <TOFDetector position={[positions.tof2, 0, 0]} label="TOF End (T₂)" isStart={false} />
       )}

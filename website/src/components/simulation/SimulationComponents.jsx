@@ -267,14 +267,19 @@ export const ScintillatorArray = ({ position }) => {
 // ============================================
 // 5. CHERENKOV DETECTOR
 // ============================================
-export const CherenkovDetector = ({ position }) => {
+export const CherenkovDetector = ({ position, beta = 0.99, refractiveIndex = 1.05 }) => {
   const [hovered, setHover] = useState(false);
   const coneRef = useRef();
 
+  // Cherenkov threshold: β > 1/n
+  const threshold = 1 / refractiveIndex;
+  const isActive = beta > threshold;
+
   useFrame((state) => {
     if (coneRef.current) {
-      const intensity = hovered ? 0.8 : 0.4;
-      coneRef.current.material.opacity = intensity + Math.sin(state.clock.elapsedTime * 2) * 0.1;
+      // Only glow if above threshold
+      const baseIntensity = isActive ? (hovered ? 0.8 : 0.4) : 0;
+      coneRef.current.material.opacity = baseIntensity + (isActive ? Math.sin(state.clock.elapsedTime * 2) * 0.1 : 0);
     }
   });
 
@@ -296,13 +301,13 @@ export const CherenkovDetector = ({ position }) => {
         />
       </mesh>
 
-      {/* Cherenkov light cone visualization */}
+      {/* Cherenkov light cone visualization - only visible if active */}
       <mesh ref={coneRef} rotation={[0, 0, -Math.PI / 2]} position={[0.5, 0, 0]}>
         <coneGeometry args={[0.8, 1.5, 32, 1, true]} />
         <meshBasicMaterial
-          color="#00BFFF"
+          color={isActive ? "#00BFFF" : "#666"}
           transparent
-          opacity={0.3}
+          opacity={0}
           side={THREE.DoubleSide}
         />
       </mesh>
@@ -316,9 +321,13 @@ export const CherenkovDetector = ({ position }) => {
       <Html distanceFactor={15}>
         <LabelCard
           title="Cherenkov Counter"
-          description="Threshold detector using aerogel radiator. Identifies particles by velocity."
+          description={`Threshold detector (educational only). Real Cherenkov physics (photon emission, angles, dispersion) not modeled. Threshold: β > ${threshold.toFixed(3)}`}
           visible={hovered}
-          stats={{ "n": "1.05", "θ_c": "~13°" }}
+          stats={{
+            "n": refractiveIndex.toFixed(2),
+            "threshold": `β > ${threshold.toFixed(3)}`,
+            "status": isActive ? "✓ Active" : "✗ Below threshold"
+          }}
         />
       </Html>
     </group>

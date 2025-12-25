@@ -14,7 +14,7 @@ import { Stars, ContactShadows } from '@react-three/drei';
 // Reactive Scene Content - uses SimulationContext (for Simulator page)
 const ReactiveSceneContent = () => {
     const { state } = useSimulationContext();
-    const { beamline, detectors, physics, particle, beam } = state;
+    const { beamline, detectors, physics, particle, beam, derived } = state;
 
     const scaleFactor = useMemo(() => {
         return Math.max(0.5, Math.min(2, 15 / beamline.length));
@@ -53,7 +53,7 @@ const ReactiveSceneContent = () => {
             />
 
             {detectors.scintillator && <ScintillatorArray position={[positions.scintillator, 0, 0]} />}
-            {detectors.cherenkov && <CherenkovDetector position={[positions.cherenkov, 0, 0]} />}
+            {detectors.cherenkov && <CherenkovDetector position={[positions.cherenkov, 0, 0]} beta={derived.beta} />}
             {detectors.tof2 && (
                 <TOFDetector position={[positions.tof2, 0, 0]} label="TOF End (T₂)" isStart={false} />
             )}
