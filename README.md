@@ -1,7 +1,3 @@
-<p align="center">
-  <img src="website/src/assets/feature_beam.png" alt="Time Dilation Experiment" width="600"/>
-</p>
-
 <h1 align="center">⏱️ Time Dilation Experiment</h1>
 
 <p align="center">

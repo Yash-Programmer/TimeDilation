@@ -44,9 +44,14 @@ const Hero = () => {
                 style={{ y: yText, opacity }}
                 className="max-w-5xl relative z-10"
             >
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-gray-200 shadow-sm mb-8">
-                    <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
-                    <span className="text-xs font-bold text-gray-500 uppercase tracking-wide">v2.1 Kernel Live</span>
+                <div className="flex flex-wrap justify-center gap-3 mb-8">
+                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-gray-200 shadow-sm">
+                        <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
+                        <span className="text-xs font-bold text-gray-500 uppercase tracking-wide">v2.1 Kernel Live</span>
+                    </div>
+                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-blue-50 to-violet-50 border border-blue-100 shadow-sm">
+                        <span className="text-xs font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-violet-600 uppercase tracking-wide">The Relativists</span>
+                    </div>
                 </div>
 
                 <h1 className="font-display text-7xl md:text-9xl font-semibold tracking-tighter text-[#1d1d1f] mb-8 leading-[0.9]">

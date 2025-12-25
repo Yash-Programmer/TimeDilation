@@ -140,6 +140,10 @@ const Team = () => {
                transition={{ duration: 0.8 }}
                className="max-w-4xl sticky top-32 z-0"
             >
+               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-gray-200 shadow-sm mb-6">
+                  <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
+                  <span className="text-xs font-bold text-gray-500 uppercase tracking-wide">The Relativists</span>
+               </div>
                <h1 className="text-7xl md:text-9xl font-semibold tracking-tighter text-[#1d1d1f] mb-8 leading-none">
                   The <span className="text-neutral-400">Minds.</span>
                </h1>
