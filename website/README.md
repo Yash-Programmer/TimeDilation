@@ -1,4 +1,10 @@
-# Educational Physics Simulation Platform
+# Time Dilation - Interactive Web Application
+
+**An interactive, web-based particle simulator for visualizing relativistic motion, decay, and experimental geometry.**
+
+An educational web platform for the BL4S 2025 proposal "Testing the Universality of Time Dilation."
+
+> **Note:** This simulator focuses on kinematics and decay processes and is not a replacement for full Monte Carlo frameworks such as GEANT4. For research-grade physics validation, see the `TimeDilationSim/` directory containing our GEANT4 simulation.
 
 ## Overview
 This project is an interactive educational platform designed for the CERN Beamline for Schools competition. It features:

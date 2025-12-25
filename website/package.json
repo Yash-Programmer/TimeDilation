@@ -2,6 +2,7 @@
   "name": "time-dilation-explorer",
   "private": true,
   "version": "1.0.0",
+  "description": "An interactive, web-based particle simulator for visualizing relativistic motion, decay, and experimental geometry",
   "type": "module",
   "scripts": {
     "dev": "vite",
