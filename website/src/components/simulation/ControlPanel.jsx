@@ -1,35 +1,32 @@
 import React, { useState } from 'react';
-import { Play, Download, Share2, Settings, RefreshCw, BarChart2 } from 'lucide-react';
+import {
+  Play, Download, Share2, Settings, RefreshCw, BarChart2, Atom,
+  ChevronDown, ChevronRight, HelpCircle, Zap, Target, Database, Sliders
+} from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Button from '../common/Button';
-import presetsData from '../../data/presets.json';
+import { useSimulation } from '../../hooks/useSimulation';
+import { PARTICLES } from '../../context/SimulationContext';
 
-const AccordionItem = ({ title, isOpen, onClick, children }) => {
+// ============================================
+// TOOLTIP
+// ============================================
+const Tooltip = ({ children, content }) => {
+  const [show, setShow] = useState(false);
   return (
-    <div className="border-b border-gray-100 last:border-0">
-      <button
-        className="w-full flex items-center justify-between p-4 bg-white hover:bg-gray-50 transition-colors"
-        onClick={onClick}
-      >
-        <span className="font-semibold text-[#0033A0]">{title}</span>
-        <motion.span
-          animate={{ rotate: isOpen ? 180 : 0 }}
-          className="text-gray-400"
-        >
-          ▼
-        </motion.span>
-      </button>
+    <div className="relative inline-block">
+      <div onMouseEnter={() => setShow(true)} onMouseLeave={() => setShow(false)} className="cursor-help">
+        {children}
+      </div>
       <AnimatePresence>
-        {isOpen && (
+        {show && (
           <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            className="overflow-hidden bg-[#F7F9FB]"
+            initial={{ opacity: 0, y: 5 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 5 }}
+            className="absolute z-50 bottom-full left-1/2 -translate-x-1/2 mb-2 w-52 p-2 bg-slate-800 text-white text-xs rounded-lg shadow-xl"
           >
-            <div className="p-4 space-y-4">
-              {children}
-            </div>
+            {content}
           </motion.div>
         )}
       </AnimatePresence>
@@ -37,200 +34,338 @@ const AccordionItem = ({ title, isOpen, onClick, children }) => {
   );
 };
 
-const ControlPanel = ({ simulation, onShowResults }) => {
-  const { params, updateRootParam, updateParam, runSimulation, isRunning, progress, results } = simulation;
-  const [openSection, setOpenSection] = useState('beam'); // 'beam', 'detectors', 'physics', 'analysis'
+// ============================================
+// COMPACT PARTICLE SELECTOR
+// ============================================
+const ParticleChip = ({ particle, isSelected, onSelect }) => (
+  <button
+    onClick={onSelect}
+    className={`
+      flex items-center gap-2 px-3 py-2 rounded-lg border-2 transition-all text-sm font-medium
+      ${isSelected
+        ? 'border-[#0033A0] bg-blue-50 text-[#0033A0] shadow-sm'
+        : 'border-slate-200 bg-white hover:border-slate-300 text-slate-700'
+      }
+    `}
+  >
+    <span
+      className="w-6 h-6 rounded-md flex items-center justify-center text-white text-xs font-bold"
+      style={{ backgroundColor: particle.color }}
+    >
+      {particle.symbol}
+    </span>
+    <span>{particle.name}</span>
+  </button>
+);
 
-  const toggleSection = (section) => {
-    setOpenSection(openSection === section ? null : section);
-  };
+// ============================================
+// SLIDER
+// ============================================
+const Slider = ({ label, value, min, max, step, unit, onChange, tooltip }) => (
+  <div className="space-y-2">
+    <div className="flex justify-between items-center">
+      <div className="flex items-center gap-1">
+        <span className="text-sm font-medium text-slate-700">{label}</span>
+        {tooltip && (
+          <Tooltip content={tooltip}>
+            <HelpCircle size={12} className="text-slate-400" />
+          </Tooltip>
+        )}
+      </div>
+      <span className="font-mono text-sm font-bold text-[#0033A0]">
+        {typeof value === 'number' ? value.toFixed(step < 1 ? 1 : 0) : value} {unit}
+      </span>
+    </div>
+    <input
+      type="range"
+      min={min}
+      max={max}
+      step={step}
+      value={value}
+      onChange={(e) => onChange(parseFloat(e.target.value))}
+      className="w-full h-2 bg-slate-200 rounded-full appearance-none cursor-pointer accent-[#0033A0]"
+    />
+  </div>
+);
 
-  const handlePresetChange = (e) => {
-    // In a real app, this would load the preset params
-    // Placeholder for preset loading logic
-  };
+// ============================================
+// SECTION
+// ============================================
+const Section = ({ title, icon: Icon, children, defaultOpen = false, badge }) => {
+  const [isOpen, setIsOpen] = useState(defaultOpen);
 
   return (
-    <div className="h-full flex flex-col bg-white border-l border-gray-200 shadow-lg z-20 overflow-hidden">
+    <div className="border-b border-slate-100">
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="w-full flex items-center justify-between p-3 hover:bg-slate-50 transition-colors"
+      >
+        <div className="flex items-center gap-2">
+          {Icon && <Icon size={16} className="text-[#0033A0]" />}
+          <span className="font-semibold text-sm text-slate-800">{title}</span>
+          {badge && (
+            <span className="text-[10px] bg-[#0033A0] text-white px-1.5 py-0.5 rounded font-medium">
+              {badge}
+            </span>
+          )}
+        </div>
+        <motion.div animate={{ rotate: isOpen ? 90 : 0 }}>
+          <ChevronRight size={14} className="text-slate-400" />
+        </motion.div>
+      </button>
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            className="overflow-hidden"
+          >
+            <div className="px-3 pb-3 space-y-3">{children}</div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+};
+
+// ============================================
+// QUICK STATS BAR
+// ============================================
+const QuickStats = ({ derived, particle }) => (
+  <div className="grid grid-cols-3 gap-2 p-3 bg-slate-50 rounded-lg border border-slate-200">
+    <div className="text-center">
+      <div className="text-[10px] text-slate-500 uppercase">β</div>
+      <div className="text-sm font-mono font-bold text-emerald-600">{derived.beta.toFixed(4)}</div>
+    </div>
+    <div className="text-center border-x border-slate-200">
+      <div className="text-[10px] text-slate-500 uppercase">γ</div>
+      <div className="text-sm font-mono font-bold text-amber-600">{derived.gamma.toFixed(1)}</div>
+    </div>
+    <div className="text-center">
+      <div className="text-[10px] text-slate-500 uppercase">P(surv)</div>
+      <div className={`text-sm font-mono font-bold ${derived.expectedSurvival > 0.5 ? 'text-emerald-600' : 'text-red-500'}`}>
+        {(derived.expectedSurvival * 100).toFixed(0)}%
+      </div>
+    </div>
+  </div>
+);
+
+// ============================================
+// MAIN CONTROL PANEL
+// ============================================
+const ControlPanel = ({ onShowResults, onOpenControlRoom }) => {
+  const { state, actions, runSimulation, downloadResults, isRunning, progress, results } = useSimulation();
+
+  return (
+    <div className="h-full flex flex-col bg-white border-l border-slate-200 shadow-lg overflow-hidden">
 
       {/* Header */}
-      <div className="p-6 border-b border-gray-100 bg-white z-10">
-        <h2 className="text-xl font-bold text-[#1A1A2E] mb-4">Simulation Parameters</h2>
-
-        {/* Preset Selector */}
-        <div className="relative">
-          <select
-            className="w-full p-3 pl-10 bg-white border-2 border-[#0033A0] rounded-lg appearance-none font-medium text-[#0033A0] focus:outline-none focus:ring-2 focus:ring-blue-200 cursor-pointer hover:shadow-md transition-shadow"
-            onChange={handlePresetChange}
-          >
-            {presetsData.presets.map(p => (
-              <option key={p.id} value={p.id}>{p.name}</option>
-            ))}
-          </select>
-          <Settings className="absolute left-3 top-1/2 -translate-y-1/2 text-[#0033A0]" size={18} />
+      <div className="p-4 bg-[#f5f5f7] border-b border-gray-200 text-[#1d1d1f]">
+        <div className="flex items-center gap-3 mb-3">
+          <Atom size={24} className="text-[#0071e3]" />
+          <div>
+            <h2 className="text-lg font-bold">Experiment Setup</h2>
+            <p className="text-xs text-gray-500">Configure your simulation</p>
+          </div>
         </div>
+
+        {/* Control Center Button */}
+        {onOpenControlRoom && (
+          <button
+            onClick={onOpenControlRoom}
+            className="w-full flex items-center justify-center gap-2 px-4 py-2.5 bg-white hover:bg-gray-50 rounded-lg font-medium text-sm border border-gray-300 text-gray-700 transition-all shadow-sm"
+          >
+            <Database size={16} />
+            Open Full Control Center
+          </button>
+        )}
+      </div>
+
+      {/* Active Configuration */}
+      <div className="p-3 bg-slate-50 border-b border-slate-200">
+        <div className="flex items-center gap-3">
+          <div
+            className="w-10 h-10 rounded-lg flex items-center justify-center text-white font-bold"
+            style={{ backgroundColor: state.particle.color }}
+          >
+            {state.particle.symbol}
+          </div>
+          <div className="flex-1">
+            <div className="font-semibold text-slate-800">{state.particle.name}</div>
+            <div className="text-xs text-slate-500">
+              {state.beam.momentum} GeV/c • {state.beamline.length}m beamline
+            </div>
+          </div>
+        </div>
+        <QuickStats derived={state.derived} particle={state.particle} />
       </div>
 
       {/* Scrollable Content */}
       <div className="flex-1 overflow-y-auto">
 
-        {/* Group 1: Beam Parameters */}
-        <AccordionItem title="Beam Parameters" isOpen={openSection === 'beam'} onClick={() => toggleSection('beam')}>
-           <div>
-             <label className="block text-sm font-medium text-gray-700 mb-2">Particle Type</label>
-             <div className="grid grid-cols-2 gap-2">
-               {['pion', 'kaon', 'muon', 'proton'].map(type => (
-                 <button
-                   key={type}
-                   onClick={() => updateRootParam('particleType', type)}
-                   className={`
-                     p-2 rounded-md text-sm border capitalize transition-all
-                     ${params.particleType === type
-                       ? 'bg-blue-100 border-[#0033A0] text-[#0033A0] font-bold'
-                       : 'bg-white border-gray-200 text-gray-600 hover:bg-gray-50'}
-                   `}
-                 >
-                   {type}
-                 </button>
-               ))}
-             </div>
-           </div>
+        {/* Particle Selection */}
+        <Section title="Particle" icon={Atom} defaultOpen={true} badge={state.particle.symbol}>
+          <div className="grid grid-cols-2 gap-2">
+            {Object.entries(PARTICLES).map(([type, particle]) => (
+              <ParticleChip
+                key={type}
+                particle={particle}
+                isSelected={state.particle.type === type}
+                onSelect={() => actions.setParticle(type)}
+              />
+            ))}
+          </div>
+        </Section>
 
-           <div>
-             <label className="block text-sm font-medium text-gray-700 mb-2">Momentum (GeV/c)</label>
-             <div className="flex items-center gap-4">
-               <input
-                 type="range" min="1" max="15" step="0.1"
-                 value={params.momentum}
-                 onChange={(e) => updateRootParam('momentum', parseFloat(e.target.value))}
-                 className="flex-1 h-2 bg-gradient-to-r from-yellow-300 to-red-500 rounded-lg appearance-none cursor-pointer"
-               />
-               <span className="font-mono text-lg font-bold w-16 text-right">{params.momentum}</span>
-             </div>
-             <p className="text-xs text-gray-500 mt-1 font-mono">
-               β = {(params.momentum / Math.sqrt(params.momentum**2 + 0.14**2)).toFixed(5)} (Pion)
-             </p>
-           </div>
-        </AccordionItem>
+        {/* Beam Parameters */}
+        <Section title="Beam Parameters" icon={Zap} defaultOpen={true}>
+          <Slider
+            label="Momentum"
+            value={state.beam.momentum}
+            min={0.5}
+            max={15}
+            step={0.1}
+            unit="GeV/c"
+            onChange={actions.setMomentum}
+            tooltip="Higher momentum = higher γ = more time dilation"
+          />
+          <Slider
+            label="Intensity"
+            value={state.beam.intensity}
+            min={100}
+            max={50000}
+            step={100}
+            unit="particles"
+            onChange={actions.setBeamIntensity}
+            tooltip="Number of particles per simulation"
+          />
+        </Section>
 
-        {/* Group 2: Detectors */}
-        <AccordionItem title="Detector Configuration" isOpen={openSection === 'detectors'} onClick={() => toggleSection('detectors')}>
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Beamline Length (m)</label>
-              <input
-                 type="range" min="5" max="50" step="1"
-                 value={params.beamLength}
-                 onChange={(e) => updateRootParam('beamLength', parseInt(e.target.value))}
-                 className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
-               />
-               <div className="flex justify-between text-xs text-gray-500 mt-1">
-                 <span>5m</span>
-                 <span className="font-bold text-[#0033A0]">{params.beamLength}m</span>
-                 <span>50m</span>
-               </div>
-            </div>
+        {/* Beamline */}
+        <Section title="Beamline" icon={Target}>
+          <Slider
+            label="Length"
+            value={state.beamline.length}
+            min={5}
+            max={100}
+            step={1}
+            unit="m"
+            onChange={actions.setBeamlineLength}
+            tooltip="Longer beamline = more decay observable"
+          />
 
-            <div className="space-y-2">
-              <label className="block text-sm font-medium text-gray-700">Active Detectors</label>
-              {[
-                { id: 'tof1', label: 'TOF Start (Fixed)' },
-                { id: 'scint', label: 'Scintillator Array' },
-                { id: 'cherenkov', label: 'Cherenkov Counter' },
-                { id: 'tof2', label: 'TOF End' }
-              ].map(d => (
-                <label key={d.id} className="flex items-center gap-3 p-2 bg-white rounded border border-gray-100 hover:bg-gray-50 cursor-pointer">
-                  <input
-                    type="checkbox"
-                    checked={params.detectors[d.id] ?? true} // Default true if undefined in initial state
-                    disabled={d.id === 'tof1'}
-                    className="w-4 h-4 text-[#0033A0] rounded focus:ring-[#0033A0]"
-                  />
-                  <span className="text-sm text-gray-700">{d.label}</span>
-                </label>
-              ))}
-            </div>
-        </AccordionItem>
-
-        {/* Group 3: Physics */}
-        <AccordionItem title="Physics Settings" isOpen={openSection === 'physics'} onClick={() => toggleSection('physics')}>
-            <div className="flex items-center justify-between">
-              <span className="text-sm font-medium text-gray-700">Enable Decay</span>
-              <button
-                onClick={() => updateParam('physics', 'decay', !params.physics.decay)}
-                className={`
-                  w-12 h-6 rounded-full p-1 transition-colors
-                  ${params.physics.decay ? 'bg-[#2ECC71]' : 'bg-gray-300'}
-                `}
+          {/* Detector toggles */}
+          <div className="space-y-1.5">
+            <span className="text-xs font-medium text-slate-500 uppercase">Detectors</span>
+            {[
+              { id: 'tof1', label: 'TOF Start', disabled: true },
+              { id: 'scintillator', label: 'Scintillator' },
+              { id: 'cherenkov', label: 'Cherenkov' },
+              { id: 'tof2', label: 'TOF End' }
+            ].map(d => (
+              <label
+                key={d.id}
+                className={`flex items-center gap-2 p-2 rounded-lg border cursor-pointer transition-all ${state.detectors[d.id] ? 'bg-blue-50 border-blue-200' : 'bg-white border-slate-100'
+                  } ${d.disabled ? 'opacity-50 cursor-not-allowed' : 'hover:border-slate-200'}`}
               >
-                <div className={`
-                  w-4 h-4 bg-white rounded-full shadow-sm transform transition-transform
-                  ${params.physics.decay ? 'translate-x-6' : 'translate-x-0'}
-                `} />
-              </button>
-            </div>
+                <input
+                  type="checkbox"
+                  checked={state.detectors[d.id]}
+                  disabled={d.disabled}
+                  onChange={() => actions.toggleDetector(d.id)}
+                  className="w-4 h-4 rounded text-[#0033A0] focus:ring-[#0033A0]"
+                />
+                <span className="text-sm text-slate-700">{d.label}</span>
+              </label>
+            ))}
+          </div>
+        </Section>
 
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Magnetic Field (Tesla)</label>
-              <input
-                 type="range" min="0" max="2" step="0.1"
-                 value={params.physics.magneticField}
-                 onChange={(e) => updateParam('physics', 'magneticField', parseFloat(e.target.value))}
-                 className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
-               />
-               <div className="text-right text-xs font-mono">{params.physics.magneticField} T</div>
-            </div>
-        </AccordionItem>
+        {/* Physics */}
+        <Section title="Physics" icon={Settings}>
+          <label className="flex items-center justify-between p-2 rounded-lg border border-slate-100 bg-white">
+            <span className="text-sm text-slate-700">Enable Decay</span>
+            <button
+              onClick={() => actions.setDecayEnabled(!state.physics.decayEnabled)}
+              className={`w-10 h-5 rounded-full p-0.5 transition-colors ${state.physics.decayEnabled ? 'bg-emerald-500' : 'bg-slate-300'
+                }`}
+            >
+              <motion.div
+                className="w-4 h-4 bg-white rounded-full shadow"
+                animate={{ x: state.physics.decayEnabled ? 20 : 0 }}
+              />
+            </button>
+          </label>
+        </Section>
       </div>
 
       {/* Footer Actions */}
-      <div className="p-6 border-t border-gray-200 bg-white z-10 space-y-4">
-        {/* Progress Bar (if running) */}
-        {isRunning && (
-          <div className="space-y-1">
-             <div className="flex justify-between text-xs font-medium text-[#0033A0]">
-               <span>Simulating...</span>
-               <span>{progress}%</span>
-             </div>
-             <div className="h-2 bg-gray-100 rounded-full overflow-hidden">
-               <motion.div
-                 className="h-full bg-[#0033A0]"
-                 initial={{ width: 0 }}
-                 animate={{ width: `${progress}%` }}
-               />
-             </div>
-          </div>
-        )}
-
-        {/* Results Button (if finished) */}
-        {results && !isRunning && (
-            <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}>
-               <Button
-                 variant="outline"
-                 className="w-full mb-2 !border-green-500 !text-green-600 hover:!bg-green-50"
-                 icon={BarChart2}
-                 onClick={onShowResults}
-               >
-                 View Results
-               </Button>
+      <div className="p-3 bg-white border-t border-slate-200 space-y-2">
+        {/* Progress */}
+        <AnimatePresence>
+          {isRunning && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              className="space-y-1"
+            >
+              <div className="flex justify-between text-xs font-medium text-[#0033A0]">
+                <span>Simulating {state.beam.intensity.toLocaleString()} {state.particle.symbol}...</span>
+                <span>{progress}%</span>
+              </div>
+              <div className="h-1.5 bg-slate-100 rounded-full overflow-hidden">
+                <motion.div
+                  className="h-full bg-gradient-to-r from-[#0033A0] to-[#3498DB]"
+                  initial={{ width: 0 }}
+                  animate={{ width: `${progress}%` }}
+                />
+              </div>
             </motion.div>
-        )}
+          )}
+        </AnimatePresence>
 
+        {/* Results Button */}
+        <AnimatePresence>
+          {results && !isRunning && (
+            <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}>
+              <Button
+                variant="outline"
+                className="w-full !border-emerald-500 !text-emerald-600 hover:!bg-emerald-50"
+                icon={BarChart2}
+                onClick={onShowResults}
+              >
+                View Results ({(results.stats.survivalRate * 100).toFixed(1)}% survived)
+              </Button>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        {/* Run Button */}
         <Button
           variant="primary"
-          className="w-full py-4 text-lg shadow-lg shadow-blue-900/20"
+          className="w-full py-3 text-base shadow-md"
           icon={isRunning ? RefreshCw : Play}
           disabled={isRunning}
           onClick={runSimulation}
         >
-          {isRunning ? 'Running Simulation...' : 'Run Simulation'}
+          {isRunning ? 'Running...' : 'Run Simulation'}
         </Button>
 
-        <div className="flex gap-4">
-          <Button variant="secondary" size="sm" className="flex-1" icon={Download}>Export</Button>
-          <Button variant="secondary" size="sm" className="flex-1" icon={Share2}>Share</Button>
+        {/* Export */}
+        <div className="flex gap-2">
+          <Button variant="secondary" size="sm" className="flex-1" icon={Download} disabled={!results} onClick={() => downloadResults('csv')}>
+            CSV
+          </Button>
+          <Button variant="secondary" size="sm" className="flex-1" icon={Download} disabled={!results} onClick={() => downloadResults('json')}>
+            JSON
+          </Button>
+          <Button variant="secondary" size="sm" className="flex-1" icon={Share2}>
+            Share
+          </Button>
         </div>
       </div>
-
     </div>
   );
 };

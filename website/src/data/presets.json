@@ -1,88 +1,907 @@
 {
-  "presets": [
-    {
-      "id": "time-dilation",
-      "name": "Time Dilation Test (CERN Proposal)",
-      "description": "Pion vs Kaon at 8 GeV/c",
-      "icon": "Activity",
-      "parameters": {
-        "particleType": "pion",
-        "momentum": 8,
-        "beamIntensity": 10000,
-        "detectors": ["TOF1", "SC1", "RICH", "TOF2"]
-      }
+    "beamlines": {
+        "cern-t9": {
+            "id": "cern-t9",
+            "name": "CERN T9",
+            "facility": "CERN PS East Area",
+            "description": "Secondary beamline at CERN PS, optimized for hadron physics and detector R&D",
+            "color": "#0033A0",
+            "minMomentum": 1,
+            "maxMomentum": 15,
+            "typicalLength": 15,
+            "maxLength": 50,
+            "particles": [
+                "pion",
+                "kaon",
+                "muon",
+                "proton"
+            ]
+        },
+        "cern-ps": {
+            "id": "cern-ps",
+            "name": "CERN PS",
+            "facility": "CERN Proton Synchrotron",
+            "description": "28 GeV proton synchrotron, provides beams for fixed-target experiments",
+            "color": "#E31B23",
+            "minMomentum": 5,
+            "maxMomentum": 28,
+            "typicalLength": 25,
+            "maxLength": 100,
+            "particles": [
+                "pion",
+                "kaon",
+                "muon",
+                "proton"
+            ]
+        },
+        "cern-sps": {
+            "id": "cern-sps",
+            "name": "CERN SPS",
+            "facility": "CERN Super Proton Synchrotron",
+            "description": "450 GeV synchrotron for high-energy physics and neutrino beams",
+            "color": "#00A3E0",
+            "minMomentum": 100,
+            "maxMomentum": 450,
+            "typicalLength": 50,
+            "maxLength": 150,
+            "particles": [
+                "pion",
+                "kaon",
+                "muon",
+                "proton"
+            ]
+        },
+        "desy-ii": {
+            "id": "desy-ii",
+            "name": "DESY II Test Beam",
+            "facility": "DESY Hamburg",
+            "description": "Multi-purpose test beam facility with electron and positron beams",
+            "color": "#FF6B35",
+            "minMomentum": 1,
+            "maxMomentum": 6,
+            "typicalLength": 10,
+            "maxLength": 30,
+            "particles": [
+                "electron",
+                "positron"
+            ]
+        },
+        "elsa": {
+            "id": "elsa",
+            "name": "ELSA",
+            "facility": "University of Bonn",
+            "description": "Electron stretcher accelerator for photoproduction and nuclear physics",
+            "color": "#9B59B6",
+            "minMomentum": 0.5,
+            "maxMomentum": 3.5,
+            "typicalLength": 8,
+            "maxLength": 25,
+            "particles": [
+                "electron",
+                "positron",
+                "photon"
+            ]
+        }
     },
-    {
-      "id": "transition-radiation",
-      "name": "Transition Radiation Detection",
-      "description": "Detect TR from high-γ particles",
-      "icon": "Layers",
-      "parameters": {
-        "particleType": "electron",
-        "momentum": 5,
-        "beamIntensity": 5000,
-        "detectors": ["TRD"]
-      }
-    },
-    {
-      "id": "hadron-therapy",
-      "name": "Hadron Therapy Simulation",
-      "description": "Cancer treatment dose deposition",
-      "icon": "Target",
-      "parameters": {
-        "particleType": "proton",
-        "momentum": 0.2,
-        "beamIntensity": 1000,
-        "detectors": ["Phantom"]
-      }
-    },
-    {
-      "id": "muon-lifetime",
-      "name": "Muon Lifetime Measurement",
-      "description": "Classic SR verification (Rossi-Hall)",
-      "icon": "Clock",
-      "parameters": {
-        "particleType": "muon",
-        "momentum": 4,
-        "beamIntensity": 500,
-        "detectors": ["ScintillatorStack"]
-      }
-    },
-    {
-      "id": "calibration",
-      "name": "Multi-Particle Detector Calibration",
-      "description": "Calibrate TOF and Cherenkov",
-      "icon": "Settings",
-      "parameters": {
-        "particleType": "mixed",
-        "momentum": 8,
-        "beamIntensity": 20000,
-        "detectors": ["All"]
-      }
-    },
-    {
-      "id": "cosmic-ray",
-      "name": "Cosmic Ray Simulation",
-      "description": "Atmospheric muon shower",
-      "icon": "CloudLightning",
-      "parameters": {
-        "particleType": "muon",
-        "momentum": "variable",
-        "beamIntensity": 50,
-        "detectors": ["WideAreaArray"]
-      }
-    },
-    {
-      "id": "custom",
-      "name": "Custom Experiment",
-      "description": "Build from scratch",
-      "icon": "Tool",
-      "parameters": {
-        "particleType": "pion",
-        "momentum": 8,
-        "beamIntensity": 1000,
-        "detectors": []
-      }
-    }
-  ]
+    "presets": [
+        {
+            "id": "t9-time-dilation-pion",
+            "name": "T9: Classic Time Dilation (π⁺)",
+            "beamline": "cern-t9",
+            "category": "fundamental",
+            "description": "Measure relativistic time dilation using pion decay. Optimize γ factor (~57) for clear lifetime extension.",
+            "icon": "Clock",
+            "particle": "pion",
+            "momentum": 8.0,
+            "beamIntensity": 10000,
+            "beamlineLength": 15,
+            "detectors": {
+                "tof1": true,
+                "scintillator": true,
+                "cherenkov": true,
+                "tof2": true
+            },
+            "physics": {
+                "decayEnabled": true
+            }
+        },
+        {
+            "id": "t9-kaon-decay-chain",
+            "name": "T9: Kaon Decay Chain Study",
+            "beamline": "cern-t9",
+            "category": "nuclear",
+            "description": "Study K⁺ → μ⁺νμ decay channel. Higher momentum for longer decay length observation.",
+            "icon": "Layers",
+            "particle": "kaon",
+            "momentum": 12.0,
+            "beamIntensity": 5000,
+            "beamlineLength": 25,
+            "detectors": {
+                "tof1": true,
+                "scintillator": true,
+                "cherenkov": true,
+                "tof2": true
+            },
+            "physics": {
+                "decayEnabled": true
+            }
+        },
+        {
+            "id": "t9-muon-lifetime",
+            "name": "T9: Muon Lifetime Precision",
+            "beamline": "cern-t9",
+            "category": "fundamental",
+            "description": "Precision measurement of muon lifetime via time dilation. Long beamline maximizes decay observation window.",
+            "icon": "Target",
+            "particle": "muon",
+            "momentum": 10.0,
+            "beamIntensity": 15000,
+            "beamlineLength": 40,
+            "detectors": {
+                "tof1": true,
+                "scintillator": true,
+                "cherenkov": true,
+                "tof2": true
+            },
+            "physics": {
+                "decayEnabled": true
+            }
+        },
+        {
+            "id": "t9-particle-id-low",
+            "name": "T9: Low-Energy PID Calibration",
+            "beamline": "cern-t9",
+            "category": "detector",
+            "description": "Calibrate particle identification detectors at low momentum where π/K/p separation is challenging.",
+            "icon": "Settings",
+            "particle": "pion",
+            "momentum": 2.0,
+            "beamIntensity": 8000,
+            "beamlineLength": 10,
+            "detectors": {
+                "tof1": true,
+                "scintillator": true,
+                "cherenkov": true,
+                "tof2": true
+            },
+            "physics": {
+                "decayEnabled": false
+            }
+        },
+        {
+            "id": "t9-high-statistics",
+            "name": "T9: High Statistics Run",
+            "beamline": "cern-t9",
+            "category": "detector",
+            "description": "Maximize beam intensity for detector efficiency studies and systematic error reduction.",
+            "icon": "BarChart",
+            "particle": "proton",
+            "momentum": 6.0,
+            "beamIntensity": 50000,
+            "beamlineLength": 15,
+            "detectors": {
+                "tof1": true,
+                "scintillator": true,
+                "cherenkov": false,
+                "tof2": true
+            },
+            "physics": {
+                "decayEnabled": false
+            }
+        },
+        {
+            "id": "t9-tof-resolution",
+            "name": "T9: TOF Resolution Test",
+            "beamline": "cern-t9",
+            "category": "detector",
+            "description": "Test time-of-flight detector resolution with medium-energy pions. Short beamline for minimal decay.",
+            "icon": "Zap",
+            "particle": "pion",
+            "momentum": 5.0,
+            "beamIntensity": 12000,
+            "beamlineLength": 8,
+            "detectors": {
+                "tof1": true,
+                "scintillator": false,
+                "cherenkov": false,
+                "tof2": true
+            },
+            "physics": {
+                "decayEnabled": false
+            }
+        },
+        {
+            "id": "t9-beta-gamma-scan",
+            "name": "T9: β-γ Parameter Space Scan",
+            "beamline": "cern-t9",
+            "category": "fundamental",
+            "description": "Systematic scan of relativistic parameters. Mid-range momentum for optimal γ~30.",
+            "icon": "TrendingUp",
+            "particle": "pion",
+            "momentum": 4.5,
+            "beamIntensity": 10000,
+            "beamlineLength": 20,
+            "detectors": {
+                "tof1": true,
+                "scintillator": true,
+                "cherenkov": true,
+                "tof2": true
+            },
+            "physics": {
+                "decayEnabled": true
+            }
+        },
+        {
+            "id": "t9-cherenkov-threshold",
+            "name": "T9: Cherenkov Threshold Study",
+            "beamline": "cern-t9",
+            "category": "detector",
+            "description": "Study Cherenkov detector response near threshold. Critical for π/K separation.",
+            "icon": "Circle",
+            "particle": "kaon",
+            "momentum": 3.0,
+            "beamIntensity": 7000,
+            "beamlineLength": 12,
+            "detectors": {
+                "tof1": true,
+                "scintillator": true,
+                "cherenkov": true,
+                "tof2": true
+            },
+            "physics": {
+                "decayEnabled": false
+            }
+        },
+        {
+            "id": "ps-neutrino-parent-pion",
+            "name": "PS: Neutrino Beam (π Parent)",
+            "beamline": "cern-ps",
+            "category": "nuclear",
+            "description": "High-energy pion beam for neutrino production via π⁺ → μ⁺νμ decay-in-flight.",
+            "icon": "Layers",
+            "particle": "pion",
+            "momentum": 20.0,
+            "beamIntensity": 30000,
+            "beamlineLength": 60,
+            "detectors": {
+                "tof1": true,
+                "scintillator": true,
+                "cherenkov": true,
+                "tof2": true
+            },
+            "physics": {
+                "decayEnabled": true
+            }
+        },
+        {
+            "id": "ps-kaon-rare-decay",
+            "name": "PS: Rare Kaon Decay Search",
+            "beamline": "cern-ps",
+            "category": "fundamental",
+            "description": "Search for rare K⁺ decay modes. High intensity essential for rare process observation.",
+            "icon": "Star",
+            "particle": "kaon",
+            "momentum": 18.0,
+            "beamIntensity": 40000,
+            "beamlineLength": 50,
+            "detectors": {
+                "tof1": true,
+                "scintillator": true,
+                "cherenkov": true,
+                "tof2": true
+            },
+            "physics": {
+                "decayEnabled": true
+            }
+        },
+        {
+            "id": "ps-proton-scattering",
+            "name": "PS: Proton-Nucleus Scattering",
+            "beamline": "cern-ps",
+            "category": "nuclear",
+            "description": "Fixed-target nuclear physics with 25 GeV protons. Study hadron production and nuclear structure.",
+            "icon": "Target",
+            "particle": "proton",
+            "momentum": 25.0,
+            "beamIntensity": 20000,
+            "beamlineLength": 30,
+            "detectors": {
+                "tof1": true,
+                "scintillator": true,
+                "cherenkov": false,
+                "tof2": true
+            },
+            "physics": {
+                "decayEnabled": false
+            }
+        },
+        {
+            "id": "ps-muon-g-minus-2",
+            "name": "PS: Muon g-2 Beam Test",
+            "beamline": "cern-ps",
+            "category": "fundamental",
+            "description": "Test beam setup for muon g-2 detector development. High-purity muon beam required.",
+            "icon": "Circle",
+            "particle": "muon",
+            "momentum": 15.0,
+            "beamIntensity": 25000,
+            "beamlineLength": 45,
+            "detectors": {
+                "tof1": true,
+                "scintillator": true,
+                "cherenkov": true,
+                "tof2": true
+            },
+            "physics": {
+                "decayEnabled": true
+            }
+        },
+        {
+            "id": "ps-pion-photoproduction",
+            "name": "PS: Pion Photoproduction Study",
+            "beamline": "cern-ps",
+            "category": "nuclear",
+            "description": "Study secondary pion production from proton collisions. Characterize meson production cross-sections.",
+            "icon": "Zap",
+            "particle": "pion",
+            "momentum": 12.0,
+            "beamIntensity": 35000,
+            "beamlineLength": 40,
+            "detectors": {
+                "tof1": true,
+                "scintillator": true,
+                "cherenkov": true,
+                "tof2": true
+            },
+            "physics": {
+                "decayEnabled": true
+            }
+        },
+        {
+            "id": "ps-detector-radiation",
+            "name": "PS: Radiation Damage Test",
+            "beamline": "cern-ps",
+            "category": "detector",
+            "description": "Irradiate detector prototypes to test radiation hardness for LHC upgrades.",
+            "icon": "Settings",
+            "particle": "proton",
+            "momentum": 20.0,
+            "beamIntensity": 50000,
+            "beamlineLength": 20,
+            "detectors": {
+                "tof1": true,
+                "scintillator": true,
+                "cherenkov": false,
+                "tof2": false
+            },
+            "physics": {
+                "decayEnabled": false
+            }
+        },
+        {
+            "id": "ps-charm-production",
+            "name": "PS: Charm Hadron Production",
+            "beamline": "cern-ps",
+            "category": "nuclear",
+            "description": "High-energy kaon beam for studying charm physics and D-meson production thresholds.",
+            "icon": "Star",
+            "particle": "kaon",
+            "momentum": 24.0,
+            "beamIntensity": 15000,
+            "beamlineLength": 70,
+            "detectors": {
+                "tof1": true,
+                "scintillator": true,
+                "cherenkov": true,
+                "tof2": true
+            },
+            "physics": {
+                "decayEnabled": true
+            }
+        },
+        {
+            "id": "ps-cosmic-ray-simulation",
+            "name": "PS: Cosmic Ray Muon Simulation",
+            "beamline": "cern-ps",
+            "category": "fundamental",
+            "description": "Simulate atmospheric cosmic ray muons for astroparticle detector development.",
+            "icon": "TrendingUp",
+            "particle": "muon",
+            "momentum": 10.0,
+            "beamIntensity": 18000,
+            "beamlineLength": 80,
+            "detectors": {
+                "tof1": true,
+                "scintillator": true,
+                "cherenkov": true,
+                "tof2": true
+            },
+            "physics": {
+                "decayEnabled": true
+            }
+        },
+        {
+            "id": "sps-na61-hadron",
+            "name": "SPS: NA61/SHINE Hadron Run",
+            "beamline": "cern-sps",
+            "category": "nuclear",
+            "description": "NA61/SHINE experiment parameters for heavy-ion collisions and hadron production physics.",
+            "icon": "Layers",
+            "particle": "proton",
+            "momentum": 158.0,
+            "beamIntensity": 100000,
+            "beamlineLength": 100,
+            "detectors": {
+                "tof1": true,
+                "scintillator": true,
+                "cherenkov": false,
+                "tof2": true
+            },
+            "physics": {
+                "decayEnabled": false
+            }
+        },
+        {
+            "id": "sps-neutrino-beam",
+            "name": "SPS: CNGS Neutrino Beam",
+            "beamline": "cern-sps",
+            "category": "fundamental",
+            "description": "CERN Neutrinos to Gran Sasso setup. Ultra-high energy pion/kaon decay for νμ beam.",
+            "icon": "TrendingUp",
+            "particle": "pion",
+            "momentum": 400.0,
+            "beamIntensity": 200000,
+            "beamlineLength": 150,
+            "detectors": {
+                "tof1": true,
+                "scintillator": true,
+                "cherenkov": true,
+                "tof2": true
+            },
+            "physics": {
+                "decayEnabled": true
+            }
+        },
+        {
+            "id": "sps-extreme-gamma",
+            "name": "SPS: Extreme γ Factor Study",
+            "beamline": "cern-sps",
+            "category": "fundamental",
+            "description": "Push relativistic limits with γ > 3000. Study ultra-relativistic time dilation effects.",
+            "icon": "Zap",
+            "particle": "pion",
+            "momentum": 450.0,
+            "beamIntensity": 50000,
+            "beamlineLength": 120,
+            "detectors": {
+                "tof1": true,
+                "scintillator": true,
+                "cherenkov": true,
+                "tof2": true
+            },
+            "physics": {
+                "decayEnabled": true
+            }
+        },
+        {
+            "id": "sps-lhc-injection",
+            "name": "SPS: LHC Injection Test",
+            "beamline": "cern-sps",
+            "category": "detector",
+            "description": "Test beam quality for LHC injection. Study beam optics and particle survival at 450 GeV.",
+            "icon": "Target",
+            "particle": "proton",
+            "momentum": 450.0,
+            "beamIntensity": 80000,
+            "beamlineLength": 80,
+            "detectors": {
+                "tof1": true,
+                "scintillator": true,
+                "cherenkov": false,
+                "tof2": true
+            },
+            "physics": {
+                "decayEnabled": false
+            }
+        },
+        {
+            "id": "sps-cp-violation",
+            "name": "SPS: CP Violation in Kaons",
+            "beamline": "cern-sps",
+            "category": "fundamental",
+            "description": "Study CP violation parameters in neutral kaon system. High-energy K⁺ beam configuration.",
+            "icon": "Star",
+            "particle": "kaon",
+            "momentum": 300.0,
+            "beamIntensity": 60000,
+            "beamlineLength": 110,
+            "detectors": {
+                "tof1": true,
+                "scintillator": true,
+                "cherenkov": true,
+                "tof2": true
+            },
+            "physics": {
+                "decayEnabled": true
+            }
+        },
+        {
+            "id": "sps-fixed-target-qcd",
+            "name": "SPS: Fixed-Target QCD",
+            "beamline": "cern-sps",
+            "category": "nuclear",
+            "description": "Study strong interaction physics in proton-nucleus collisions. High-energy QCD regime.",
+            "icon": "Circle",
+            "particle": "proton",
+            "momentum": 280.0,
+            "beamIntensity": 70000,
+            "beamlineLength": 90,
+            "detectors": {
+                "tof1": true,
+                "scintillator": true,
+                "cherenkov": true,
+                "tof2": true
+            },
+            "physics": {
+                "decayEnabled": false
+            }
+        },
+        {
+            "id": "sps-muon-beam-ultra",
+            "name": "SPS: Ultra-High Energy Muons",
+            "beamline": "cern-sps",
+            "category": "fundamental",
+            "description": "Highest energy muon beam for muon collider R&D and precision electroweak measurements.",
+            "icon": "TrendingUp",
+            "particle": "muon",
+            "momentum": 200.0,
+            "beamIntensity": 40000,
+            "beamlineLength": 140,
+            "detectors": {
+                "tof1": true,
+                "scintillator": true,
+                "cherenkov": true,
+                "tof2": true
+            },
+            "physics": {
+                "decayEnabled": true
+            }
+        },
+        {
+            "id": "desy-electron-calorimeter",
+            "name": "DESY: EM Calorimeter Test",
+            "beamline": "desy-ii",
+            "category": "detector",
+            "description": "Calibrate electromagnetic calorimeter with mono-energetic electron beam. Standard test beam setup.",
+            "icon": "Settings",
+            "particle": "electron",
+            "momentum": 4.0,
+            "beamIntensity": 5000,
+            "beamlineLength": 12,
+            "detectors": {
+                "tof1": true,
+                "scintillator": true,
+                "cherenkov": true,
+                "tof2": true
+            },
+            "physics": {
+                "decayEnabled": false
+            }
+        },
+        {
+            "id": "desy-pair-production",
+            "name": "DESY: e⁺e⁻ Pair Studies",
+            "beamline": "desy-ii",
+            "category": "fundamental",
+            "description": "Study pair production and annihilation. Mixed beam of electrons and positrons.",
+            "icon": "Circle",
+            "particle": "positron",
+            "momentum": 3.0,
+            "beamIntensity": 8000,
+            "beamlineLength": 15,
+            "detectors": {
+                "tof1": true,
+                "scintillator": true,
+                "cherenkov": true,
+                "tof2": true
+            },
+            "physics": {
+                "decayEnabled": false
+            }
+        },
+        {
+            "id": "desy-tracker-efficiency",
+            "name": "DESY: Silicon Tracker Efficiency",
+            "beamline": "desy-ii",
+            "category": "detector",
+            "description": "Test silicon strip and pixel detector efficiency with low-momentum electrons for vertex detectors.",
+            "icon": "Target",
+            "particle": "electron",
+            "momentum": 1.5,
+            "beamIntensity": 3000,
+            "beamlineLength": 8,
+            "detectors": {
+                "tof1": true,
+                "scintillator": true,
+                "cherenkov": false,
+                "tof2": true
+            },
+            "physics": {
+                "decayEnabled": false
+            }
+        },
+        {
+            "id": "desy-bremsstrahlung",
+            "name": "DESY: Bremsstrahlung Study",
+            "beamline": "desy-ii",
+            "category": "fundamental",
+            "description": "Study electromagnetic showering and bremsstrahlung radiation with high-energy electrons.",
+            "icon": "Zap",
+            "particle": "electron",
+            "momentum": 6.0,
+            "beamIntensity": 10000,
+            "beamlineLength": 20,
+            "detectors": {
+                "tof1": true,
+                "scintillator": true,
+                "cherenkov": true,
+                "tof2": true
+            },
+            "physics": {
+                "decayEnabled": false
+            }
+        },
+        {
+            "id": "desy-positron-lifetime",
+            "name": "DESY: Positron Annihilation",
+            "beamline": "desy-ii",
+            "category": "fundamental",
+            "description": "Study positronium formation and annihilation. Test QED predictions at low energies.",
+            "icon": "Star",
+            "particle": "positron",
+            "momentum": 2.0,
+            "beamIntensity": 6000,
+            "beamlineLength": 10,
+            "detectors": {
+                "tof1": true,
+                "scintillator": true,
+                "cherenkov": true,
+                "tof2": true
+            },
+            "physics": {
+                "decayEnabled": false
+            }
+        },
+        {
+            "id": "desy-trd-development",
+            "name": "DESY: TRD Detector R&D",
+            "beamline": "desy-ii",
+            "category": "detector",
+            "description": "Develop transition radiation detectors for e/π separation. Critical for future collider experiments.",
+            "icon": "Settings",
+            "particle": "electron",
+            "momentum": 5.0,
+            "beamIntensity": 12000,
+            "beamlineLength": 18,
+            "detectors": {
+                "tof1": true,
+                "scintillator": true,
+                "cherenkov": true,
+                "tof2": true
+            },
+            "physics": {
+                "decayEnabled": false
+            }
+        },
+        {
+            "id": "desy-scintillator-timing",
+            "name": "DESY: Fast Timing Scintillators",
+            "beamline": "desy-ii",
+            "category": "detector",
+            "description": "Test ultrafast scintillator timing resolution (<100ps) for TOF applications.",
+            "icon": "Clock",
+            "particle": "electron",
+            "momentum": 3.5,
+            "beamIntensity": 7000,
+            "beamlineLength": 10,
+            "detectors": {
+                "tof1": true,
+                "scintillator": true,
+                "cherenkov": false,
+                "tof2": true
+            },
+            "physics": {
+                "decayEnabled": false
+            }
+        },
+        {
+            "id": "desy-radiation-monitor",
+            "name": "DESY: Radiation Monitor Calibration",
+            "beamline": "desy-ii",
+            "category": "detector",
+            "description": "Calibrate radiation monitoring systems for accelerator safety and beam diagnostics.",
+            "icon": "BarChart",
+            "particle": "positron",
+            "momentum": 4.5,
+            "beamIntensity": 15000,
+            "beamlineLength": 12,
+            "detectors": {
+                "tof1": true,
+                "scintillator": true,
+                "cherenkov": true,
+                "tof2": true
+            },
+            "physics": {
+                "decayEnabled": false
+            }
+        },
+        {
+            "id": "elsa-photon-nuclear",
+            "name": "ELSA: Photonuclear Physics",
+            "beamline": "elsa",
+            "category": "nuclear",
+            "description": "Study photon-induced nuclear reactions. Tagged photon beam for meson photoproduction.",
+            "icon": "Target",
+            "particle": "photon",
+            "momentum": 3.0,
+            "beamIntensity": 8000,
+            "beamlineLength": 15,
+            "detectors": {
+                "tof1": true,
+                "scintillator": true,
+                "cherenkov": true,
+                "tof2": true
+            },
+            "physics": {
+                "decayEnabled": false
+            }
+        },
+        {
+            "id": "elsa-electron-scattering",
+            "name": "ELSA: Electron Scattering Exp",
+            "beamline": "elsa",
+            "category": "nuclear",
+            "description": "Elastic and inelastic electron scattering off nuclei. Study nuclear form factors.",
+            "icon": "Circle",
+            "particle": "electron",
+            "momentum": 2.5,
+            "beamIntensity": 5000,
+            "beamlineLength": 12,
+            "detectors": {
+                "tof1": true,
+                "scintillator": true,
+                "cherenkov": true,
+                "tof2": true
+            },
+            "physics": {
+                "decayEnabled": false
+            }
+        },
+        {
+            "id": "elsa-compton-scattering",
+            "name": "ELSA: Compton Scattering",
+            "beamline": "elsa",
+            "category": "fundamental",
+            "description": "Test QED via Compton scattering of polarized photons. Precision physics at low energies.",
+            "icon": "Zap",
+            "particle": "photon",
+            "momentum": 1.5,
+            "beamIntensity": 10000,
+            "beamlineLength": 8,
+            "detectors": {
+                "tof1": true,
+                "scintillator": true,
+                "cherenkov": true,
+                "tof2": true
+            },
+            "physics": {
+                "decayEnabled": false
+            }
+        },
+        {
+            "id": "elsa-bgo-calibration",
+            "name": "ELSA: BGO Calorimeter Cal",
+            "beamline": "elsa",
+            "category": "detector",
+            "description": "Calibrate BGO electromagnetic calorimeter with monochromatic electron beam.",
+            "icon": "Settings",
+            "particle": "electron",
+            "momentum": 3.2,
+            "beamIntensity": 6000,
+            "beamlineLength": 10,
+            "detectors": {
+                "tof1": true,
+                "scintillator": true,
+                "cherenkov": false,
+                "tof2": true
+            },
+            "physics": {
+                "decayEnabled": false
+            }
+        },
+        {
+            "id": "elsa-polarized-beam",
+            "name": "ELSA: Polarized e⁻ Beam",
+            "beamline": "elsa",
+            "category": "fundamental",
+            "description": "Study spin-dependent interactions with longitudinally polarized electron beam.",
+            "icon": "TrendingUp",
+            "particle": "electron",
+            "momentum": 2.8,
+            "beamIntensity": 7000,
+            "beamlineLength": 18,
+            "detectors": {
+                "tof1": true,
+                "scintillator": true,
+                "cherenkov": true,
+                "tof2": true
+            },
+            "physics": {
+                "decayEnabled": false
+            }
+        },
+        {
+            "id": "elsa-meson-spectroscopy",
+            "name": "ELSA: Meson Spectroscopy",
+            "beamline": "elsa",
+            "category": "nuclear",
+            "description": "Study light meson spectrum via photoproduction. Search for exotic mesons and glueballs.",
+            "icon": "Star",
+            "particle": "photon",
+            "momentum": 3.5,
+            "beamIntensity": 12000,
+            "beamlineLength": 20,
+            "detectors": {
+                "tof1": true,
+                "scintillator": true,
+                "cherenkov": true,
+                "tof2": true
+            },
+            "physics": {
+                "decayEnabled": false
+            }
+        },
+        {
+            "id": "elsa-positron-nuclear",
+            "name": "ELSA: Positron-Nucleus Int",
+            "beamline": "elsa",
+            "category": "nuclear",
+            "description": "Complementary to electron scattering. Study charge conjugation effects in electromagnetic interactions.",
+            "icon": "Layers",
+            "particle": "positron",
+            "momentum": 2.2,
+            "beamIntensity": 4500,
+            "beamlineLength": 14,
+            "detectors": {
+                "tof1": true,
+                "scintillator": true,
+                "cherenkov": true,
+                "tof2": true
+            },
+            "physics": {
+                "decayEnabled": false
+            }
+        },
+        {
+            "id": "elsa-photon-tagging",
+            "name": "ELSA: Photon Tagging System",
+            "beamline": "elsa",
+            "category": "detector",
+            "description": "Commission and calibrate photon tagging spectrometer for tagged photon experiments.",
+            "icon": "Target",
+            "particle": "photon",
+            "momentum": 2.0,
+            "beamIntensity": 9000,
+            "beamlineLength": 12,
+            "detectors": {
+                "tof1": true,
+                "scintillator": true,
+                "cherenkov": true,
+                "tof2": true
+            },
+            "physics": {
+                "decayEnabled": false
+            }
+        }
+    ]
 }

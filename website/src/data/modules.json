@@ -4,144 +4,794 @@
       "level": "beginner",
       "items": [
         {
-          "id": "1.1",
-          "title": "What is a Particle?",
-          "duration": "15 min",
+          "title": "1. The Building Blocks of the Universe",
+          "description": "A comprehensive introduction to fundamental particles: the quarks, leptons, and bosons that construct everything we see—and much that we cannot.",
           "icon": "Atom",
-          "description": "Introduction to subatomic particles, quarks, leptons",
-          "content": "# What is a Particle?\n\nEverything in the universe is made of tiny building blocks called particles. But what exactly are they?\n\n### The Standard Model\n\nPhysicists use a theory called the **Standard Model** to describe the fundamental particles and forces. It's like the periodic table, but for the subatomic world.\n\n*   **Quarks**: These make up protons and neutrons. Up and Down quarks are the most common.\n*   **Leptons**: These include electrons and neutrinos.\n*   **Bosons**: These carry forces, like the photon (light) and the gluon (strong force).\n\n### Interactive: Build a Particle\n\nTry dragging quarks together to see what they make!",
-          "interactive": {
-            "type": "particle-builder"
-          },
-          "task": {
-            "description": "Go to the Simulator and select the 'Time Dilation Test' preset. Observe the different types of particles (Pions vs Kaons) represented by different colors."
-          },
-          "quiz": [
+          "estimatedTime": "45 minutes",
+          "subtopics": [
             {
-              "question": "Which quark combination makes a proton?",
-              "options": ["Up-Up-Down", "Up-Down-Down", "Strange-Charm-Top", "Bottom-Up-Strange"],
-              "correct": 0,
-              "explanation": "A proton consists of two Up quarks and one Down quark (uud)."
+              "id": "1.1.1",
+              "title": "What is Matter?",
+              "type": "text",
+              "content": "## Understanding the Fabric of Reality\n\nEverything you can touch, see, or feel is made of **matter**. The chair you're sitting on, the air you breathe, the stars billions of light-years away—all of it is matter. But what exactly *is* matter?\n\n### The Classical Definition\n\nAt its most fundamental level, matter is anything that:\n- **Has mass** (a measure of how much \"stuff\" something contains)\n- **Occupies space** (takes up volume)\n\nA wooden table has mass (you can feel its weight) and occupies space (you can't walk through it). But here's where physics gets fascinating: that seemingly solid table is almost entirely **empty space**.\n\n### The Atomic Revolution\n\nIn the early 20th century, scientists discovered that matter is made of **atoms**—tiny building blocks so small that a single drop of water contains more atoms than there are stars in the observable universe (approximately 5 sextillion atoms, or 5 × 10²¹).\n\nBut atoms themselves are not fundamental. Each atom consists of:\n- A dense **nucleus** at the center (containing protons and neutrons)\n- **Electrons** orbiting around the nucleus\n\n### Going Deeper: Subatomic Particles\n\nThe nucleus is incredibly small—if an atom were the size of a football stadium, the nucleus would be a marble at the center. Yet this tiny nucleus contains 99.9% of the atom's mass!\n\nScientists in the 1960s discovered that protons and neutrons are themselves made of even smaller particles called **quarks**. This was revolutionary: we had found a deeper layer of reality.\n\n### The Modern View\n\nToday, we understand that all matter is built from a small set of **elementary particles**—particles that (as far as we know) cannot be broken down further. These fall into two main categories:\n1. **Quarks**: The building blocks of protons and neutrons\n2. **Leptons**: Including the electron and the mysterious neutrino\n\n> 🔬 **Key Insight**: What appears solid is mostly empty space held together by fundamental forces. The \"solidity\" you feel when touching a table comes from electromagnetic repulsion between electrons."
             },
             {
-              "question": "Are electrons quarks or leptons?",
-              "options": ["Quarks", "Leptons", "Bosons", "Mesons"],
-              "correct": 1,
-              "explanation": "Electrons are a type of Lepton."
+              "id": "1.1.2",
+              "title": "Atoms vs Elementary Particles",
+              "type": "text",
+              "infographic": "AtomStructure",
+              "content": "## The Hierarchy of Matter\n\nThere's an important distinction in particle physics between **composite particles** (made of smaller things) and **elementary particles** (fundamental, indivisible).\n\n### The Atomic Structure\n\nAn atom consists of three main components:\n\n| Particle | Location | Charge | Relative Mass |\n|----------|----------|--------|---------------|\n| Proton | Nucleus | +1 | 1 |\n| Neutron | Nucleus | 0 | 1 |\n| Electron | Orbitals | -1 | 1/1836 |\n\nThe **proton** carries a positive electrical charge. The **neutron** is electrically neutral. The **electron** carries a negative charge and is remarkably light—about 1,836 times lighter than a proton!\n\n### Why Atoms Are NOT Elementary\n\nFor decades, scientists believed protons, neutrons, and electrons were the end of the story. But experiments in the 1960s revealed shocking news:\n\n**Protons and neutrons are composite!** They're made of smaller particles called **quarks**, held together by particles called **gluons**.\n\nA proton = 2 up quarks + 1 down quark (written as \"uud\")\nA neutron = 1 up quark + 2 down quarks (written as \"udd\")\n\n### What IS Elementary?\n\nAn **elementary particle** is one that has no known substructure—it cannot be broken down into smaller components. According to the Standard Model of particle physics, the elementary particles are:\n\n- **6 Quarks** (up, down, charm, strange, top, bottom)\n- **6 Leptons** (electron, muon, tau, and their neutrinos)\n- **Force carriers** (photon, gluon, W/Z bosons)\n- **The Higgs boson**\n\nThe electron, unlike the proton, IS elementary. No experiment has ever found any internal structure within an electron.\n\n> ⚛️ **Think About It**: If you could zoom into your hand by a factor of 10 billion, you'd see atoms. Zoom in another million times, and you'd see the nucleus. Inside that nucleus are protons and neutrons. Inside those are quarks. And that's where our current understanding ends."
+            },
+            {
+              "id": "1.1.3",
+              "title": "Meet the Quarks",
+              "type": "text",
+              "infographic": "QuarkTable",
+              "content": "## The Six Flavors of Quarks\n\nQuarks are truly strange particles—and I mean that literally! One of them is actually called the \"strange\" quark. There are **six types** (called \"flavors\") of quarks, arranged in three generations:\n\n### Generation I: The Everyday Quarks\nThese quarks make up all ordinary matter:\n\n**Up Quark (u)**\n- Electric charge: +2/3\n- Mass: ~2.2 MeV/c²\n- Found in: Every proton and neutron\n\n**Down Quark (d)**\n- Electric charge: -1/3\n- Mass: ~4.7 MeV/c²\n- Found in: Every proton and neutron\n\n### Generation II: The Exotic Quarks\nThese require high energies to create:\n\n**Charm Quark (c)**\n- Electric charge: +2/3\n- Mass: ~1,270 MeV/c² (much heavier!)\n- Discovered in 1974 (the \"November Revolution\")\n\n**Strange Quark (s)**\n- Electric charge: -1/3\n- Mass: ~95 MeV/c²\n- Named for its unexpectedly long lifetime\n\n### Generation III: The Heavyweights\nThese are incredibly massive and short-lived:\n\n**Top Quark (t)**\n- Electric charge: +2/3\n- Mass: ~173,000 MeV/c² (as heavy as a gold atom!)\n- The heaviest known elementary particle\n\n**Bottom Quark (b)**\n- Electric charge: -1/3\n- Mass: ~4,180 MeV/c²\n- Also called the \"beauty\" quark\n\n### The Confinement Problem\n\nHere's something remarkable: **you can never see a quark alone**. Quarks are always confined inside larger particles (hadrons) due to a phenomenon called **color confinement**. The strong force actually gets *stronger* as quarks separate—like a rubber band that won't let you pull them apart.\n\n> 🎨 **Color Charge**: Quarks carry a type of charge called \"color\" (red, green, or blue). This has nothing to do with actual colors—it's just a naming convention. All observable particles must be \"colorless\" (all three colors combined)."
+            },
+            {
+              "id": "1.1.4",
+              "title": "Meet the Leptons",
+              "type": "text",
+              "content": "## The Lightweight Family\n\nWhile quarks form the heavy nuclear matter, **leptons** are a different family entirely. The name comes from the Greek \"leptos\" meaning \"small\" or \"light\"—though not all leptons are light!\n\n### The Six Leptons\n\nLike quarks, there are six leptons in three generations:\n\n**Generation I:**\n- **Electron (e⁻)**: Mass = 0.511 MeV/c². The particle that creates chemistry.\n- **Electron Neutrino (νₑ)**: Nearly massless, electrically neutral, practically invisible.\n\n**Generation II:**\n- **Muon (μ⁻)**: Mass = 105.7 MeV/c². A \"heavy electron\" that decays in 2.2 microseconds.\n- **Muon Neutrino (νμ)**: Partners with the muon in weak interactions.\n\n**Generation III:**\n- **Tau (τ⁻)**: Mass = 1,777 MeV/c². Even heavier and shorter-lived.\n- **Tau Neutrino (ντ)**: The tau's neutrino partner.\n\n### Key Difference from Quarks\n\nLeptons do NOT feel the strong nuclear force. This is crucial:\n- Quarks are bound inside protons/neutrons by the strong force\n- Electrons orbit freely around the nucleus\n- Neutrinos pass through matter almost completely unimpeded\n\n### The Ghost Particle: Neutrinos\n\nNeutrinos deserve special attention. They are:\n- **Incredibly abundant**: 65 billion solar neutrinos pass through every square centimeter of your body EVERY SECOND\n- **Almost massless**: Less than 0.1 eV/c² (millions of times lighter than an electron)\n- **Practically invisible**: A neutrino could pass through a light-year of lead with only a 50% chance of interaction\n\nWolfgang Pauli, who first proposed the neutrino in 1930, said: \"I have done a terrible thing. I have postulated a particle that cannot be detected.\"\n\n> 👻 **Fun Fact**: Neutrinos from the Sun take only 8 minutes to reach Earth, and most pass straight through the entire planet without interacting with a single atom."
+            },
+            {
+              "id": "1.1.5",
+              "title": "Rutherford's Gold Foil Experiment",
+              "type": "case_study",
+              "content": "## The Discovery of the Nucleus\n\nIn 1909, Ernest Rutherford conducted one of the most famous experiments in physics history. The results would completely overturn our understanding of atomic structure.\n\n### The Setup\n\nRutherford's team (Hans Geiger and Ernest Marsden) directed a beam of **alpha particles** (helium nuclei) at a thin gold foil, only a few atoms thick. They expected the particles to pass straight through with minor deflections.\n\n### The Shocking Result\n\nMost alpha particles did pass through. But about 1 in 8,000 bounced back!\n\nRutherford famously said: *\"It was as if you fired a 15-inch shell at a piece of tissue paper and it came back and hit you.\"*\n\n### The Explanation\n\nThe only way to explain such dramatic deflections was if atoms contained a tiny, dense, positively charged center—the **nucleus**. The atom wasn't a uniform blob (the \"plum pudding model\"); it was mostly empty space!\n\n### Calculations Revealed\n\n- The nucleus is ~10,000 times smaller than the atom\n- Yet it contains 99.9% of the atom's mass\n- The positive charge of protons explained the repulsion of alpha particles\n\n### Why This Matters\n\nThis experiment established the **nuclear model of the atom** that we still use today. It showed that:\n1. Matter is mostly empty space\n2. Mass is concentrated in a tiny nucleus\n3. Electrons orbit at relatively enormous distances\n\n> 🏆 **Legacy**: Rutherford is often called the \"father of nuclear physics.\" This single experiment opened the door to understanding nuclear reactions, radioactivity, and eventually nuclear energy."
+            },
+            {
+              "id": "1.1.6",
+              "title": "Force Carriers: The Bosons",
+              "type": "text",
+              "infographic": "ForceCarriers",
+              "content": "## How Particles Interact\n\nParticles don't just exist in isolation—they interact. But how? In quantum field theory, forces are transmitted by exchanging special particles called **gauge bosons**.\n\n### The Four Fundamental Forces and Their Carriers\n\n**1. Electromagnetic Force**\n- **Carrier**: Photon (γ)\n- **Acts on**: Electrically charged particles\n- **Range**: Infinite\n- **Example**: Holds electrons in atoms, creates light\n\n**2. Strong Nuclear Force**\n- **Carrier**: Gluon (g)\n- **Acts on**: Quarks (particles with \"color charge\")\n- **Range**: ~10⁻¹⁵ meters (nuclear scale)\n- **Example**: Binds quarks into protons, holds nuclei together\n\n**3. Weak Nuclear Force**\n- **Carriers**: W⁺, W⁻, and Z⁰ bosons\n- **Acts on**: All fermions\n- **Range**: ~10⁻¹⁸ meters (extremely short)\n- **Example**: Enables radioactive beta decay, powers the Sun\n\n**4. Gravity**\n- **Carrier**: Graviton (hypothetical, not yet detected)\n- **Acts on**: All mass and energy\n- **Range**: Infinite\n- **Example**: Keeps planets in orbit, you on the ground\n\n### The Exchange Picture\n\nImagine two skaters on ice, throwing a ball back and forth. Each throw pushes them apart—this is like the electromagnetic repulsion between two electrons, mediated by photon exchange.\n\nFor attractive forces (like between opposite charges), the quantum mechanical picture is more subtle but works mathematically.\n\n### Relative Strengths\n\nIf we set the strong force = 1:\n- Strong: 1\n- Electromagnetic: 1/137 (~0.007)\n- Weak: 10⁻⁶\n- Gravity: 10⁻⁴⁰ (!!)\n\nYes, gravity is 10 thousand trillion trillion trillion times weaker than the strong force. The only reason gravity seems strong is that it adds up over astronomical masses.\n\n> ⚡ **Key Concept**: Forces in nature are not mysterious pushes and pulls—they arise from the exchange of particles between matter particles."
+            },
+            {
+              "id": "1.1.7",
+              "title": "Simulator Task: Explore Particles",
+              "type": "task",
+              "content": "### Hands-On Learning Exercise\n\nNow it's time to explore these particles in our interactive simulator!\n\n**Your Mission:**\n\n1. **Open the Simulator** by clicking the button below\n2. Find the **Particle Selection** dropdown in the Control Panel\n3. Select **Pion (π⁺)** - this is a meson made of an up quark and an anti-down quark\n4. Observe the particle properties displayed:\n   - Mass (in MeV/c²)\n   - Lifetime\n   - Quark composition\n5. Now switch to **Kaon (K⁺)** - notice it contains a strange quark\n6. Compare the masses and lifetimes of both particles\n\n**Questions to Consider:**\n- Why is the kaon heavier than the pion?\n- Why does the kaon live longer despite being heavier?\n- What fundamental forces are at play in their decays?\n\n**Bonus Challenge:** Switch to the **Muon** and calculate its Lorentz factor (γ) at 5 GeV momentum. How does time dilation affect its observed lifetime?"
+            },
+            {
+              "id": "1.1.8",
+              "title": "Quiz: Particle Families",
+              "type": "quiz",
+              "quiz": {
+                "q": "Which of the following is a LEPTON (not a quark)?",
+                "a": [
+                  "Electron",
+                  "Up quark",
+                  "Strange quark",
+                  "Gluon"
+                ],
+                "correct": 0,
+                "explanation": "The electron is a lepton. Up and strange are quarks. The gluon is a force carrier (boson)."
+              }
+            },
+            {
+              "id": "1.1.9",
+              "title": "Flashcard: Particle Symbols",
+              "type": "flashcard",
+              "flashcard": {
+                "front": "What is the quark composition of a PROTON?",
+                "back": "uud (2 up quarks + 1 down quark)\n\nCharge: +2/3 + 2/3 - 1/3 = +1"
+              }
+            },
+            {
+              "id": "1.1.10",
+              "title": "Chapter Summary",
+              "type": "text",
+              "content": "## Key Takeaways\n\nCongratulations! You've completed your first deep dive into particle physics. Let's summarize what you've learned:\n\n### The Particle Zoo\n\n1. **Matter is made of elementary particles** - quarks and leptons  \n2. **There are 6 quarks**: up, down, charm, strange, top, bottom  \n3. **There are 6 leptons**: electron, muon, tau, and their neutrinos  \n4. **Forces are carried by bosons**: photon, gluon, W/Z, and the graviton (theorized)\n\n### Key Concepts\n\n- **Atoms are NOT elementary** - they contain a nucleus (protons + neutrons) surrounded by electrons\n- **Protons and neutrons are NOT elementary** - they're made of quarks\n- **Electrons ARE elementary** - no internal structure has ever been found\n- **Quarks are confined** - you can never isolate a single quark\n\n### The Numbers\n\n| Category | Count | Examples |\n|----------|-------|----------|\n| Quark flavors | 6 | u, d, c, s, t, b |\n| Lepton types | 6 | e, μ, τ, νₑ, νμ, ντ |\n| Force carriers | 4+ | γ, g, W, Z, (H) |\n\n### Looking Ahead\n\nIn the next chapter, we'll explore the **four fundamental forces** in greater depth. You'll learn how the electromagnetic force holds atoms together, how the strong force binds nuclei, and how the weak force enables the nuclear reactions that power the Sun.\n\n> 🚀 **You're Now a Particle Physicist (in Training)**: You understand more about matter than 99% of people. The average person has never heard of quarks—now you know their names, charges, and generations!"
             }
           ]
         },
         {
-            "id": "1.2",
-            "title": "The Speed of Light",
-            "duration": "10 min",
-            "icon": "Zap",
-            "description": "Why c is constant and the ultimate speed limit.",
-            "content": "# The Speed of Light\n\nThe speed of light in a vacuum, denoted by **c**, is exactly 299,792,458 meters per second. According to Einstein's theory of relativity, nothing can travel faster than light.\n\n### Why is it special?\n\nUnlike sound waves that need air to travel, light can travel through empty space. Furthermore, the speed of light is **constant** for all observers, regardless of how fast they are moving. This counter-intuitive fact leads to time dilation.",
-            "task": { "description": "In the simulator, set the Momentum to maximum (15 GeV/c) and observe the velocity (β) value. Does it ever reach exactly 1.0?" },
-            "quiz": [
-                { "question": "What is the symbol for the speed of light?", "options": ["v", "c", "lambda", "g"], "correct": 1, "explanation": "c comes from the Latin 'celeritas' meaning swiftness." },
-                { "question": "Can massive particles reach the speed of light?", "options": ["Yes", "No", "Only if they have enough energy", "Only in a vacuum"], "correct": 1, "explanation": "It would take infinite energy to accelerate a massive object to c." }
-            ]
-        },
-        {
-            "id": "1.3",
-            "title": "What is Time Dilation?",
-            "duration": "20 min",
-            "icon": "Clock",
-            "description": "Moving clocks run slower. The Twin Paradox.",
-            "content": "# Time Dilation\n\nTime dilation is the phenomenon where time moves slower for an object that is moving at high speed compared to an observer at rest.\n\n### The Twin Paradox\n\nImagine two twins. One stays on Earth, while the other travels in a spaceship at 90% the speed of light. When the traveler returns, they will have aged less than the twin who stayed on Earth. This isn't a trick—time actually passed at a different rate for them.",
-            "task": { "description": "Run the 'Time Dilation Test' in the simulator. Compare the survival rates of Pions vs Kaons. Which one decays faster in the lab frame?" },
-            "quiz": [
-                { "question": "Does time move faster or slower for a moving object?", "options": ["Faster", "Slower", "Same speed", "Depends on direction"], "correct": 1, "explanation": "Time slows down (dilates) for the moving object relative to the stationary observer." },
-                { "question": "Is this effect noticeable in everyday life?", "options": ["Yes", "No", "Only for astronauts", "Only during earthquakes"], "correct": 1, "explanation": "The effect is only significant at speeds close to the speed of light." }
-            ]
-        },
-        {
-          "id": "1.4",
-          "title": "The Lorentz Factor (γ)",
-          "duration": "25 min",
-          "icon": "Sigma",
-          "description": "Formula explanation, when it matters",
-          "content": "# The Lorentz Factor (γ)\n\nThe **Lorentz Factor**, denoted by the Greek letter gamma ($\\gamma$), is the key that unlocks the strange effects of Special Relativity.\n\n### The Formula\n\nThe formula for gamma is:\n\n$$\\gamma = \\frac{1}{\\sqrt{1 - \\frac{v^2}{c^2}}}$$\n\nWhere:\n*   $v$ is the velocity of the object\n*   $c$ is the speed of light (~300,000 km/s)\n\n### What does it mean?\n\n*   When $v$ is small (like a car), $v^2/c^2$ is close to 0, so $\\gamma \\approx 1$. Newtonian physics works fine.\n*   As $v$ gets close to $c$, the denominator gets close to 0, and $\\gamma$ shoots up to infinity!\n\nThis $\\gamma$ factor tells us how much time slows down ($t' = \\gamma t$) and how much mass increases ($m_{rel} = \\gamma m_0$).",
-          "interactive": {
-            "type": "lorentz-calculator"
-          },
-          "task": { "description": "Use the widget above to calculate gamma for v=0.99c. Then try to verify this in the simulator by setting momentum such that beta is close to 0.99." },
-          "quiz": [
+          "title": "2. Forces of Nature",
+          "description": "Discover the four fundamental forces that govern every interaction in the universe—from the binding of quarks to the orbits of galaxies.",
+          "icon": "Zap",
+          "estimatedTime": "50 minutes",
+          "subtopics": [
             {
-              "question": "What is the value of gamma if velocity is 0?",
-              "options": ["0", "1", "Infinity", "Undefined"],
-              "correct": 1,
-              "explanation": "At v=0, the denominator is sqrt(1-0) = 1, so gamma = 1."
+              "id": "1.2.1",
+              "title": "The Four Fundamental Forces",
+              "type": "text",
+              "infographic": "ForceCarriers",
+              "content": "## Nature's Fundamental Interactions\n\nEvery push, pull, attraction, and repulsion in the universe can be traced back to just **four fundamental forces**. Understanding these forces is the key to understanding physics itself.\n\n### The Complete List\n\n| Force | Relative Strength | Range | Carrier |\n|-------|------------------|-------|---------|\n| Strong | 1 | 10⁻¹⁵ m | Gluon |\n| Electromagnetic | 1/137 | Infinite | Photon |\n| Weak | 10⁻⁶ | 10⁻¹⁸ m | W±, Z⁰ |\n| Gravity | 10⁻⁴⁰ | Infinite | Graviton? |\n\n### A Tale of Two Ranges\n\nNotice something interesting: two forces have **infinite range** (electromagnetic, gravity) and two have **extremely short range** (strong, weak).\n\nThe infinite-range forces are mediated by **massless** particles:\n- Photons carry electromagnetism → massless → infinite range\n- Gravitons (if they exist) → massless → infinite range\n\nThe short-range forces are mediated by **massive** particles or have special properties:\n- W/Z bosons are incredibly heavy (80-91 GeV) → very short range\n- Gluons are massless BUT carry color charge → confined to nuclear scale\n\n### Unification: The Holy Grail\n\nPhysicists have discovered that some forces are actually the same force at high energies:\n- **Electromagnetic** + **Weak** = **Electroweak** (unified at ~100 GeV)\n- The dream: unify Strong with Electroweak = **Grand Unified Theory (GUT)**\n- The ultimate dream: include Gravity = **Theory of Everything**\n\nWe've partially succeeded—electroweak unification won the Nobel Prize in 1979. The rest remains an active area of research.\n\n> 🔗 **Connection**: Every force you've ever experienced—pushing a door, feeling wind, being pulled by gravity—ultimately reduces to these four fundamental forces acting through particle exchange."
             },
             {
-               "question": "What happens to gamma as velocity approaches the speed of light?",
-               "options": ["It goes to 0", "It stays constant", "It goes to infinity", "It becomes negative"],
-               "correct": 2,
-               "explanation": "As v approaches c, the denominator approaches 0, making the fraction explode to infinity."
+              "id": "1.2.2",
+              "title": "Gravity: The Great Shaper",
+              "type": "text",
+              "content": "## The Weakest Force That Rules the Cosmos\n\nGravity is by far the weakest of the four forces—10⁴⁰ times weaker than the strong force. Yet it shapes the entire visible universe. How?\n\n### Why Gravity Dominates at Large Scales\n\n1. **It's always attractive**: Unlike electromagnetic force (where + and - can cancel), gravity never cancels out. Mass always attracts mass.\n\n2. **It's long-range**: Gravity extends to infinity, decreasing as 1/r² but never reaching zero.\n\n3. **Everything has mass**: Every particle feels gravity. There's no \"gravitational insulator.\"\n\n### Gravity in Particle Physics\n\nHere's a shocking fact: **we essentially ignore gravity in particle physics**. In collisions at the LHC, gravitational effects are utterly negligible compared to the other forces.\n\nConsider two protons:\n- Electromagnetic repulsion: 9 × 10⁹ N·m²/C² × (1.6 × 10⁻¹⁹ C)² / r²\n- Gravitational attraction: 6.7 × 10⁻¹¹ N·m²/kg² × (1.7 × 10⁻²⁷ kg)² / r²\n\nThe ratio? About 10³⁶ in favor of electromagnetism!\n\n### The Quantum Gravity Problem\n\nGravity is the only force we haven't successfully quantized. We don't know how to combine:\n- **General Relativity** (gravity as curved spacetime)\n- **Quantum Mechanics** (particles and probability)\n\nString theory and loop quantum gravity are attempts to solve this. Success would be one of the greatest achievements in human history.\n\n> 🌌 **Perspective**: At particle scales, gravity is utterly irrelevant. At cosmic scales, it's everything. The same equation (F = Gm₁m₂/r²) describes an apple falling and a galaxy forming."
+            },
+            {
+              "id": "1.2.3",
+              "title": "Electromagnetism: The Chemical Force",
+              "type": "text",
+              "content": "## The Force of Light and Life\n\nThe electromagnetic force is responsible for almost everything in your daily experience:\n- The rigidity of solid objects\n- The liquidity of water\n- The elasticity of rubber\n- Light, radio waves, X-rays\n- All of chemistry and biology\n\n### How It Works\n\nThe electromagnetic force arises from the exchange of **photons** between charged particles. \n\n**Key Properties:**\n- Acts on particles with **electric charge**\n- Attractive between opposite charges (+ and -)\n- Repulsive between like charges\n- Follows the inverse-square law: F ∝ 1/r²\n- Speed of propagation: exactly *c* (299,792,458 m/s)\n\n### Maxwell's Triumph\n\nIn the 1860s, James Clerk Maxwell unified electricity and magnetism into a single framework. His four equations predicted electromagnetic waves traveling at the speed of light—leading to the stunning realization that **light IS an electromagnetic wave**.\n\n### Electromagnetic Spectrum\n\nAll these are electromagnetic waves, differing only in wavelength:\n\n| Type | Wavelength | Energy per photon |\n|------|------------|-------------------|\n| Radio | > 1 m | < 10⁻⁶ eV |\n| Microwave | 1 mm - 1 m | 10⁻⁶ - 10⁻³ eV |\n| Infrared | 700 nm - 1 mm | 10⁻³ - 1.7 eV |\n| Visible | 400 - 700 nm | 1.7 - 3.1 eV |\n| UV | 10 - 400 nm | 3 - 120 eV |\n| X-ray | 0.01 - 10 nm | 100 eV - 100 keV |\n| Gamma | < 0.01 nm | > 100 keV |\n\n> 💡 **Everyday Magic**: When you see a red apple, photons from the Sun hit the apple, the apple's electrons absorb blue/green and re-emit red photons, which enter your eye and trigger more electron transitions in your retina. Pure electromagnetism!"
+            },
+            {
+              "id": "1.2.4",
+              "title": "The Strong Nuclear Force",
+              "type": "text",
+              "content": "## The Force That Binds Nuclei\n\nThe strong force is aptly named—it's the strongest force in nature. But it operates only at nuclear scales, making it invisible in everyday life.\n\n### Two Levels of Strong Force\n\n**Level 1: Quark Binding (Fundamental)**\n\nThe true strong force binds quarks inside protons and neutrons via **gluon** exchange. This is described by **Quantum Chromodynamics (QCD)**.\n\nKey features:\n- Gluons carry \"color charge\" (not actual color—it's a quantum number)\n- There are 8 types of gluons\n- Unlike photons, gluons interact with each other\n- The force INCREASES with distance (color confinement)\n\n**Level 2: Nuclear Binding (Residual)**\n\nProtons and neutrons are colorless, but they still attract each other through a \"residual\" strong force—like how neutral atoms still attract via van der Waals forces.\n\nThis residual force binds nuclei together despite the electromagnetic repulsion between protons.\n\n### Color Confinement: A Strange Property\n\nIf you try to pull two quarks apart, the energy stored in the gluon field eventually becomes enough to create a new quark-antiquark pair. You end up with two colorless hadrons instead of isolated quarks.\n\n**You can NEVER see a free quark.**\n\nThis is called \"color confinement\" and is one of the strangest properties of the strong force.\n\n### Asymptotic Freedom\n\nAt very high energies (or very short distances), the strong force actually becomes WEAKER. This is called \"asymptotic freedom\" and won the 2004 Nobel Prize.\n\nIt explains why we can treat quarks as nearly free inside protons during high-energy collisions.\n\n> ⚔️ **Strength Comparison**: The strong force between two quarks is about 10,000 Newtons—roughly the weight of a small car—at nuclear distances!"
+            },
+            {
+              "id": "1.2.5",
+              "title": "The Weak Nuclear Force",
+              "type": "text",
+              "content": "## The Force of Transformation\n\nThe weak force has a unique role: it's the only force that can **change particle flavors**. It turns quarks into different types of quarks and enables radioactive decay.\n\n### What Makes It \"Weak\"?\n\nThe weak force is called weak because:\n1. Its carriers (W±, Z⁰ bosons) are extremely massive (~80-91 GeV)\n2. High mass → short range (~10⁻¹⁸ m, smaller than a proton)\n3. Interactions are rare compared to EM or strong\n\nBut \"weak\" is misleading—at energies above ~100 GeV, it's actually comparable to electromagnetism. They're unified into the **electroweak force**.\n\n### The Three Carriers\n\n**W⁺ boson** (mass ~80.4 GeV)\n- Carries +1 electric charge\n- Changes quark/lepton flavors by +1\n\n**W⁻ boson** (mass ~80.4 GeV)  \n- Carries -1 electric charge\n- Changes quark/lepton flavors by -1\n\n**Z⁰ boson** (mass ~91.2 GeV)\n- Electrically neutral\n- Enables \"neutral current\" interactions (no flavor change)\n\n### Beta Decay: The Signature Process\n\nIn beta-minus decay, a neutron becomes a proton:\n- n → p + e⁻ + ν̄ₑ\n\nWhat really happens:\n1. A down quark in the neutron emits a W⁻ boson and becomes an up quark\n2. The W⁻ decays into an electron and an antineutrino\n3. The neutron is now a proton (udd → uud)\n\n### Why It Matters\n\nThe weak force is essential for:\n- **Solar fusion**: pp → d + e⁺ + νₑ (converts protons to neutrons)\n- **Heavy element synthesis**: Creates elements beyond iron in supernovae\n- **Radioactive dating**: Carbon-14 decay is a weak process\n- **CP violation**: Explains matter/antimatter asymmetry\n\n> ⚡ **Critical Role**: Without the weak force, the sun wouldn't shine and the universe would contain no elements heavier than hydrogen. Life would be impossible!"
+            },
+            {
+              "id": "1.2.6",
+              "title": "Case Study: Beta Decay Explained",
+              "type": "case_study",
+              "content": "## Understanding Radioactive Beta Decay\n\nIn 1896, Henri Becquerel discovered radioactivity. One type he observed—beta decay—puzzled physicists for decades. The solution required inventing a new particle and understanding the weak force.\n\n### The Mystery\n\nWhen a radioactive nucleus emits an electron (beta particle), energy seemed to disappear! Unlike alpha decay (fixed energy), beta electrons had a continuous energy spectrum.\n\nThis violated conservation of energy—a cornerstone of physics.\n\n### Pauli's Desperate Remedy (1930)\n\nWolfgang Pauli proposed a radical solution: an invisible, nearly massless particle carried away the missing energy. He called it the \"neutron\" (later renamed **neutrino** by Fermi after the actual neutron was discovered).\n\nPauli famously apologized for his hypothesis, thinking it could never be tested.\n\n### Fermi's Theory (1934)\n\nEnrico Fermi developed the first mathematical theory of beta decay, treating it as a \"weak\" interaction. His model predicted decay rates that matched experiments beautifully.\n\n### The Modern Picture\n\nWe now understand beta-minus decay as:\n1. A down quark emits a virtual W⁻ boson\n2. The down quark becomes an up quark\n3. The W⁻ instantly decays into an electron and antineutrino\n4. The neutron is now a proton\n\nThe whole process takes only ~10⁻²⁵ seconds for the W boson part.\n\n### Detection of the Neutrino (1956)\n\nCowan and Reines finally detected the neutrino in 1956, using a nuclear reactor:\n- ν̄ₑ + p → n + e⁺ (inverse beta decay)\n\nThey won the Nobel Prize in 1995 (39 years later!).\n\n> 🏆 **Takeaway**: Understanding beta decay required revolutionary ideas—new particles, new forces, and decades of theoretical and experimental work. This is how physics progresses!"
+            },
+            {
+              "id": "1.2.7",
+              "title": "Simulator Task: Force Comparison",
+              "type": "task",
+              "content": "### Hands-On Experiment: Comparing Forces\n\nLet's use the simulator to see how the strong and electromagnetic forces compete!\n\n**Exercise 1: Beam Intensity Effects**\n\n1. Open the Simulator and select **Pion (π⁺)**\n2. Set momentum to **1 GeV/c**\n3. Note the particle's behavior through detectors\n4. The pion exists because the strong force holds its quark and antiquark together\n5. It eventually decays via the WEAK force (π⁺ → μ⁺ + νμ)\n\n**Exercise 2: Decay Observations**\n\n1. Switch to **Muon (μ⁺)**\n2. Muons don't feel the strong force (they're leptons!)\n3. Observe that muons can only decay via the weak force\n4. This is why muons live much longer than pions (2.2 μs vs 26 ns)\n\n**Discussion Questions:**\n\n- Why doesn't the photon hold the pion together? (Hint: net electric charge of quark + antiquark)\n- Why can't the muon decay via electromagnetic interaction?\n- What would happen to atoms if the strong force were slightly weaker?\n\n**Advanced Challenge:** Calculate the decay length of a pion vs muon at 8 GeV. Explain why the difference is so dramatic."
+            },
+            {
+              "id": "1.2.8",
+              "title": "Quiz: Fundamental Forces",
+              "type": "quiz",
+              "quiz": {
+                "q": "Which force is responsible for holding the nucleus together against electromagnetic repulsion between protons?",
+                "a": [
+                  "Gravity",
+                  "The residual strong nuclear force",
+                  "Electromagnetism",
+                  "The weak nuclear force"
+                ],
+                "correct": 1,
+                "explanation": "The residual strong force (mediated by pion exchange between nucleons) overcomes the electromagnetic repulsion between protons. Gravity is far too weak at nuclear scales."
+              }
+            },
+            {
+              "id": "1.2.9",
+              "title": "Flashcard: Force Carriers",
+              "type": "flashcard",
+              "flashcard": {
+                "front": "Name all four fundamental force carriers (gauge bosons)",
+                "back": "1. Photon (γ) - Electromagnetism\n2. Gluon (g) - Strong force\n3. W⁺, W⁻, Z⁰ - Weak force\n4. Graviton - Gravity (theoretical)"
+              }
+            },
+            {
+              "id": "1.2.10",
+              "title": "Chapter Summary",
+              "type": "text",
+              "content": "## Key Takeaways: The Four Forces\n\n### Summary Table\n\n| Force | Strength | Range | Carrier(s) | Key Role |\n|-------|----------|-------|------------|----------|\n| Strong | 1 | 10⁻¹⁵ m | 8 Gluons | Binds quarks, holds nuclei |\n| EM | 1/137 | ∞ | Photon | Chemistry, light, electronics |\n| Weak | 10⁻⁶ | 10⁻¹⁸ m | W±, Z⁰ | Radioactive decay, flavor change |\n| Gravity | 10⁻⁴⁰ | ∞ | Graviton? | Large-scale structure |\n\n### Critical Concepts\n\n1. **All forces are mediated by particles** (gauge bosons)\n2. **Massless carriers → infinite range** (photon, graviton)\n3. **Massive carriers → short range** (W, Z bosons)\n4. **The strong force confines quarks** (you can't isolate them)\n5. **The weak force changes particle types** (only force that can)\n\n### Unification Progress\n\n- ✅ Electromagnetism + Weak = Electroweak (unified at ~100 GeV)\n- 🔄 Electroweak + Strong = GUT (work in progress)\n- ❓ All forces + Gravity = Theory of Everything (unknown)\n\n### The Big Picture\n\nThese four forces explain:\n- Why atoms exist (EM holds electrons)\n- Why nuclei exist (Strong holds protons/neutrons)\n- Why stars shine (Weak enables fusion)\n- Why galaxies form (Gravity clusters matter)\n\n> 🌟 **Achievement Unlocked**: You now understand the fundamental forces! The next chapter explores the speed of light—the cosmic speed limit that connects space and time."
             }
           ]
         },
         {
-            "id": "1.5", "title": "Rest Mass vs Relativistic Mass", "duration": "15 min", "icon": "Scale",
-            "description": "E=mc² and energy-momentum relationship.",
-            "content": "# Rest Mass vs Relativistic Mass\n\nMass is not constant. As an object moves faster, its effective mass increases.\n\n### Rest Mass ($m_0$)\n\nThis is the mass of the particle when it is not moving. For example, a proton has a rest mass of about 938 MeV/c².\n\n### Relativistic Mass\n\nAs speed increases, energy increases. Since $E=mc^2$, this energy acts like additional mass, making the object harder to accelerate further.",
-            "task": { "description": "In the simulator, check the 'Energy' badge on the home page or the Momentum value in the simulator. Notice how 8 GeV/c is much higher than the rest mass of a proton (approx 1 GeV/c^2)." },
-            "quiz": [
-                { "question": "What is rest mass?", "options": ["Mass at speed of light", "Mass when stationary", "Weight on Earth", "Volume of the particle"], "correct": 1, "explanation": "Rest mass is the intrinsic mass measured in the particle's own frame." },
-                { "question": "Does a photon have rest mass?", "options": ["Yes", "No", "Depends on frequency", "Only in glass"], "correct": 1, "explanation": "Photons are massless particles, which is why they must always travel at c." }
-            ]
+          "title": "3. The Speed of Light",
+          "description": "Why 'c' is the cosmic speed limit.",
+          "icon": "FastForward",
+          "subtopics": [
+            {
+              "id": "1.3.1",
+              "title": "Light Speed Defined",
+              "type": "text",
+              "content": "c = 299,792,458 m/s exactly."
+            },
+            {
+              "id": "1.3.2",
+              "title": "The Universal Constant",
+              "type": "text",
+              "content": "It's the same for everyone, moving or still."
+            },
+            {
+              "id": "1.3.3",
+              "title": "Case Study: Michelson-Morley",
+              "type": "case_study",
+              "content": "The failed experiment that proved the ether didn't exist."
+            },
+            {
+              "id": "1.3.4",
+              "title": "Nothing Go Faster?",
+              "type": "text",
+              "content": "Infinite energy is needed to reach c for mass."
+            },
+            {
+              "id": "1.3.5",
+              "title": "Simulator Task: Maximum Velocity",
+              "type": "task",
+              "content": "Slide momentum to max. Observe Beta (v/c). It never hits 1.0."
+            },
+            {
+              "id": "1.3.6",
+              "title": "Tachyons?",
+              "type": "text",
+              "content": "Hypothetical properties of faster-than-light particles."
+            },
+            {
+              "id": "1.3.7",
+              "title": "Light in Media",
+              "type": "text",
+              "content": "Light slows down in glass/water. c/n."
+            },
+            {
+              "id": "1.3.8",
+              "title": "Quiz: Value of c",
+              "type": "quiz",
+              "quiz": {
+                "q": "Speed of light is approx?",
+                "a": [
+                  "300,000 km/s",
+                  "300 m/s",
+                  "Sound speed"
+                ],
+                "correct": 0
+              }
+            },
+            {
+              "id": "1.3.9",
+              "title": "Flashcards: c",
+              "type": "flashcard",
+              "flashcard": {
+                "front": "Can massive particles reach c?",
+                "back": "No, infinite energy required."
+              }
+            },
+            {
+              "id": "1.3.10",
+              "title": "Looking Back in Time",
+              "type": "text",
+              "content": "Light takes time to travel. We see stars as they were."
+            }
+          ]
         },
         {
-            "id": "1.6", "title": "Particle Decay Basics", "duration": "15 min", "icon": "Activity",
-            "description": "Unstable particles, half-life, exponential decay.",
-            "content": "# Particle Decay\n\nMost subatomic particles are unstable. They don't live forever; instead, they spontaneously transform (decay) into lighter particles.\n\n### Half-Life\n\nThe time it takes for half of a sample of particles to decay is called the half-life. Decay is a random process—we can't predict when a single particle will decay, but we can predict the behavior of a large group perfectly.",
-            "task": { "description": "Turn off 'Enable Decay' in the simulator settings. Run the simulation and see if the particle count at the end detector changes." },
-            "quiz": [
-                { "question": "Is particle decay predictable for a single particle?", "options": ["Yes", "No", "Only for pions", "Only at low temperature"], "correct": 1, "explanation": "Quantum decay is inherently probabilistic." },
-                { "question": "What mathematical function describes decay?", "options": ["Linear", "Quadratic", "Exponential", "Sinusoidal"], "correct": 2, "explanation": "N(t) = N0 * e^(-t/tau)" }
-            ]
+          "title": "4. Special Relativity Intro",
+          "description": "Time slows down, Length shrinks.",
+          "icon": "Clock",
+          "subtopics": [
+            {
+              "id": "1.4.1",
+              "title": "Einstein's Big Idea",
+              "type": "text",
+              "content": "Physics is the same in all inertial frames."
+            },
+            {
+              "id": "1.4.2",
+              "title": "Time Dilation Concept",
+              "type": "text",
+              "content": "Moving clocks run slow. t' = gamma * t."
+            },
+            {
+              "id": "1.4.3",
+              "title": "The Twin Paradox",
+              "type": "case_study",
+              "content": "One twin travels to space, returns younger."
+            },
+            {
+              "id": "1.4.4",
+              "title": "Length Contraction",
+              "type": "text",
+              "content": "Moving rulers look short. L' = L / gamma."
+            },
+            {
+              "id": "1.4.5",
+              "title": "Mass Increase",
+              "type": "text",
+              "content": "Moving objects get heavier. m = gamma * m0."
+            },
+            {
+              "id": "1.4.6",
+              "title": "Simulator Task: Gamma Factor",
+              "type": "task",
+              "content": "Set particle to Pion, Momentum 8GeV. Check the 'Gamma' gauge. It's > 1."
+            },
+            {
+              "id": "1.4.7",
+              "title": "Simultaneity",
+              "type": "text",
+              "content": "Events simultaneous to you are not for a moving observer."
+            },
+            {
+              "id": "1.4.8",
+              "title": "Quiz: Time Dilation",
+              "type": "quiz",
+              "quiz": {
+                "q": "A moving clock...?",
+                "a": [
+                  "Speeds up",
+                  "Slows down",
+                  "Stops"
+                ],
+                "correct": 1
+              }
+            },
+            {
+              "id": "1.4.9",
+              "title": "Flashcards: Gamma",
+              "type": "flashcard",
+              "flashcard": {
+                "front": "Gamma at rest",
+                "back": "1.0"
+              }
+            },
+            {
+              "id": "1.4.10",
+              "title": "Why don't we see it?",
+              "type": "text",
+              "content": "Effect is tiny at everyday speeds."
+            }
+          ]
         },
         {
-            "id": "1.7", "title": "What is a Particle Detector?", "duration": "20 min", "icon": "Eye",
-            "description": "How we 'see' particles, different detector types.",
-            "content": "# Particle Detectors\n\nWe can't see subatomic particles with our eyes. We need special devices called detectors.\n\n### Types of Detectors\n\n1.  **Scintillators**: Material that flashes light when a particle hits it.\n2.  **Trackers**: Devices that record the path of a particle without stopping it.\n3.  **Calorimeters**: Heavy blocks that stop particles to measure their total energy.\n\nIn our experiment, we use Scintillators and TOF (Time-of-Flight) detectors.",
-            "task": { "description": "Hover over the components in the 3D view of the simulator to identify which ones are the Scintillators." },
-            "quiz": [
-                { "question": "What does a scintillator do?", "options": ["Makes sound", "Emits light", "Heats up", "Vibrates"], "correct": 1, "explanation": "Scintillators convert the kinetic energy of a particle into a flash of light." },
-                { "question": "What is a TOF detector used for?", "options": ["Measuring Mass", "Measuring Velocity", "Measuring Charge", "Measuring Spin"], "correct": 1, "explanation": "TOF stands for Time-Of-Flight, used to calculate speed." }
-            ]
+          "title": "5. Particle Accelerators",
+          "description": "How we make particles go fast.",
+          "icon": "Disc",
+          "subtopics": [
+            {
+              "id": "1.5.1",
+              "title": "Why Accelerate?",
+              "type": "text",
+              "content": "To probe small scales (high energy = short wavelength)."
+            },
+            {
+              "id": "1.5.2",
+              "title": "Electric Fields",
+              "type": "text",
+              "content": "E-fields push charged particles. F = qE."
+            },
+            {
+              "id": "1.5.3",
+              "title": "Magnetic Fields",
+              "type": "text",
+              "content": "B-fields steer particles. F = qvB."
+            },
+            {
+              "id": "1.5.4",
+              "title": "Linear Accelerators (Linacs)",
+              "type": "text",
+              "content": "Straight line acceleration."
+            },
+            {
+              "id": "1.5.5",
+              "title": "Cyclotrons",
+              "type": "case_study",
+              "content": "Lawrence's spiral machine."
+            },
+            {
+              "id": "1.5.6",
+              "title": "Synchrotrons (LHC)",
+              "type": "text",
+              "content": "Giant rings. LHC is 27km long."
+            },
+            {
+              "id": "1.5.7",
+              "title": "Simulator Task: Beamline",
+              "type": "task",
+              "content": "The 'Beamline Length' slider represents our linear path. Change it to 50m."
+            },
+            {
+              "id": "1.5.8",
+              "title": "Quiz: Steering",
+              "type": "quiz",
+              "quiz": {
+                "q": "Which field turns the particle?",
+                "a": [
+                  "Electric",
+                  "Magnetic",
+                  "Gravity"
+                ],
+                "correct": 1
+              }
+            },
+            {
+              "id": "1.5.9",
+              "title": "Flashcards: LHC",
+              "type": "flashcard",
+              "flashcard": {
+                "front": "LHC Location",
+                "back": "CERN (Geneva)"
+              }
+            },
+            {
+              "id": "1.5.10",
+              "title": "Future Colliders",
+              "type": "text",
+              "content": "FCC, ILC - bigger is better."
+            }
+          ]
         },
         {
-            "id": "1.8", "title": "Momentum and Energy", "duration": "15 min", "icon": "Move",
-            "description": "p=mv, relativistic momentum.",
-            "content": "# Momentum\n\nIn classical physics, momentum is $p=mv$. But at high speeds, we must use the relativistic formula:\n\n$$p = \\gamma m v$$\n\nThis means that as $v$ approaches $c$, momentum goes to infinity. This is why we use momentum (GeV/c) rather than velocity to describe high-energy particles.",
-            "task": { "description": "Adjust the Momentum slider in the simulator. Observe how the Beta (velocity) factor changes non-linearly." },
-            "quiz": [
-                { "question": "What unit do we use for momentum in particle physics?", "options": ["kg m/s", "Newtons", "GeV/c", "Joules"], "correct": 2, "explanation": "GeV/c is the standard unit, related to energy via c." },
-                { "question": "If momentum doubles, does velocity double?", "options": ["Yes", "No", "Only at low speeds", "Only for light"], "correct": 2, "explanation": "At relativistic speeds, doubling momentum results in a very small increase in velocity." }
-            ]
+          "title": "6. Particle Detectors 101",
+          "description": "Seeing the invisible.",
+          "icon": "Eye",
+          "subtopics": [
+            {
+              "id": "1.6.1",
+              "title": "Interaction with Matter",
+              "type": "text",
+              "content": "Particles ionize atoms as they pass through."
+            },
+            {
+              "id": "1.6.2",
+              "title": "Tracking Detectors",
+              "type": "text",
+              "content": "Connect the dots to find the path."
+            },
+            {
+              "id": "1.6.3",
+              "title": "Calorimeters",
+              "type": "text",
+              "content": "Stop the particle to measure Energy."
+            },
+            {
+              "id": "1.6.4",
+              "title": "Scintillators",
+              "type": "text",
+              "content": "Flashes of light when hit."
+            },
+            {
+              "id": "1.6.5",
+              "title": "Case Study: Bubble Chambers",
+              "type": "case_study",
+              "content": "Old school photography of tracks."
+            },
+            {
+              "id": "1.6.6",
+              "title": "Modern Silicon Detectors",
+              "type": "text",
+              "content": "Like a giant camera sensor."
+            },
+            {
+              "id": "1.6.7",
+              "title": "Simulator Task: Detector Toggle",
+              "type": "task",
+              "content": "Toggle 'Scintillator' and 'Cherenkov' in the Control Panel. See them appear/disappear."
+            },
+            {
+              "id": "1.6.8",
+              "title": "Quiz: Detectors",
+              "type": "quiz",
+              "quiz": {
+                "q": "What measures Energy?",
+                "a": [
+                  "Tracker",
+                  "Calorimeter",
+                  "Magnet"
+                ],
+                "correct": 1
+              }
+            },
+            {
+              "id": "1.6.9",
+              "title": "Flashcards: Ionization",
+              "type": "flashcard",
+              "flashcard": {
+                "front": "Charged particle passing gas",
+                "back": "Removes electrons (Ionization)"
+              }
+            },
+            {
+              "id": "1.6.10",
+              "title": "The Trigger",
+              "type": "text",
+              "content": "Deciding when to take the photo."
+            }
+          ]
         },
         {
-            "id": "1.9", "title": "Pions, Kaons, and Muons", "duration": "20 min", "icon": "Layers",
-            "description": "Properties, lifetimes, how they're different.",
-            "content": "# The Particles\n\nOur experiment focuses on three types of particles:\n\n*   **Pion ($\\pi^+$)**: Made of a standard quark pair. Lightest meson.\n*   **Kaon ($K^+$)**: Contains a 'strange' quark. Heavier than the pion.\n*   **Muon ($\\mu^+$)**: A heavy cousin of the electron. It is a lepton, not a hadron.\n\nBecause the Kaon is heavier, it has a different Time Dilation factor (gamma) than the Pion at the same momentum!",
-            "task": { "description": "Select different particle types in the simulator. Note the 'Expected Gamma' value shown in the results." },
-            "quiz": [
-                { "question": "Which particle contains a strange quark?", "options": ["Pion", "Kaon", "Muon", "Proton"], "correct": 1, "explanation": "The Kaon is defined by containing a strange quark." },
-                { "question": "Which is a lepton?", "options": ["Pion", "Kaon", "Muon", "Proton"], "correct": 2, "explanation": "Muons are leptons, like electrons." }
-            ]
+          "title": "7. The Standard Model",
+          "description": "The Periodic Table of Physics.",
+          "icon": "Grid",
+          "subtopics": [
+            {
+              "id": "1.7.1",
+              "title": "Generations of Matter",
+              "type": "text",
+              "content": "3 generations. We are mostly Gen 1."
+            },
+            {
+              "id": "1.7.2",
+              "title": "Quark Colors",
+              "type": "text",
+              "content": "Not real colors! Charge for Strong force."
+            },
+            {
+              "id": "1.7.3",
+              "title": "Hadrons: Baryons vs Mesons",
+              "type": "text",
+              "content": "Baryon (qqq), Meson (q q-bar)."
+            },
+            {
+              "id": "1.7.4",
+              "title": "The Higgs Boson",
+              "type": "case_study",
+              "content": "The 2012 discovery that completed the model."
+            },
+            {
+              "id": "1.7.5",
+              "title": "Antimatter",
+              "type": "text",
+              "content": "Identical mass, opposite charge."
+            },
+            {
+              "id": "1.7.6",
+              "title": "Neutrinos",
+              "type": "text",
+              "content": "Tiny mass, travel through Earth."
+            },
+            {
+              "id": "1.7.7",
+              "title": "Simulator Task: The Mesons",
+              "type": "task",
+              "content": "Select Pion and Kaon. Both are mesons. Note their quark content in the data table."
+            },
+            {
+              "id": "1.7.8",
+              "title": "Quiz: Hadrons",
+              "type": "quiz",
+              "quiz": {
+                "q": "A proton is a...",
+                "a": [
+                  "Baryon",
+                  "Meson",
+                  "Lepton"
+                ],
+                "correct": 0
+              }
+            },
+            {
+              "id": "1.7.9",
+              "title": "Flashcards: Higgs",
+              "type": "flashcard",
+              "flashcard": {
+                "front": "Higgs Field",
+                "back": "Gives mass to particles"
+              }
+            },
+            {
+              "id": "1.7.10",
+              "title": "What's Missing?",
+              "type": "text",
+              "content": "Gravity, Dark Matter not included."
+            }
+          ]
         },
         {
-            "id": "1.10", "title": "Why CERN?", "duration": "15 min", "icon": "Globe",
-            "description": "History, purpose, accelerators.",
-            "content": "# CERN\n\nCERN (European Organization for Nuclear Research) is the world's largest particle physics laboratory. It is home to the Large Hadron Collider (LHC).\n\n### Why do we go there?\n\nTo test time dilation, we need particles moving at 99.9% the speed of light. You can't do that in a high school lab! CERN's accelerators provide the high-energy beams necessary for our experiment.",
-            "task": { "description": "Check the 'Supplementary' tab to see photos and data related to the actual CERN beamline." },
-            "quiz": [
-                { "question": "Where is CERN located?", "options": ["USA", "Japan", "Switzerland/France border", "Germany"], "correct": 2, "explanation": "It sits on the border near Geneva." },
-                { "question": "What is the LHC?", "options": ["Large Hadron Collider", "Light Heavy Cannon", "Long Horizontal Cable", "Linear Heat Conductor"], "correct": 0, "explanation": "The world's largest and most powerful particle collider." }
-            ]
+          "title": "8. Radioactivity",
+          "description": "Alpha, Beta, Gamma radiation.",
+          "icon": "Radio",
+          "subtopics": [
+            {
+              "id": "1.8.1",
+              "title": "Unstable Nuclei",
+              "type": "text",
+              "content": "Too many protons/neutrons leads to instability."
+            },
+            {
+              "id": "1.8.2",
+              "title": "Alpha Decay",
+              "type": "text",
+              "content": "Emitting a Helium nucleus."
+            },
+            {
+              "id": "1.8.3",
+              "title": "Beta Decay",
+              "type": "text",
+              "content": "Neutron -> Proton + Electron + Neutrino."
+            },
+            {
+              "id": "1.8.4",
+              "title": "Gamma Decay",
+              "type": "text",
+              "content": "Emitting a photon to relax energy."
+            },
+            {
+              "id": "1.8.5",
+              "title": "Half-Life Concept",
+              "type": "text",
+              "content": "Time for 50% to decay."
+            },
+            {
+              "id": "1.8.6",
+              "title": "Case Study: Carbon Dating",
+              "type": "case_study",
+              "content": "Using C-14 to date bones."
+            },
+            {
+              "id": "1.8.7",
+              "title": "Simulator Task: Survival Rate",
+              "type": "task",
+              "content": "Look at 'Survival' gauge. It relates to how many particles haven't decayed yet."
+            },
+            {
+              "id": "1.8.8",
+              "title": "Quiz: Shielding",
+              "type": "quiz",
+              "quiz": {
+                "q": "Stops Alphas?",
+                "a": [
+                  "Paper",
+                  "Lead",
+                  "Concrete"
+                ],
+                "correct": 0
+              }
+            },
+            {
+              "id": "1.8.9",
+              "title": "Flashcards: Beta",
+              "type": "flashcard",
+              "flashcard": {
+                "front": "Beta particle is an...",
+                "back": "Electron or Positron"
+              }
+            },
+            {
+              "id": "1.8.10",
+              "title": "Safety",
+              "type": "text",
+              "content": "Radiation dose and protection."
+            }
+          ]
+        },
+        {
+          "title": "9. A History of CERN",
+          "description": "From WWII ruins to the LHC.",
+          "icon": "Globe",
+          "subtopics": [
+            {
+              "id": "1.9.1",
+              "title": "Founding 1954",
+              "type": "text",
+              "content": "Science for Peace in Europe."
+            },
+            {
+              "id": "1.9.2",
+              "title": "The PS (Proton Synchrotron)",
+              "type": "text",
+              "content": "Built in 1959, still running today!"
+            },
+            {
+              "id": "1.9.3",
+              "title": "Discovery of W/Z (1983)",
+              "type": "case_study",
+              "content": "Nobel prize for Rubbia & Van der Meer."
+            },
+            {
+              "id": "1.9.4",
+              "title": "The Web (1989)",
+              "type": "text",
+              "content": "Tim Berners-Lee invented WWW at CERN."
+            },
+            {
+              "id": "1.9.5",
+              "title": "LEP (Large Electron Positron)",
+              "type": "text",
+              "content": "Previous collider in the LHC tunnel."
+            },
+            {
+              "id": "1.9.6",
+              "title": "Building the LHC",
+              "type": "text",
+              "content": "A 27km engineering marvel."
+            },
+            {
+              "id": "1.9.7",
+              "title": "Simulator Task: Facilities",
+              "type": "task",
+              "content": "Click 'Facilities' tab. Read about CERN T9 and CERN PS."
+            },
+            {
+              "id": "1.9.8",
+              "title": "Quiz: WWW",
+              "type": "quiz",
+              "quiz": {
+                "q": "Where was the web born?",
+                "a": [
+                  "NASA",
+                  "MIT",
+                  "CERN"
+                ],
+                "correct": 2
+              }
+            },
+            {
+              "id": "1.9.9",
+              "title": "Flashcards: PS",
+              "type": "flashcard",
+              "flashcard": {
+                "front": "CERN PS built in?",
+                "back": "1959"
+              }
+            },
+            {
+              "id": "1.9.10",
+              "title": "Future of CERN",
+              "type": "text",
+              "content": "FCC: Future Circular Collider."
+            }
+          ]
+        },
+        {
+          "title": "10. Experimental Safety",
+          "description": "Staying safe in the lab.",
+          "icon": "Shield",
+          "subtopics": [
+            {
+              "id": "1.10.1",
+              "title": "High Voltage",
+              "type": "text",
+              "content": "Detectors use kV. Don't touch."
+            },
+            {
+              "id": "1.10.2",
+              "title": "Radiation Hazards",
+              "type": "text",
+              "content": "Beam on = Personnell out."
+            },
+            {
+              "id": "1.10.3",
+              "title": "Cryogenics",
+              "type": "text",
+              "content": "Liquid Helium/Nitrogen burn risks."
+            },
+            {
+              "id": "1.10.4",
+              "title": "Magnetic Fields",
+              "type": "text",
+              "content": "Loose metal becomes a projectile."
+            },
+            {
+              "id": "1.10.5",
+              "title": "Case Study: The Beam Dump",
+              "type": "case_study",
+              "content": "Where the energy goes when we stop."
+            },
+            {
+              "id": "1.10.6",
+              "title": "Interlock Systems",
+              "type": "text",
+              "content": "Keys and doors to prevent entry."
+            },
+            {
+              "id": "1.10.7",
+              "title": "Simulator Task: System Ready",
+              "type": "task",
+              "content": "Notice the 'System Ready' status? In real life, this checks safety interlocks."
+            },
+            {
+              "id": "1.10.8",
+              "title": "Quiz: B-Field",
+              "type": "quiz",
+              "quiz": {
+                "q": "Danger in high B-field?",
+                "a": [
+                  "Pacemakers",
+                  "Plastic",
+                  "Wood"
+                ],
+                "correct": 0
+              }
+            },
+            {
+              "id": "1.10.9",
+              "title": "Flashcards: Cryo",
+              "type": "flashcard",
+              "flashcard": {
+                "front": "Liquid Nitrogen Temp",
+                "back": "77K (-196C)"
+              }
+            },
+            {
+              "id": "1.10.10",
+              "title": "Culture of Safety",
+              "type": "text",
+              "content": "Safety first, Science second."
+            }
+          ]
         }
       ]
     },
@@ -149,104 +799,783 @@
       "level": "intermediate",
       "items": [
         {
-            "id": "2.1", "title": "Special Relativity Principles", "duration": "20 min", "icon": "BookOpen",
-            "description": "Postulates, inertial frames, spacetime.",
-            "content": "# Postulates of Special Relativity\n\nEinstein based his theory on two simple ideas:\n\n1.  **The Principle of Relativity**: The laws of physics are the same in all inertial frames of reference.\n2.  **The Constancy of c**: The speed of light in a vacuum is the same for all observers, regardless of the motion of the light source or observer.\n\nFrom these two statements, all the weirdness of time dilation and length contraction logically follows.",
-            "task": { "description": "In the simulator, imagine you are riding on the particle. To you, the detector is moving towards you at 0.99c. The physics must work out the same!" },
-            "quiz": [
-                { "question": "Do the laws of physics change if you are moving at constant speed?", "options": ["Yes", "No", "Only electromagnetism", "Only gravity"], "correct": 1, "explanation": "Inertial frames are equivalent." },
-                { "question": "If you chase a light beam at 0.99c, how fast does it move away from you?", "options": ["0.01c", "0.99c", "c", "2c"], "correct": 2, "explanation": "The speed of light is always c relative to any observer." }
-            ]
+          "title": "11. Mathematics of Relativity",
+          "description": "Algebra of Lorentz Transformations.",
+          "icon": "Sigma",
+          "subtopics": [
+            {
+              "id": "2.11.1",
+              "title": "Coordinates (x, y, z, t)",
+              "type": "text",
+              "content": "Events happen at a place AND time."
+            },
+            {
+              "id": "2.11.2",
+              "title": "Galilean Transformation",
+              "type": "text",
+              "content": "x' = x - vt (Old physics). Fails at high speed."
+            },
+            {
+              "id": "2.11.3",
+              "title": "Lorentz Transformation",
+              "type": "case_study",
+              "content": "x' = gamma(x - vt). The correct math."
+            },
+            {
+              "id": "2.11.4",
+              "title": "Mixing Space and Time",
+              "type": "text",
+              "content": "Time for me depends on your space."
+            },
+            {
+              "id": "2.11.5",
+              "title": "Invariant Interval s^2",
+              "type": "text",
+              "content": "s^2 = (ct)^2 - x^2. Everyone agrees on calculation."
+            },
+            {
+              "id": "2.11.6",
+              "title": "Simulator Task: Calculate Gamma",
+              "type": "task",
+              "content": "Use calculator: P=8GeV, m=0.14. Find Gamma. Check with simulator."
+            },
+            {
+              "id": "2.11.7",
+              "title": "Velocity Addition",
+              "type": "text",
+              "content": "v + u != v+u. (v+u)/(1+vu/c^2)."
+            },
+            {
+              "id": "2.11.8",
+              "title": "Quiz: Addition",
+              "type": "quiz",
+              "quiz": {
+                "q": "0.5c + 0.5c = ?",
+                "a": [
+                  "1.0c",
+                  "0.8c",
+                  "0.9c"
+                ],
+                "correct": 1
+              }
+            },
+            {
+              "id": "2.11.9",
+              "title": "Flashcards: Invariant",
+              "type": "flashcard",
+              "flashcard": {
+                "front": "Spacetime Interval",
+                "back": "Invariant for all observers"
+              }
+            },
+            {
+              "id": "2.11.10",
+              "title": "Minkowski Diagrams",
+              "type": "text",
+              "content": "Visualizing spacetime with geometry."
+            }
+          ]
         },
         {
-            "id": "2.2", "title": "Deriving Time Dilation", "duration": "25 min", "icon": "PenTool",
-            "description": "Light clock thought experiment, mathematical derivation.",
-            "content": "# The Light Clock\n\nImagine a clock made of a photon bouncing between two mirrors. \n\n*   **Rest Frame**: The photon goes up and down. Distance = $2L$.\n*   **Moving Frame**: The mirrors move sideways. The photon must travel a diagonal path. Distance = $2D$.\n\nSince $D > L$ and the speed of light $c$ is constant, the time taken must be longer in the moving frame. This simple geometry gives us the formula:\n\n$$\\Delta t = \\frac{\\Delta t_0}{\\sqrt{1 - v^2/c^2}}$$",
-            "task": { "description": "Use the Lorentz Calculator widget in Module 1.4 to verify how the factor grows." },
-            "quiz": [
-                { "question": "Why does the photon travel further in the moving frame?", "options": ["Mirrors are further apart", "It moves diagonally", "Space expands", "Gravity pulls it"], "correct": 1, "explanation": "The horizontal motion of the mirrors adds a horizontal component to the photon's path." },
-                { "question": "Which time interval is shortest?", "options": ["Proper time (rest frame)", "Dilated time (moving frame)", "Both equal", "Depends on clock type"], "correct": 0, "explanation": "Proper time is always the shortest interval between two events." }
-            ]
+          "title": "12. Relativistic Energy",
+          "description": "E=mc^2 and beyond.",
+          "icon": "Zap",
+          "subtopics": [
+            {
+              "id": "2.12.1",
+              "title": "Total Energy",
+              "type": "text",
+              "content": "E = gamma * m * c^2."
+            },
+            {
+              "id": "2.12.2",
+              "title": "Rest Energy",
+              "type": "text",
+              "content": "E0 = m * c^2. Energy stored in mass."
+            },
+            {
+              "id": "2.12.3",
+              "title": "Kinetic Energy",
+              "type": "text",
+              "content": "KE = E_total - E_rest. NOT 1/2mv^2!"
+            },
+            {
+              "id": "2.12.4",
+              "title": "Momentum-Energy Relation",
+              "type": "case_study",
+              "content": "E^2 = (pc)^2 + (mc^2)^2. The Golden Rule."
+            },
+            {
+              "id": "2.12.5",
+              "title": "Units: electron-Volts (eV)",
+              "type": "text",
+              "content": "Energy gained by electron in 1 Volt."
+            },
+            {
+              "id": "2.12.6",
+              "title": "MeV and GeV",
+              "type": "text",
+              "content": "Mega and Giga eV. Protons are ~1 GeV."
+            },
+            {
+              "id": "2.12.7",
+              "title": "Simulator Task: Energy Check",
+              "type": "task",
+              "content": "Look at 'Total Energy E' in the live data. Verify E > Momentum."
+            },
+            {
+              "id": "2.12.8",
+              "title": "Quiz: Units",
+              "type": "quiz",
+              "quiz": {
+                "q": "Energy unit?",
+                "a": [
+                  "Tesla",
+                  "GeV",
+                  "Farad"
+                ],
+                "correct": 1
+              }
+            },
+            {
+              "id": "2.12.9",
+              "title": "Flashcards: E-p-m",
+              "type": "flashcard",
+              "flashcard": {
+                "front": "E^2 =",
+                "back": "p^2 + m^2 (units c=1)"
+              }
+            },
+            {
+              "id": "2.12.10",
+              "title": "Massless Particles",
+              "type": "text",
+              "content": "If m=0, E = p. Light has momentum!"
+            }
+          ]
         },
         {
-            "id": "2.3", "title": "Length Contraction", "duration": "20 min", "icon": "Minimize2",
-            "description": "Lorentz contraction, relativistic effects.",
-            "content": "# Length Contraction\n\nTime dilation isn't the only effect. Objects moving at high speeds appear shorter along the direction of motion.\n\n$$L = L_0 \\sqrt{1 - v^2/c^2}$$\n\nIf you were riding a muon, the 15-meter beamline at CERN would effectively shrink to only a few centimeters! This explains why the muon thinks it can reach the end before decaying, even though its lifetime is short.",
-            "task": { "description": "In the simulator, pretend you are the particle. If gamma is 50, how long does the 15m beamline look to you?" },
-            "quiz": [
-                { "question": "Does an object shrink in all directions?", "options": ["Yes", "No, only along motion", "No, only perpendicular to motion", "It expands"], "correct": 1, "explanation": "Length contraction is directional." },
-                { "question": "From the muon's perspective, why does it survive?", "options": ["Time slows down", "Distance shortens", "It travels faster than light", "Magic"], "correct": 1, "explanation": "In the muon's frame, the distance to the detector contracts, so it has time to traverse it." }
-            ]
+          "title": "13. Particle Decay Physics",
+          "description": "Exponential decay law derived.",
+          "icon": "Activity",
+          "subtopics": [
+            {
+              "id": "2.13.1",
+              "title": "Decay Probability",
+              "type": "text",
+              "content": "Constant probability per unit time lambda."
+            },
+            {
+              "id": "2.13.2",
+              "title": "The Exponential Law",
+              "type": "text",
+              "content": "N(t) = N0 * e^(-t/tau)."
+            },
+            {
+              "id": "2.13.3",
+              "title": "Mean Lifetime (tau)",
+              "type": "text",
+              "content": "Average time a particle lives."
+            },
+            {
+              "id": "2.13.4",
+              "title": "Half-Life vs Lifetime",
+              "type": "text",
+              "content": "t_1/2 = tau * ln(2)."
+            },
+            {
+              "id": "2.13.5",
+              "title": "Relativistic Decay",
+              "type": "case_study",
+              "content": "In lab frame, t_lab = gamma * tau. They live longer!"
+            },
+            {
+              "id": "2.13.6",
+              "title": "Survival Fraction",
+              "type": "text",
+              "content": "P = exp(-L / (beta * c * gamma * tau))."
+            },
+            {
+              "id": "2.13.7",
+              "title": "Simulator Task: Decay Length",
+              "type": "task",
+              "content": "Check 'Decay Length' value. If it's larger than Beamline Length (15m), most survive."
+            },
+            {
+              "id": "2.13.8",
+              "title": "Quiz: Gamma Effect",
+              "type": "quiz",
+              "quiz": {
+                "q": "High gamma means...",
+                "a": [
+                  "Faster decay",
+                  "Slower decay",
+                  "No change"
+                ],
+                "correct": 1
+              }
+            },
+            {
+              "id": "2.13.9",
+              "title": "Flashcards: Formula",
+              "type": "flashcard",
+              "flashcard": {
+                "front": "N(t)",
+                "back": "N0 exp(-t/tau)"
+              }
+            },
+            {
+              "id": "2.13.10",
+              "title": "Branching Ratios",
+              "type": "text",
+              "content": "Particles can decay in multiple ways."
+            }
+          ]
         },
         {
-            "id": "2.4", "title": "Relativistic Kinematics", "duration": "30 min", "icon": "Share2",
-            "description": "Four-vectors, invariant mass.",
-            "content": "# Four-Vectors\n\nTo handle space and time together, physicists use 4-vectors. The most important is the Energy-Momentum 4-vector:\n\n$$P = (E/c, p_x, p_y, p_z)$$\n\nThe 'length' of this vector is invariant—it's the same for all observers. This length is the **mass** of the particle.\n\n$$E^2 - (pc)^2 = (mc^2)^2$$",
-            "task": { "description": "No specific simulator task. Review the 'Results' tab in the simulator to see the statistical analysis." },
-            "quiz": [
-                { "question": "What quantity is invariant in relativity?", "options": ["Energy", "Momentum", "Mass", "Velocity"], "correct": 2, "explanation": "Rest mass is a relativistic invariant." },
-                { "question": "What is the 4th dimension in a 4-vector?", "options": ["Time (or Energy)", "Space", "Gravity", "Spin"], "correct": 0, "explanation": "Time pairs with Space; Energy pairs with Momentum." }
-            ]
+          "title": "14. Scintillation Counters",
+          "description": "Detection mechanism details.",
+          "icon": "Box",
+          "subtopics": [
+            {
+              "id": "2.14.1",
+              "title": "Organic Scintillators",
+              "type": "text",
+              "content": "Hydrocarbon chains. Fast response."
+            },
+            {
+              "id": "2.14.2",
+              "title": "Energy Loss (dE/dx)",
+              "type": "text",
+              "content": "Bethe-Bloch formula basics."
+            },
+            {
+              "id": "2.14.3",
+              "title": "Light Guides",
+              "type": "text",
+              "content": "Getting light to the sensor."
+            },
+            {
+              "id": "2.14.4",
+              "title": "Photomultiplier (PMT)",
+              "type": "case_study",
+              "content": "The Photoelectric effect in action."
+            },
+            {
+              "id": "2.14.5",
+              "title": "Efficiency",
+              "type": "text",
+              "content": "Do we see every particle? Usually >99%."
+            },
+            {
+              "id": "2.14.6",
+              "title": "Timing Resolution",
+              "type": "text",
+              "content": "How precise? ~100ps."
+            },
+            {
+              "id": "2.14.7",
+              "title": "Simulator Task: Scintillator",
+              "type": "task",
+              "content": "The big gray blocks in the 3D view are scintillators. Identify them."
+            },
+            {
+              "id": "2.14.8",
+              "title": "Quiz: dE/dx",
+              "type": "quiz",
+              "quiz": {
+                "q": "Minimum Ionizing Particle (MIP)?",
+                "a": [
+                  "Loses min energy",
+                  "Loses max energy",
+                  "Stopped"
+                ],
+                "correct": 0
+              }
+            },
+            {
+              "id": "2.14.9",
+              "title": "Flashcards: PMT",
+              "type": "flashcard",
+              "flashcard": {
+                "front": "PMT Gain",
+                "back": "10^6 to 10^7 electrons"
+              }
+            },
+            {
+              "id": "2.14.10",
+              "title": "Coincidence Matrix",
+              "type": "text",
+              "content": "Using 2 counters to reduce noise."
+            }
+          ]
         },
         {
-            "id": "2.5", "title": "Time-of-Flight (TOF) Detectors", "duration": "25 min", "icon": "Clock",
-            "description": "How TOF works, timing resolution.",
-            "content": "# Time of Flight\n\nA TOF detector measures the time it takes for a particle to travel between two points. \n\n$$v = \\frac{\\Delta x}{\\Delta t}$$\n\nIf we know the distance $\\Delta x$ precisely and measure $\\Delta t$ with a fast clock, we can find the velocity. At CERN, our clocks have a resolution of 100 picoseconds ($10^{-10}$ s)!",
-            "task": { "description": "Check the detector configuration in the simulator. Enable TOF1 and TOF2." },
-            "quiz": [
-                { "question": "What limits the accuracy of a TOF?", "options": ["Distance measurement", "Timing resolution", "Particle mass", "Air pressure"], "correct": 1, "explanation": "Fast timing electronics are critical for high-speed particles." },
-                { "question": "Why do we need a long beamline?", "options": ["To fit more detectors", "To increase time difference", "To slow particles down", "To cool them"], "correct": 1, "explanation": "A longer flight path makes the time difference between particles easier to measure." }
-            ]
+          "title": "15. Time of Flight (TOF)",
+          "description": "Measuring velocity directly.",
+          "icon": "Watch",
+          "subtopics": [
+            {
+              "id": "2.15.1",
+              "title": "Concept: Start and Stop",
+              "type": "text",
+              "content": "t1 at detector A, t2 at detector B."
+            },
+            {
+              "id": "2.15.2",
+              "title": "Velocity Calculation",
+              "type": "text",
+              "content": "v = d / (t2 - t1)."
+            },
+            {
+              "id": "2.15.3",
+              "title": "Beta Calculation",
+              "type": "text",
+              "content": "beta = v / c."
+            },
+            {
+              "id": "2.15.4",
+              "title": "Mass Separation",
+              "type": "case_study",
+              "content": "Heavier particles move slower at same momentum."
+            },
+            {
+              "id": "2.15.5",
+              "title": "Resolution Limits",
+              "type": "text",
+              "content": "If particles are too fast (gamma >> 1), speeds are too close."
+            },
+            {
+              "id": "2.15.6",
+              "title": "Calibration",
+              "type": "text",
+              "content": "Using light or electrons to zero the clock."
+            },
+            {
+              "id": "2.15.7",
+              "title": "Simulator Task: TOF Detectors",
+              "type": "task",
+              "content": "Note the 'TOF1' and 'TOF2' checkboxes. They define the start/stop timing."
+            },
+            {
+              "id": "2.15.8",
+              "title": "Quiz: High Energy",
+              "type": "quiz",
+              "quiz": {
+                "q": "Is TOF good for 100 GeV pions?",
+                "a": [
+                  "Yes",
+                  "No",
+                  "Best"
+                ],
+                "correct": 1
+              }
+            },
+            {
+              "id": "2.15.9",
+              "title": "Flashcards: t",
+              "type": "flashcard",
+              "flashcard": {
+                "front": "Time of Flight",
+                "back": "Distance / Velocity"
+              }
+            },
+            {
+              "id": "2.15.10",
+              "title": "RPCs",
+              "type": "text",
+              "content": "Resistive Plate Chambers (alternative to scintillators)."
+            }
+          ]
         },
         {
-            "id": "2.6", "title": "Scintillation Detectors", "duration": "20 min", "icon": "Zap",
-            "description": "Light emission, PMTs, energy measurement.",
-            "content": "# Scintillators\n\nPlastic scintillators are the workhorses of particle physics. When a charged particle passes through, it excites the molecules, which then emit blue light.\n\nThis light is captured by a **Photomultiplier Tube (PMT)**, which converts the faint light flash into a strong electrical signal that a computer can record.",
-            "task": { "description": "Observe the Scintillator Array in the 3D simulator. It is the grid-like detector." },
-            "quiz": [
-                { "question": "What converts light to electricity?", "options": ["Scintillator", "PMT", "Resistor", "Lens"], "correct": 1, "explanation": "The Photomultiplier Tube amplifies the photoelectron signal." },
-                { "question": "Does a neutral particle (neutron) trigger a scintillator?", "options": ["Yes", "No", "Sometimes", "Only if fast"], "correct": 1, "explanation": "Scintillators generally detect charged particles (ionization)." }
-            ]
+          "title": "16. Cherenkov Detectors",
+          "description": "Breaking the light barrier.",
+          "icon": "Sun",
+          "subtopics": [
+            {
+              "id": "2.16.1",
+              "title": "Sonic Boom for Light",
+              "type": "text",
+              "content": "Happens when v > c/n."
+            },
+            {
+              "id": "2.16.2",
+              "title": "Refractive Index (n)",
+              "type": "case_study",
+              "content": "Water n=1.33. CO2 gas n=1.0004."
+            },
+            {
+              "id": "2.16.3",
+              "title": "Threshold Velocity",
+              "type": "text",
+              "content": "Minimum beta = 1/n."
+            },
+            {
+              "id": "2.16.4",
+              "title": "The Angle",
+              "type": "text",
+              "content": "Cos(theta) = 1 / (beta * n)."
+            },
+            {
+              "id": "2.16.5",
+              "title": "Discrimination",
+              "type": "text",
+              "content": "Light = fast. No light = slow(er)."
+            },
+            {
+              "id": "2.16.6",
+              "title": "Ring Imaging (RICH)",
+              "type": "text",
+              "content": "Imaging the cone as a ring."
+            },
+            {
+              "id": "2.16.7",
+              "title": "Simulator Task: Cherenkov",
+              "type": "task",
+              "content": "Toggle 'Cherenkov'. It lights up if particle speed > threshold."
+            },
+            {
+              "id": "2.16.8",
+              "title": "Quiz: Threshold",
+              "type": "quiz",
+              "quiz": {
+                "q": "If v < c/n, what happens?",
+                "a": [
+                  "Light",
+                  "No Light",
+                  "Sound"
+                ],
+                "correct": 1
+              }
+            },
+            {
+              "id": "2.16.9",
+              "title": "Flashcards: Blue Glow",
+              "type": "flashcard",
+              "flashcard": {
+                "front": "Cherenkov Color",
+                "back": "Blue/UV"
+              }
+            },
+            {
+              "id": "2.16.10",
+              "title": "Applications",
+              "type": "text",
+              "content": "Neutrino detection (Super-K) uses this."
+            }
+          ]
         },
         {
-            "id": "2.7", "title": "Cherenkov Radiation", "duration": "25 min", "icon": "Sun",
-            "description": "Threshold effect, particle ID.",
-            "content": "# Cherenkov Radiation\n\nWhen a particle moves through a medium (like gas or water) faster than the speed of light *in that medium*, it emits a cone of light.\n\nThis is like a sonic boom, but with light! The angle of the light cone tells us the particle's speed very precisely.",
-            "task": { "description": "The Cherenkov detector is the blue cone in the simulator. It helps us distinguish Pions from Kaons." },
-            "quiz": [
-                { "question": "Can particles travel faster than light in a medium?", "options": ["Yes", "No", "Never", "Only neutrinos"], "correct": 0, "explanation": "Yes, c_medium = c_vacuum / n. Particles can exceed this reduced speed limit." },
-                { "question": "What determines the Cherenkov angle?", "options": ["Mass", "Charge", "Velocity", "Spin"], "correct": 2, "explanation": "cos(theta) = 1 / (n * beta)." }
-            ]
+          "title": "17. Beam Optics",
+          "description": "Focusing and steering particles.",
+          "icon": "Search",
+          "subtopics": [
+            {
+              "id": "2.17.1",
+              "title": "Dipoles",
+              "type": "text",
+              "content": "Magnets that BEND the beam."
+            },
+            {
+              "id": "2.17.2",
+              "title": "Quadrupoles",
+              "type": "text",
+              "content": "Magnets that FOCUS the beam."
+            },
+            {
+              "id": "2.17.3",
+              "title": "The FODO Cell",
+              "type": "case_study",
+              "content": "Focus-Drift-Defocus-Drift. Net focusing."
+            },
+            {
+              "id": "2.17.4",
+              "title": "Momentum Selection",
+              "type": "text",
+              "content": "Bending angle depends on Momentum. Acts as a filter."
+            },
+            {
+              "id": "2.17.5",
+              "title": "Collimators",
+              "type": "text",
+              "content": "Physical blocks to clean the beam."
+            },
+            {
+              "id": "2.17.6",
+              "title": "Beam Profile",
+              "type": "text",
+              "content": "Gaussian distribution of particles."
+            },
+            {
+              "id": "2.17.7",
+              "title": "Simulator Task: Intensity",
+              "type": "task",
+              "content": "Lower 'Beam Intensity'. This simulates closing a collimator."
+            },
+            {
+              "id": "2.17.8",
+              "title": "Quiz: Lens",
+              "type": "quiz",
+              "quiz": {
+                "q": "Magnetic lens?",
+                "a": [
+                  "Dipole",
+                  "Quadrupole",
+                  "Solenoid"
+                ],
+                "correct": 1
+              }
+            },
+            {
+              "id": "2.17.9",
+              "title": "Flashcards: Bending",
+              "type": "flashcard",
+              "flashcard": {
+                "front": "Dipole Field",
+                "back": "Bends trajectory"
+              }
+            },
+            {
+              "id": "2.17.10",
+              "title": "Secondary Beams",
+              "type": "text",
+              "content": "Smashing protons into target to get pions."
+            }
+          ]
         },
         {
-            "id": "2.8", "title": "Particle Identification", "duration": "30 min", "icon": "Search",
-            "description": "dE/dx, mass reconstruction.",
-            "content": "# PID (Particle ID)\n\nHow do we know if we saw a Pion or a Kaon? We combine information:\n\n1.  **Momentum** (from the beam magnet settings)\n2.  **Velocity** (from TOF or Cherenkov)\n\nKnowing $p$ and $v$, we can calculate mass: $m = p / (\\gamma v)$. Since every particle type has a unique mass, we can identify them!",
-            "task": { "description": "In the simulator results, look at the particle counts. How does the system know which is which? It uses this PID logic." },
-            "quiz": [
-                { "question": "If two particles have the same momentum but different speeds, do they have the same mass?", "options": ["Yes", "No", "Maybe", "Unknown"], "correct": 1, "explanation": "p = gamma * m * v. Different v implies different m." },
-                { "question": "Why is PID hard at very high energy?", "options": ["Particles decay", "Velocities are all close to c", "Detectors melt", "Magnets fail"], "correct": 1, "explanation": "As v approaches c, the differences in velocity become tiny and hard to measure." }
-            ]
+          "title": "18. Data Analysis Basics",
+          "description": "Histograms and Distributions.",
+          "icon": "BarChart",
+          "subtopics": [
+            {
+              "id": "2.18.1",
+              "title": "The Event Loop",
+              "type": "text",
+              "content": "Processing one particle at a time."
+            },
+            {
+              "id": "2.18.2",
+              "title": "Histograms",
+              "type": "text",
+              "content": "Binning data to see shapes."
+            },
+            {
+              "id": "2.18.3",
+              "title": "Gaussian (Normal) Distribution",
+              "type": "text",
+              "content": "The Bell Curve. Noise is Gaussian."
+            },
+            {
+              "id": "2.18.4",
+              "title": "Mean and RMS",
+              "type": "text",
+              "content": "Center and Width of the distribution."
+            },
+            {
+              "id": "2.18.5",
+              "title": "Signal vs Background",
+              "type": "case_study",
+              "content": "Finding the needle in the haystack."
+            },
+            {
+              "id": "2.18.6",
+              "title": "Cuts and Selection",
+              "type": "text",
+              "content": "Removing bad data points."
+            },
+            {
+              "id": "2.18.7",
+              "title": "Simulator Task: Error Bars",
+              "type": "task",
+              "content": "Enable 'Show Error Bars' in Analysis. They show statistical range."
+            },
+            {
+              "id": "2.18.8",
+              "title": "Quiz: Binning",
+              "type": "quiz",
+              "quiz": {
+                "q": "X-axis of histogram?",
+                "a": [
+                  "Time",
+                  "Variable Value",
+                  "Count"
+                ],
+                "correct": 1
+              }
+            },
+            {
+              "id": "2.18.9",
+              "title": "Flashcards: RMS",
+              "type": "flashcard",
+              "flashcard": {
+                "front": "RMS",
+                "back": "Root Mean Square (Width)"
+              }
+            },
+            {
+              "id": "2.18.10",
+              "title": "ROOT Framework",
+              "type": "text",
+              "content": "C++ tool used by CERN for analysis."
+            }
+          ]
         },
         {
-            "id": "2.9", "title": "Statistical Analysis in Physics", "duration": "35 min", "icon": "BarChart2",
-            "description": "Error bars, chi-squared test, significance.",
-            "content": "# Statistics\n\nPhysics is an experimental science, meaning measurements always have errors. We use statistics to quantify certainty.\n\n*   **Poisson Statistics**: For counting events (N), the error is $\\sqrt{N}$.\n*   **Chi-Squared Test**: Checks if data matches a theory. A value near 1 is good.\n*   **Sigma ($\\sigma$)**: Measures how significant a deviation is. 5$\\sigma$ is a discovery.",
-            "task": { "description": "Run a simulation with low intensity (100 events). Look at the error bars in the results. Then run with high intensity. Notice the difference?" },
-            "quiz": [
-                { "question": "If you count 100 particles, what is the uncertainty?", "options": ["1", "10", "50", "100"], "correct": 1, "explanation": "Sqrt(100) = 10." },
-                { "question": "What does a 5-sigma result mean?", "options": ["Likely random fluctuation", "Almost certainly real", "5% error", "Wrong experiment"], "correct": 1, "explanation": "The probability of a random fluctuation is less than 1 in 3.5 million." }
-            ]
+          "title": "19. The Muon",
+          "description": "The heavy electron.",
+          "icon": "Circle",
+          "subtopics": [
+            {
+              "id": "2.19.1",
+              "title": "Who ordered that?",
+              "type": "text",
+              "content": "Rabi's quote. Muon was unexpected."
+            },
+            {
+              "id": "2.19.2",
+              "title": "Properties",
+              "type": "text",
+              "content": "200x mass of electron. Unstable."
+            },
+            {
+              "id": "2.19.3",
+              "title": "Cosmic Rays",
+              "type": "case_study",
+              "content": "Muons rain down on us from space."
+            },
+            {
+              "id": "2.19.4",
+              "title": "Muon Lifetime",
+              "type": "text",
+              "content": "2.2 microseconds. Long enough to track."
+            },
+            {
+              "id": "2.19.5",
+              "title": "Muon Penetration",
+              "type": "text",
+              "content": "Passes through walls/iron easily."
+            },
+            {
+              "id": "2.19.6",
+              "title": "Decay Mode",
+              "type": "text",
+              "content": "Muon -> Electron + Neutrinos."
+            },
+            {
+              "id": "2.19.7",
+              "title": "Simulator Task: Muon Beam",
+              "type": "task",
+              "content": "Select 'Muon' particle. See how high its survival or gamma is."
+            },
+            {
+              "id": "2.19.8",
+              "title": "Quiz: Interaction",
+              "type": "quiz",
+              "quiz": {
+                "q": "Does Muon feel Strong force?",
+                "a": [
+                  "Yes",
+                  "No"
+                ],
+                "correct": 1
+              }
+            },
+            {
+              "id": "2.19.9",
+              "title": "Flashcards: Lifetime",
+              "type": "flashcard",
+              "flashcard": {
+                "front": "Muon Lifetime",
+                "back": "2.2 us"
+              }
+            },
+            {
+              "id": "2.19.10",
+              "title": "Muon Tomography",
+              "type": "text",
+              "content": "Using cosmic muons to X-ray Pyramids."
+            }
+          ]
         },
         {
-            "id": "2.10", "title": "Designing an Experiment", "duration": "40 min", "icon": "Layout",
-            "description": "Hypothesis, controls, systematic errors.",
-            "content": "# Experimental Design\n\nA good experiment needs:\n\n1.  **Clear Hypothesis**: What are you testing?\n2.  **Controls**: Measurements to check your equipment (like our Muon calibration).\n3.  **Systematics**: Understanding biases in your apparatus.\n\nOur experiment uses a 'comparative' design (Pion vs Kaon) to cancel out many systematic errors.",
-            "task": { "description": "Try the 'Custom Experiment' preset in the simulator. Turn off some detectors. Does the experiment still work?" },
-            "quiz": [
-                { "question": "What is a control in our experiment?", "options": ["The Pion", "The Kaon", "The Muon", "The Beam"], "correct": 2, "explanation": "The muon doesn't decay significantly, providing a stable reference." },
-                { "question": "Why compare Pions and Kaons?", "options": ["They are the same mass", "To cancel systematics", "One is positive, one negative", "Random choice"], "correct": 1, "explanation": "Common errors affect both equally, so the ratio is robust." }
-            ]
+          "title": "20. Writing a Lab Report",
+          "description": "Documenting your science.",
+          "icon": "FileText",
+          "subtopics": [
+            {
+              "id": "2.20.1",
+              "title": "Abstract",
+              "type": "text",
+              "content": "Summary of the whole thing."
+            },
+            {
+              "id": "2.20.2",
+              "title": "Introduction",
+              "type": "text",
+              "content": "Physics context and goal."
+            },
+            {
+              "id": "2.20.3",
+              "title": "Methodology",
+              "type": "text",
+              "content": "Setup, triggers, settings."
+            },
+            {
+              "id": "2.20.4",
+              "title": "Results",
+              "type": "text",
+              "content": "Plots, tables, numbers."
+            },
+            {
+              "id": "2.20.5",
+              "title": "Discussion",
+              "type": "case_study",
+              "content": "Interpreting the data. Why does it fit?"
+            },
+            {
+              "id": "2.20.6",
+              "title": "Conclusion",
+              "type": "text",
+              "content": "Did you prove the hypothesis?"
+            },
+            {
+              "id": "2.20.7",
+              "title": "Simulator Task: Export",
+              "type": "task",
+              "content": "Currently no export, but imagine saving your plot for the report."
+            },
+            {
+              "id": "2.20.8",
+              "title": "Quiz: Abstract",
+              "type": "quiz",
+              "quiz": {
+                "q": "Length of abstract?",
+                "a": [
+                  "10 pages",
+                  "1 paragraph",
+                  "1 sentence"
+                ],
+                "correct": 1
+              }
+            },
+            {
+              "id": "2.20.9",
+              "title": "Flashcards: References",
+              "type": "flashcard",
+              "flashcard": {
+                "front": "Citing work",
+                "back": "Essential for credit"
+              }
+            },
+            {
+              "id": "2.20.10",
+              "title": "Peer Review",
+              "type": "text",
+              "content": "Getting others to check your work."
+            }
+          ]
         }
       ]
     },
@@ -254,104 +1583,782 @@
       "level": "advanced",
       "items": [
         {
-            "id": "3.1", "title": "Lorentz Invariance Tests", "duration": "30 min", "icon": "Shield",
-            "description": "Testing SR, modern theories beyond SR.",
-            "content": "# Lorentz Invariance\n\nIs relativity *always* true? Some theories of Quantum Gravity suggest it might break down at extremely high energies.\n\nTesting 'Lorentz Invariance' means looking for tiny violations of Einstein's rules. Our experiment is a test of **Universality**—do all particles feel the same time dilation?",
-            "task": { "description": "If you see a deviation in the simulator results (red flag in stats), it might indicate Lorentz Violation!" },
-            "quiz": [
-                { "question": "What implies Lorentz Invariance?", "options": ["Laws of physics depend on speed", "Laws of physics are independent of frame", "Time is absolute", "Space is absolute"], "correct": 1, "explanation": "The outcome of an experiment shouldn't depend on the velocity of the lab." },
-                { "question": "Have we found violations yet?", "options": ["Yes, many", "No, none confirmed", "Only on Mars", "In black holes"], "correct": 1, "explanation": "So far, Special Relativity has passed every test." }
-            ]
+          "title": "21. Lorentz Invariance Testing",
+          "description": "Pushing relativity to the limit.",
+          "icon": "Shield",
+          "subtopics": [
+            {
+              "id": "3.21.1",
+              "title": "Foundations of SR",
+              "type": "text",
+              "content": "Is 'c' truly isotropic?"
+            },
+            {
+              "id": "3.21.2",
+              "title": "Standard Model Extension (SME)",
+              "type": "text",
+              "content": "Framework for parameterizing violations."
+            },
+            {
+              "id": "3.21.3",
+              "title": "Sidereal Variations",
+              "type": "case_study",
+              "content": "Does physics change as Earth rotates?"
+            },
+            {
+              "id": "3.21.4",
+              "title": "The c_mu vs c_gamma test",
+              "type": "text",
+              "content": "Comparing max speed of Muon vs Photon."
+            },
+            {
+              "id": "3.21.5",
+              "title": "High Energy Limits",
+              "type": "text",
+              "content": "Does spacetime become 'grainy'?"
+            },
+            {
+              "id": "3.21.6",
+              "title": "Simulator Task: Precision",
+              "type": "task",
+              "content": "We need high stats (100k events) to see tiny deviations."
+            },
+            {
+              "id": "3.21.7",
+              "title": "Universality",
+              "type": "text",
+              "content": "Does dE/dx relate to gamma the same for all species?"
+            },
+            {
+              "id": "3.21.8",
+              "title": "Quiz: SME",
+              "type": "quiz",
+              "quiz": {
+                "q": "SME stands for?",
+                "a": [
+                  "Standard Model Extension",
+                  "Small Mass Energy"
+                ],
+                "correct": 0
+              }
+            },
+            {
+              "id": "3.21.9",
+              "title": "Flashcards: Planck Scale",
+              "type": "flashcard",
+              "flashcard": {
+                "front": "Planck Length",
+                "back": "10^-35 m"
+              }
+            },
+            {
+              "id": "3.21.10",
+              "title": "Modern Constraints",
+              "type": "text",
+              "content": "SR holds to 1 part in 10^18."
+            }
+          ]
         },
         {
-            "id": "3.2", "title": "Standard Model Overview", "duration": "40 min", "icon": "Grid",
-            "description": "Quarks, leptons, force carriers.",
-            "content": "# The Standard Model\n\nThe most successful theory in physics history. It organizes matter into:\n\n*   **Fermions** (Matter): 6 Quarks, 6 Leptons.\n*   **Bosons** (Forces): Photon, Gluon, W/Z, Higgs.\n\nOur experiment uses Pions ($u\\bar{d}$) and Kaons ($u\\bar{s}$), which are mesons made of quarks.",
-            "task": { "description": "Use the Particle Builder in Module 1.1 again to review quark compositions." },
-            "quiz": [
-                { "question": "What force holds quarks together?", "options": ["Gravity", "Electromagnetism", "Strong Force", "Weak Force"], "correct": 2, "explanation": "The strong force (gluons) binds quarks into hadrons." },
-                { "question": "Which particle gives mass to others?", "options": ["Photon", "Higgs Boson", "Gluon", "Neutrino"], "correct": 1, "explanation": "The Higgs field interaction generates mass." }
-            ]
+          "title": "22. Transition Radiation (TR)",
+          "description": "Particle ID at high gamma.",
+          "icon": "Layers",
+          "subtopics": [
+            {
+              "id": "3.22.1",
+              "title": "Physics of Boundary Crossing",
+              "type": "text",
+              "content": "Changing dielectric constant causes emission."
+            },
+            {
+              "id": "3.22.2",
+              "title": "X-Ray Emission",
+              "type": "text",
+              "content": "Photons are in KeV range."
+            },
+            {
+              "id": "3.22.3",
+              "title": "Gamma Dependence",
+              "type": "text",
+              "content": "Intensity proportional to Gamma. Good for e/pi separation."
+            },
+            {
+              "id": "3.22.4",
+              "title": "Radiators and Absorbers",
+              "type": "case_study",
+              "content": "Foils (mylar) + Xenon gas detectors."
+            },
+            {
+              "id": "3.22.5",
+              "title": "Electron ID",
+              "type": "text",
+              "content": "Electrons are light -> High Gamma -> Strong TR."
+            },
+            {
+              "id": "3.22.6",
+              "title": "Heavy Particles",
+              "type": "text",
+              "content": "Pions/Protons have low gamma -> No TR."
+            },
+            {
+              "id": "3.22.7",
+              "title": "Simulator Task: Presets",
+              "type": "task",
+              "content": "Load 'DESY: e+e- Pair Studies'. Note use of detectors sensitive to electrons."
+            },
+            {
+              "id": "3.22.8",
+              "title": "Quiz: TR Range",
+              "type": "quiz",
+              "quiz": {
+                "q": "TR useful for?",
+                "a": [
+                  "Low velocity",
+                  "High Gamma",
+                  "Neutrons"
+                ],
+                "correct": 1
+              }
+            },
+            {
+              "id": "3.22.9",
+              "title": "Flashcards: Material",
+              "type": "flashcard",
+              "flashcard": {
+                "front": "Radiator",
+                "back": "Many layers of foil"
+              }
+            },
+            {
+              "id": "3.22.10",
+              "title": "ATLAS TRT",
+              "type": "text",
+              "content": "Transition Radiation Tracker at LHC."
+            }
+          ]
         },
         {
-            "id": "3.3", "title": "Weak Decay Processes", "duration": "35 min", "icon": "Activity",
-            "description": "Beta decay, W bosons, Feynman diagrams.",
-            "content": "# Weak Decay\n\nPions and Kaons decay via the **Weak Force**. This is the only force that can change one type of quark into another.\n\nExample: $\\pi^+ \\to \\mu^+ + \\nu_\\mu$\n\nThis involves a $W^+$ boson exchange. Because the W boson is heavy, this process is slow (on nuclear timescales), giving particles time to fly through our detector.",
-            "task": { "description": "Watch the 'Decay' animations in the simulator. The explosion represents this weak interaction event." },
-            "quiz": [
-                { "question": "Which force causes beta decay?", "options": ["Strong", "Weak", "Gravity", "EM"], "correct": 1, "explanation": "The weak interaction is responsible for flavor change." },
-                { "question": "Why is the weak force 'weak'?", "options": ["It has small charge", "The carrier (W/Z) is massive", "It only acts on neutrinos", "It is slow"], "correct": 1, "explanation": "The massive range limit makes it appear weak at low energies." }
-            ]
+          "title": "23. Calorimetry",
+          "description": "Stopping particles to measure E.",
+          "icon": "Box",
+          "subtopics": [
+            {
+              "id": "3.23.1",
+              "title": "Electromagnetic Showers",
+              "type": "text",
+              "content": "Electrons/Photons cascade: e -> gamma -> ee."
+            },
+            {
+              "id": "3.23.2",
+              "title": "Hadronic Showers",
+              "type": "text",
+              "content": "Protons/Pions interact via Strong force. Messier."
+            },
+            {
+              "id": "3.23.3",
+              "title": "Radiation Length (X0)",
+              "type": "text",
+              "content": "Distance to lose 1/e energy."
+            },
+            {
+              "id": "3.23.4",
+              "title": "Interaction Length (Lambda)",
+              "type": "text",
+              "content": "Scale for hadronic showers (longer)."
+            },
+            {
+              "id": "3.23.5",
+              "title": "Resolution Scaling",
+              "type": "case_study",
+              "content": "Sigma(E)/E goes as 1/sqrt(E). Better at high energy!"
+            },
+            {
+              "id": "3.23.6",
+              "title": "Crystal Calorimeters",
+              "type": "text",
+              "content": "CMS ECAL uses Lead Tungstate."
+            },
+            {
+              "id": "3.23.7",
+              "title": "Simulator Task: None",
+              "type": "task",
+              "content": "Our simulator focuses on tracking/TOF, but imagine a block at the end."
+            },
+            {
+              "id": "3.23.8",
+              "title": "Quiz: Scaling",
+              "type": "quiz",
+              "quiz": {
+                "q": "Resolution at high E?",
+                "a": [
+                  "Improves",
+                  "Worsens",
+                  "Constant"
+                ],
+                "correct": 0
+              }
+            },
+            {
+              "id": "3.23.9",
+              "title": "Flashcards: X0",
+              "type": "flashcard",
+              "flashcard": {
+                "front": "Radiation Length",
+                "back": "EM Shower scale"
+              }
+            },
+            {
+              "id": "3.23.10",
+              "title": "Sampling vs Homogeneous",
+              "type": "text",
+              "content": "Sandwich layers vs solid block."
+            }
+          ]
         },
         {
-            "id": "3.4", "title": "Transition Radiation", "duration": "30 min", "icon": "Layers",
-            "description": "What is TR, detection methods, applications.",
-            "content": "# Transition Radiation (TR)\n\nWhen a relativistic particle crosses the boundary between two materials with different electrical properties, it emits X-rays. \n\nThe intensity depends on $\\gamma$. Since electrons have huge $\\gamma$ (due to small mass), TR detectors are great at spotting electrons among heavier particles.",
-            "task": { "description": "Select the 'Transition Radiation' preset in the simulator to see how this detector would be set up." },
-            "quiz": [
-                { "question": "TR intensity is proportional to?", "options": ["Velocity", "Gamma factor", "Mass", "Charge"], "correct": 1, "explanation": "It scales with the Lorentz factor gamma." },
-                { "question": "What does TR emit?", "options": ["Sound", "Visible light", "X-rays", "Radio waves"], "correct": 2, "explanation": "Transition radiation is typically in the X-ray spectrum." }
-            ]
+          "title": "24. Feynman Diagrams",
+          "description": "Visualizing particle interactions.",
+          "icon": "Edit2",
+          "subtopics": [
+            {
+              "id": "3.24.1",
+              "title": "Space-Time Graphs",
+              "type": "text",
+              "content": "Time flows up (or right)."
+            },
+            {
+              "id": "3.24.2",
+              "title": "Lines and Vertices",
+              "type": "text",
+              "content": "Straight=Fermion, Wavy=Boson. Vertex=Interaction."
+            },
+            {
+              "id": "3.24.3",
+              "title": "Conservation Rules",
+              "type": "text",
+              "content": "Charge, Lepton #, Baryon # conserved at vertex."
+            },
+            {
+              "id": "3.24.4",
+              "title": "QED Examples",
+              "type": "case_study",
+              "content": "Electron-Electron scattering (photon exchange)."
+            },
+            {
+              "id": "3.24.5",
+              "title": "Weak Interaction",
+              "type": "text",
+              "content": "W/Z bosons. Beta decay diagram."
+            },
+            {
+              "id": "3.24.6",
+              "title": "QCD",
+              "type": "text",
+              "content": "Gluons and quark color flow."
+            },
+            {
+              "id": "3.24.7",
+              "title": "Simulator Task: Decay",
+              "type": "task",
+              "content": "Visualize Pion Decay: Pi -> Mu + Nu. Draw the W+ exchange."
+            },
+            {
+              "id": "3.24.8",
+              "title": "Quiz: Photon",
+              "type": "quiz",
+              "quiz": {
+                "q": "Photon line is?",
+                "a": [
+                  "Straight",
+                  "Wavy",
+                  "Dotted"
+                ],
+                "correct": 1
+              }
+            },
+            {
+              "id": "3.24.9",
+              "title": "Flashcards: Vertex",
+              "type": "flashcard",
+              "flashcard": {
+                "front": "Vertex coupling",
+                "back": "Strength of interaction"
+              }
+            },
+            {
+              "id": "3.24.10",
+              "title": "Virtual Particles",
+              "type": "text",
+              "content": "Internal lines are 'off-shell'."
+            }
+          ]
         },
         {
-            "id": "3.5", "title": "Monte Carlo Simulation", "duration": "45 min", "icon": "Cpu",
-            "description": "GEANT4, event generation, particle transport.",
-            "content": "# Monte Carlo Methods\n\nHow do we predict what will happen? We roll dice!\n\nMonte Carlo simulations (like GEANT4) calculate probabilities for every step of a particle's journey: 'Will it decay here?', 'Will it scatter there?'. By repeating this millions of times, we build a statistical prediction.",
-            "task": { "description": "Our 'Simulator' is a simplified web version. The 'GEANT4 Data' tab contains the rigorous supercomputer results." },
-            "quiz": [
-                { "question": "Why is it called Monte Carlo?", "options": ["Named after a scientist", "Named after the casino", "Named after a mountain", "Random acronym"], "correct": 1, "explanation": "Named after the famous casino in Monaco due to the use of randomness." },
-                { "question": "What is GEANT4 used for?", "options": ["Gaming", "Particle transport simulation", "Weather prediction", "Stock market"], "correct": 1, "explanation": "It is the standard toolkit for high energy physics simulation." }
-            ]
+          "title": "25. Monte Carlo & GEANT4",
+          "description": "Simulate before you build.",
+          "icon": "Cpu",
+          "subtopics": [
+            {
+              "id": "3.25.1",
+              "title": "Why Simulate?",
+              "type": "text",
+              "content": "Optimize design and understand background."
+            },
+            {
+              "id": "3.25.2",
+              "title": "Monte Carlo Integration",
+              "type": "text",
+              "content": "Solving integrals by random sampling."
+            },
+            {
+              "id": "3.25.3",
+              "title": "Geometry Definition",
+              "type": "text",
+              "content": "Building the digital twin of detectors."
+            },
+            {
+              "id": "3.25.4",
+              "title": "Physics Lists",
+              "type": "text",
+              "content": "Telling GEANT4 which interactions to enable."
+            },
+            {
+              "id": "3.25.5",
+              "title": "Stepping Action",
+              "type": "case_study",
+              "content": "Tracking particle step-by-step."
+            },
+            {
+              "id": "3.25.6",
+              "title": "Optical Photons",
+              "type": "text",
+              "content": "Simulating Cherenkov light is CPU heavy."
+            },
+            {
+              "id": "3.25.7",
+              "title": "Simulator Task: Comparison",
+              "type": "task",
+              "content": "Compare our WebGL sim with GEANT4 data tab. WebGL is approx, GEANT4 is exact."
+            },
+            {
+              "id": "3.25.8",
+              "title": "Quiz: Steps",
+              "type": "quiz",
+              "quiz": {
+                "q": "A 'Step' in GEANT4 is?",
+                "a": [
+                  "Physical stride",
+                  "Distance between interactions",
+                  "1 meter"
+                ],
+                "correct": 1
+              }
+            },
+            {
+              "id": "3.25.9",
+              "title": "Flashcards: GEANT4",
+              "type": "flashcard",
+              "flashcard": {
+                "front": "Language",
+                "back": "C++"
+              }
+            },
+            {
+              "id": "3.25.10",
+              "title": "Analysis Chain",
+              "type": "text",
+              "content": "Simulation output -> Reconstruction -> Analysis."
+            }
+          ]
         },
         {
-            "id": "3.6", "title": "Data Acquisition Systems", "duration": "35 min", "icon": "Server",
-            "description": "Triggers, readout electronics, event building.",
-            "content": "# DAQ (Data Acquisition)\n\nDetectors generate millions of signals per second. We can't save them all.\n\n**Triggers** are logic circuits that decide instantly: 'Is this event interesting?'. If yes, the DAQ system reads the data, digitizes it, and saves it to disk.",
-            "task": { "description": "Imagine the 'Run' button in the simulator is your Trigger start signal." },
-            "quiz": [
-                { "question": "What is a Trigger?", "options": ["A mechanical switch", "A logic system to select events", "The particle source", "A computer virus"], "correct": 1, "explanation": "It filters out background noise to save only useful data." },
-                { "question": "What does 'digitization' mean?", "options": ["Converting analog signals to numbers", "Cleaning the detector", "Turning it on", "Analyzing data"], "correct": 0, "explanation": "Turning voltage pulses into 1s and 0s." }
-            ]
+          "title": "26. Statistics & Fit Methods",
+          "description": "Extracting numbers from noise.",
+          "icon": "TrendingUp",
+          "subtopics": [
+            {
+              "id": "3.26.1",
+              "title": "Probability Density Functions",
+              "type": "text",
+              "content": "Gaussian, Poisson, Binomial."
+            },
+            {
+              "id": "3.26.2",
+              "title": "Maximum Likelihood Fit",
+              "type": "text",
+              "content": "L = Product(Probabilities). Maximize L."
+            },
+            {
+              "id": "3.26.3",
+              "title": "Least Squares Method",
+              "type": "text",
+              "content": "Minimize Sum(residuals^2). Easier but less general."
+            },
+            {
+              "id": "3.26.4",
+              "title": "Chi-Squared Test",
+              "type": "case_study",
+              "content": "Goodness of fit. reduced-Chi2 ~ 1."
+            },
+            {
+              "id": "3.26.5",
+              "title": "Confidence Intervals",
+              "type": "text",
+              "content": "68% (1-sigma), 95% (2-sigma)."
+            },
+            {
+              "id": "3.26.6",
+              "title": "Root Mean Square",
+              "type": "text",
+              "content": "Measure of spread."
+            },
+            {
+              "id": "3.26.7",
+              "title": "Simulator Task: Fit Curve",
+              "type": "task",
+              "content": "The 'Fit Curve' option in Analysis applies an exponential fit to the decay."
+            },
+            {
+              "id": "3.26.8",
+              "title": "Quiz: Sigmas",
+              "type": "quiz",
+              "quiz": {
+                "q": "Percent in 1 sigma?",
+                "a": [
+                  "50%",
+                  "68%",
+                  "99%"
+                ],
+                "correct": 1
+              }
+            },
+            {
+              "id": "3.26.9",
+              "title": "Flashcards: p-value",
+              "type": "flashcard",
+              "flashcard": {
+                "front": "p-value < 0.05",
+                "back": "Statistically Significant"
+              }
+            },
+            {
+              "id": "3.26.10",
+              "title": "Systematic Errors",
+              "type": "text",
+              "content": "Shift in the mean, not the width."
+            }
+          ]
         },
         {
-            "id": "3.7", "title": "Systematic Uncertainties", "duration": "30 min", "icon": "AlertTriangle",
-            "description": "Sources, propagation, minimization.",
-            "content": "# Systematics\n\nStatistical error goes down with more data. Systematic error does not.\n\nExamples:\n*   Ruler calibration is off by 1mm.\n*   Clock runs 0.1% too fast.\n*   Detector is slightly misaligned.\n\nGood physicists spend most of their time fighting systematics.",
-            "task": { "description": "In the simulator 'Analysis Settings', check 'Show Error Bars'. These represent our uncertainties." },
-            "quiz": [
-                { "question": "Can you fix systematic error by taking more data?", "options": ["Yes", "No"], "correct": 1, "explanation": "No, you acturally measure the 'wrong' value more precisely. You must calibrate to fix it." },
-                { "question": "What is a good way to find systematics?", "options": ["Guessing", "Calibration with known source", "Ignoring them", "Using simpler math"], "correct": 1, "explanation": "Using a known reference (like our non-decaying Muon) reveals biases." }
-            ]
+          "title": "27. Beamline Instrumentation",
+          "description": "Diagnostic tools.",
+          "icon": "Tool",
+          "subtopics": [
+            {
+              "id": "3.27.1",
+              "title": "Beam Monitors (BPM)",
+              "type": "text",
+              "content": "Where is the beam center?"
+            },
+            {
+              "id": "3.27.2",
+              "title": "Wire Chambers (MWPC)",
+              "type": "text",
+              "content": "Tracking with gas wires."
+            },
+            {
+              "id": "3.27.3",
+              "title": "Magnet Control",
+              "type": "text",
+              "content": "Current stability is crucial."
+            },
+            {
+              "id": "3.27.4",
+              "title": "Target Selection",
+              "type": "case_study",
+              "content": "Beryllium vs Lead targets."
+            },
+            {
+              "id": "3.27.5",
+              "title": "Collimation",
+              "type": "text",
+              "content": "Scraping off the halo particles."
+            },
+            {
+              "id": "3.27.6",
+              "title": "Vacuum Systems",
+              "type": "text",
+              "content": "Beam needs vacuum to avoid scattering."
+            },
+            {
+              "id": "3.27.7",
+              "title": "Simulator Task: Beamline",
+              "type": "task",
+              "content": "We assume perfect vacuum. Try 'Beam Intensity' slider to simulate flux."
+            },
+            {
+              "id": "3.27.8",
+              "title": "Quiz: Vacuum",
+              "type": "quiz",
+              "quiz": {
+                "q": "Why vacuum?",
+                "a": [
+                  "Insulation",
+                  "Prevent collision with air",
+                  "Keep cool"
+                ],
+                "correct": 1
+              }
+            },
+            {
+              "id": "3.27.9",
+              "title": "Flashcards: MWPC",
+              "type": "flashcard",
+              "flashcard": {
+                "front": "Multi-Wire Proportional Chamber",
+                "back": "Charpak (Nobel 1992)"
+              }
+            },
+            {
+              "id": "3.27.10",
+              "title": "The Spill",
+              "type": "text",
+              "content": "Beam comes in pulses, not continuous."
+            }
+          ]
         },
         {
-            "id": "3.8", "title": "Advanced Statistical Methods", "duration": "40 min", "icon": "TrendingUp",
-            "description": "Likelihood fits, hypothesis testing.",
-            "content": "# Fitting Data\n\nOnce we have data points, we fit a function to them (like an exponential decay curve).\n\n**Maximum Likelihood Estimation (MLE)** finds the parameters that make the observed data most probable. This gives us the best estimate for values like the particle lifetime.",
-            "task": { "description": "View the 'Decay Curves' in the Results modal. The smooth lines are the Fits to the dot data points." },
-            "quiz": [
-                { "question": "What is a 'fit'?", "options": ["Matching clothes", "A mathematical function matching data", "A healthy particle", "A database"], "correct": 1, "explanation": "Modelling the data with a theoretical curve." },
-                { "question": "What tells you if a fit is good?", "options": ["Chi-squared", "The color", "The size of the plot", "The number of points"], "correct": 0, "explanation": "Chi-squared per degree of freedom should be close to 1." }
-            ]
+          "title": "28. Trigger Logic",
+          "description": "Decidng what to save.",
+          "icon": "CheckSquare",
+          "subtopics": [
+            {
+              "id": "3.28.1",
+              "title": "The Hardware Trigger",
+              "type": "text",
+              "content": "Fast electronics (ns). FPGA."
+            },
+            {
+              "id": "3.28.2",
+              "title": "Coincidence S1 * S2",
+              "type": "text",
+              "content": "Particle must hit start AND end."
+            },
+            {
+              "id": "3.28.3",
+              "title": "Veto Counters",
+              "type": "text",
+              "content": "Ignore particles that hit the walls."
+            },
+            {
+              "id": "3.28.4",
+              "title": "Prescaling",
+              "type": "text",
+              "content": "Record only 1 in 100 common events."
+            },
+            {
+              "id": "3.28.5",
+              "title": "Dead Time",
+              "type": "case_study",
+              "content": "Detector is 'blind' while reading out."
+            },
+            {
+              "id": "3.28.6",
+              "title": "Trigger Efficiency",
+              "type": "text",
+              "content": "Did we miss good events?"
+            },
+            {
+              "id": "3.28.7",
+              "title": "Simulator Task: Physics",
+              "type": "task",
+              "content": "Our simulator triggers on 'Particle Generation'. Real life is harder."
+            },
+            {
+              "id": "3.28.8",
+              "title": "Quiz: Logic",
+              "type": "quiz",
+              "quiz": {
+                "q": "AND logic?",
+                "a": [
+                  "Both must be true",
+                  "One must be true"
+                ],
+                "correct": 0
+              }
+            },
+            {
+              "id": "3.28.9",
+              "title": "Flashcards: Dead Time",
+              "type": "flashcard",
+              "flashcard": {
+                "front": "Dead Time",
+                "back": "Lost data period"
+              }
+            },
+            {
+              "id": "3.28.10",
+              "title": "Software Trigger (HLT)",
+              "type": "text",
+              "content": "Computer farm filtering."
+            }
+          ]
         },
         {
-            "id": "3.9", "title": "Beyond the Standard Model", "duration": "30 min", "icon": "Compass",
-            "description": "Lorentz violation, extra dimensions.",
-            "content": "# New Physics?\n\nThe Standard Model is great, but incomplete. It doesn't explain Gravity or Dark Matter.\n\nPhysicists look for cracks in the theory. If Time Dilation wasn't universal, it would break Relativity, potentially pointing to 'Quantum Gravity' or Extra Dimensions.",
-            "task": { "description": "Consider what would happen if the Kaon curve in the simulator didn't match the prediction. Discovery!" },
-            "quiz": [
-                { "question": "Does the Standard Model explain Gravity?", "options": ["Yes", "No", "Partially", "Only on Earth"], "correct": 1, "explanation": "It is the biggest missing piece of modern physics." },
-                { "question": "What is 'Dark Matter'?", "options": ["Black paint", "Invisible matter holding galaxies together", "Anti-matter", "Burned toast"], "correct": 1, "explanation": "We see its gravity but not the particles themselves." }
-            ]
+          "title": "29. Beyond the Standard Model",
+          "description": "What's next?",
+          "icon": "HelpCircle",
+          "subtopics": [
+            {
+              "id": "3.29.1",
+              "title": "Supersymmetry (SUSY)",
+              "type": "text",
+              "content": "Every fermion has a boson partner."
+            },
+            {
+              "id": "3.29.2",
+              "title": "Dark Matter Candidates",
+              "type": "text",
+              "content": "WIMPs, Axions."
+            },
+            {
+              "id": "3.29.3",
+              "title": "Neutrino Oscillations",
+              "type": "case_study",
+              "content": "Neutrinos have mass! (Nobel 2015)."
+            },
+            {
+              "id": "3.29.4",
+              "title": "Matter-Antimatter Asymmetry",
+              "type": "text",
+              "content": "Why are we here?"
+            },
+            {
+              "id": "3.29.5",
+              "title": "Grand Unified Theory (GUT)",
+              "type": "text",
+              "content": "Merging Strong, Weak, EM."
+            },
+            {
+              "id": "3.29.6",
+              "title": "String Theory",
+              "type": "text",
+              "content": "Particles are vibrating strings?"
+            },
+            {
+              "id": "3.29.7",
+              "title": "Simulator Task: Anomaly",
+              "type": "task",
+              "content": "Search for 'Rare Kaon Decay' in presets. Often a BSM channel."
+            },
+            {
+              "id": "3.29.8",
+              "title": "Quiz: SUSY",
+              "type": "quiz",
+              "quiz": {
+                "q": "Selectron is partner of?",
+                "a": [
+                  "Electron",
+                  "Proton",
+                  "Neutron"
+                ],
+                "correct": 0
+              }
+            },
+            {
+              "id": "3.29.9",
+              "title": "Flashcards: WIMP",
+              "type": "flashcard",
+              "flashcard": {
+                "front": "WIMP",
+                "back": "Weakly Interacting Massive Particle"
+              }
+            },
+            {
+              "id": "3.29.10",
+              "title": "Future Experiments",
+              "type": "text",
+              "content": "DUNE, Hyper-K, FCC."
+            }
+          ]
         },
         {
-            "id": "3.10", "title": "Proposing Your Experiment", "duration": "45 min", "icon": "FileText",
-            "description": "Writing a proposal, budget, feasibility.",
-            "content": "# Conclusion: Doing Science\n\nReal science starts with a proposal. You need:\n\n1.  **Motivation**: Why is this interesting?\n2.  **Method**: How will you do it?\n3.  **Feasibility**: Is it possible with current tech?\n\nThis website is based on a real winning proposal for CERN. Now it's your turn to think of an idea!",
-            "task": { "description": "You've finished the course! Go to the 'Team' page to see the students who designed this experiment." },
-            "quiz": [
-                { "question": "What is the most important part of a proposal?", "options": ["The font", "The budget", "The scientific motivation", "The pictures"], "correct": 2, "explanation": "If the science isn't interesting, the rest doesn't matter." },
-                { "question": "Can high school students propose experiments at CERN?", "options": ["No", "Yes, via Beamline for Schools", "Only PhDs", "Only if rich"], "correct": 1, "explanation": "Yes! That's exactly what this project is about." }
-            ]
+          "title": "30. Proposal Writing (BL4S)",
+          "description": "How to become a scientist.",
+          "icon": "PenTool",
+          "subtopics": [
+            {
+              "id": "3.30.1",
+              "title": "The Competition",
+              "type": "text",
+              "content": "Beamline for Schools context."
+            },
+            {
+              "id": "3.30.2",
+              "title": "Finding an Idea",
+              "type": "text",
+              "content": "Read papers, brainstorm."
+            },
+            {
+              "id": "3.30.3",
+              "title": "Feasibility Check",
+              "type": "case_study",
+              "content": "Can the T9 beam actually do this?"
+            },
+            {
+              "id": "3.30.4",
+              "title": "Simulating the Setup",
+              "type": "text",
+              "content": "Using tools like this website to optimize."
+            },
+            {
+              "id": "3.30.5",
+              "title": "Writing the Text",
+              "type": "text",
+              "content": "Clear, concise, English."
+            },
+            {
+              "id": "3.30.6",
+              "title": "Making the Video",
+              "type": "text",
+              "content": "Creativity counts."
+            },
+            {
+              "id": "3.30.7",
+              "title": "Simulator Task: Final Project",
+              "type": "task",
+              "content": "Design your own layout in 'Custom' preset."
+            },
+            {
+              "id": "3.30.8",
+              "title": "Quiz: Winning",
+              "type": "quiz",
+              "quiz": {
+                "q": "Key to winning?",
+                "a": [
+                  "Complex math",
+                  "Feasible & Creative idea",
+                  "Long video"
+                ],
+                "correct": 1
+              }
+            },
+            {
+              "id": "3.30.9",
+              "title": "Flashcards: BL4S",
+              "type": "flashcard",
+              "flashcard": {
+                "front": "Beamline",
+                "back": "T9 (East Area)"
+              }
+            },
+            {
+              "id": "3.30.10",
+              "title": "Good Luck!",
+              "type": "text",
+              "content": "The journey is the reward."
+            }
+          ]
         }
       ]
     }

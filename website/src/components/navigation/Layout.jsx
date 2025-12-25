@@ -13,7 +13,7 @@ const Layout = ({ children }) => {
       <ToastProvider />
       <Navbar />
 
-      <main className={`flex-grow ${!isHomePage ? 'pt-20' : ''}`}>
+      <main className={`flex-grow ${!isHomePage ? 'pt-32' : ''}`}>
         {children}
       </main>
 
