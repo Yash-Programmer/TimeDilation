@@ -39,7 +39,7 @@ with Muon Calibration}\\[0.5em]
 \maketitle
 
 \begin{abstract}
-Einstein's special relativity predicts that time dilation is \textbf{universal}, meaning the Lorentz factor $\gamma(p) = \sqrt{1 + (p/mc)^2}$ should depend only on momentum, independent of particle species. Yet nearly all experimental tests have measured single particles in isolation. We propose the \textbf{first systematic comparative study} measuring time dilation simultaneously across charged pions ($\pi^+$) and kaons ($K^+$) at the same momentum, using muons ($\mu^+$) as a non-decaying reference. If special relativity is truly universal, both exponential decay curves should collapse to identical normalized survival functions when scaled by $\gamma\tau_0$. Any deviation would reveal mass-dependent corrections to Lorentz transformation. With 4.7$\times$ mass difference and 2--3\% precision, we can detect violations at 5$\sigma$ confidence. This experiment uses only standard CERN detectors yet tests a fundamental assumption never directly verified.
+Einstein's special relativity predicts that time dilation is \textbf{universal}, meaning the Lorentz factor $\gamma(p) = \sqrt{1 + (p/mc)^2}$ should depend only on momentum, independent of particle species. Yet nearly all experimental tests have measured single particles in isolation. We propose a \textbf{pedagogical comparative null-test} measuring time dilation simultaneously across charged pions ($\pi^+$) and kaons ($K^+$) at the same momentum, using muons ($\mu^+$) as a non-decaying reference. If special relativity is truly universal, both exponential decay curves should collapse to identical normalized survival functions when scaled by $\gamma\tau_0$. Any deviation would reveal mass-dependent corrections to Lorentz transformation. With 4.7$\times$ mass difference and 2--3\% precision, we can detect percent-level violations at 5$\sigma$ confidence. This experiment uses only standard CERN detectors to perform a direct same-beam, same-detector comparison.
 \end{abstract}
 
 \section{Introduction}
@@ -52,7 +52,7 @@ Special relativity's time dilation applies to everything, including pions, kaons
 
 But here's the surprising truth: \textbf{nearly all experimental tests have measured one particle species at a time}. Cosmic ray muons (Rossi-Hall 1941) verified muon time dilation. Pion decay experiments measured pion lifetime vs.\ momentum. Kaon beams studied kaon decay kinematics. Each confirmed \textit{that particular particle} exhibits time dilation.
 
-\textbf{No experiment has systematically compared multiple species under identical conditions} to verify the universality assumption. We propose to test this directly: Do pions and kaons exhibit \textbf{identical} time dilation when measured at the same momentum in the same beam?
+\textbf{Rarely has an experiment systematically compared multiple species under identical conditions, side-by-side,} to verify the universality assumption. We propose to test this directly: Do pions and kaons exhibit \textbf{identical} time dilation when measured at the same momentum in the same beam?
 
 \subsection{Why This Matters}
 
@@ -129,7 +129,7 @@ We propose to test whether time dilation is truly mass-independent by comparing 
 
 \section{Why We Want to Go}
 
-We are driven by the opportunity to test a fundamental assumption that has never been directly verified. For over a century, physicists have assumed that time dilation is universal, meaning that it applies equally to all particles regardless of their mass or composition. Yet no controlled experiment has ever compared multiple particle species under identical conditions.
+We are driven by the opportunity to test a fundamental assumption that is rarely tested in a direct comparison. For over a century, physicists have assumed that time dilation is universal, meaning that it applies equally to all particles regardless of their mass or composition. Yet few controlled experiments have compared multiple particle species under identical conditions in the same beamline.
 
 This competition offers us the unique chance to access CERN's world-class facilities and perform a measurement that, despite its conceptual simplicity, has never been done. We want to be the students who ask: ``What if everyone is wrong?'' and have the tools to actually check.
 
@@ -216,14 +216,13 @@ Although relativistic time dilation has been verified independently for many par
 
 \subsection{Potential Physics Beyond Standard Relativity}
 
-If special relativity is \textit{not} exactly universal, several theoretical scenarios predict deviations:
-
+If special relativity is \textit{not} exactly universal, we test two specific aspects:
 \begin{itemize}
-    \item \textbf{Mass-dependent Lorentz violation:} Some quantum gravity theories propose $\gamma_{\text{modified}} = \gamma_{\text{SR}} (1 + \alpha m^2/M_{\text{Pl}}^2)$
-    \item \textbf{Composite vs.\ fundamental:} Kaons (quark composites) might differ from fundamental particles
+    \item \textbf{Composition:} Do strange quarks (in kaons) obey the same Lorentz transformation as light quarks (in pions)?
+    \item \textbf{Methodology:} A test of the universality assumption itself, independent of specific theoretical models.
 \end{itemize}
 
-With 4.7$\times$ mass ratio and 2--3\% precision, we can detect 1\% violations at 5$\sigma$ confidence.
+With 4.7$\times$ mass ratio and 2--3\% precision, we can detect percent-level violations at 5$\sigma$ confidence.
 
 % ============ DIAGRAM 5: DECAY CHANNELS ============
 \begin{figure}[htbp]
@@ -299,7 +298,7 @@ Educational (replicating results) & Scientific (testing hypothesis) \\
 
 Our comparative approach offers methodological advantages:
 \begin{itemize}
-    \item \textbf{Systematic cancellation:} Beam fluctuations affect both species equally → cancel in ratios
+    \item \textbf{Controlled systematics:} Beam fluctuations affect both species equally → reduces sensitivity to systematics
     \item \textbf{Self-calibration:} Muon flat reference validates detection efficiency
     \item \textbf{Null test:} Looking for agreement is more robust than extracting absolute values
 \end{itemize}
@@ -577,7 +576,7 @@ Cross-contamination & $<$2\% & Combined cuts \\
 
 We will use muons as a \textbf{non-decaying reference species} to validate detection efficiency and particle ID, not as a third decay measurement. A constant muon rate $N_\mu(x)/N_\mu(0) \approx 1.000$ across all distances confirms our systematics are under control.
 
-\textbf{Our primary universality test compares pions and kaons}, which span a 4.7$\times$ mass ratio, which is sufficient to test for mass-dependent Lorentz violations with high sensitivity.
+\textbf{Our primary universality test compares pions and kaons}, which span a 4.7$\times$ mass ratio. This binary comparison is robust against many common systematic errors.
 
 \subsection{Measurement Protocol}
 
@@ -589,7 +588,7 @@ We will use muons as a \textbf{non-decaying reference species} to validate detec
 \midrule
 1--2 & Installation \& Calibration & Mount detectors at T9 positions; configure RICH for optimal $\beta$ resolution; calibrate calorimeter energy response; verify trigger logic ($T =$ SC1 $\land$ SC2, 5 ns window) \\
 \midrule
-3--5 & Particle ID Validation & Fixed beam (8 GeV/c), Station 2 at 0 m; collect 50,000 pions, 2,500 kaons, 1,000 muons; plot $\beta$ vs.\ $E_{\text{cal}}$; determine ID efficiency and cross-contamination; validate muon topology \\
+3--5 & PID Validation \& Buffer & Fixed beam (8 GeV/c), Station 2 at 0 m; collect 50,000 pions, 2,500 kaons; plot $\beta$ vs.\ $E_{\text{cal}}$; \textbf{extra day allocated for PID debugging} if separation is non-trivial \\
 \midrule
 6--9 & Decay Measurements & Move Station 2 to $x = 5, 10, 15$ m; collect 1000 spills per position ($\sim$8 hours each); record particle ID, flight distance, time-of-flight; bin data by species; monitor muon rate \\
 \midrule
@@ -826,7 +825,7 @@ Statistical (per point) & $\pm$1.0\% & Sufficient beam time \\
     \item Deviations from exponential decay (non-SR effects)
 \end{itemize}
 
-This precision \textbf{exceeds previous single-particle measurements} for comparative tests and sets a new benchmark for universality verification.
+This precision provides an \textbf{educationally meaningful comparative test} and sets a benchmark for future universality verification.
 
 \subsection{Expected Outcomes and Interpretation}
 
