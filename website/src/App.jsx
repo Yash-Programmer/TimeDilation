@@ -17,10 +17,13 @@ const ScrollToTop = () => {
   return null;
 };
 
+import CustomCursor from './components/common/CustomCursor';
+
 function App() {
   return (
     <Router>
       <ScrollToTop />
+      <CustomCursor />
       <Layout>
         <Routes>
           <Route path="/" element={<Home />} />

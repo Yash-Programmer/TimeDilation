@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef, useLayoutEffect } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
@@ -13,7 +13,10 @@ import modulesData from '../data/modules.json';
 import { showToast } from '../components/common/Toast';
 import { useLocalStorage } from '../hooks/useLocalStorage';
 import confetti from 'canvas-confetti';
+import { gsap, ScrollTrigger } from '../hooks/useGSAP';
 
+// Use layout effect with SSR safety
+const useIsomorphicLayoutEffect = typeof window !== 'undefined' ? useLayoutEffect : useEffect;
 // Infographic component mapping
 const INFOGRAPHICS = {
    'AtomStructure': AtomStructure,
@@ -68,23 +71,74 @@ const SimpleQuiz = ({ questionData }) => {
 
 const Learn = () => {
    const [activeLevel, setActiveLevel] = useState('beginner');
-   const [selectedModuleId, setSelectedModuleId] = useState('1.1.1'); // Default to first subtopic of first module? No, select Module ID.
-   // Actually the module IDs in JSON are "1.1.1". Wait.
-   // In script: beginner_chapters has subtopics with IDs "1.1.1". The chapter itself doesn't have an ID in the script, I need to check the JSON output. 
-   // The script didn't assign IDs to the Chapter objects! It assigned "1.1.X" to subtopics.
-   // Let me assign a temporary ID based on index if missing, or I should have fixed the script.
-   // I will check the JSON structure first to be sure. I'll assume they don't have IDs and generate them or just index.
-
-   // Correction: The script loop for `beginner_chapters` just defined dicts. It didn't add "id".
-   // I will map over them and add IDs dynamically.
-
+   const [selectedModuleId, setSelectedModuleId] = useState('1.1.1');
    const [currentModuleIndex, setCurrentModuleIndex] = useState(0);
+
+   // GSAP refs
+   const sidebarRef = useRef(null);
+   const contentRef = useRef(null);
+   const headerRef = useRef(null);
 
    const levels = { beginner: 0, intermediate: 1, advanced: 2 };
    const currentLevelItems = modulesData.modules.find(l => l.level === activeLevel)?.items || [];
-
-   // Flattening or just selecting
    const currentModule = currentLevelItems[currentModuleIndex] || currentLevelItems[0];
+
+   // GSAP animations for sidebar modules
+   useIsomorphicLayoutEffect(() => {
+      if (!sidebarRef.current) return;
+
+      const ctx = gsap.context(() => {
+         const modules = sidebarRef.current.querySelectorAll('.module-item');
+
+         gsap.fromTo(modules,
+            { opacity: 0, x: -30 },
+            {
+               opacity: 1,
+               x: 0,
+               duration: 0.5,
+               stagger: 0.05,
+               ease: 'power4.out',
+            }
+         );
+      }, sidebarRef);
+
+      return () => ctx.revert();
+   }, [activeLevel]);
+
+   // GSAP animations for content sections
+   useIsomorphicLayoutEffect(() => {
+      if (!contentRef.current) return;
+
+      const ctx = gsap.context(() => {
+         // Animate header
+         if (headerRef.current) {
+            gsap.fromTo(headerRef.current.children,
+               { opacity: 0, y: 30 },
+               { opacity: 1, y: 0, duration: 0.6, stagger: 0.1, ease: 'power4.out' }
+            );
+         }
+
+         // Animate topic sections
+         const topics = contentRef.current.querySelectorAll('.topic-section');
+         gsap.fromTo(topics,
+            { opacity: 0, y: 50 },
+            {
+               opacity: 1,
+               y: 0,
+               duration: 0.7,
+               stagger: 0.15,
+               ease: 'power4.out',
+               scrollTrigger: {
+                  trigger: contentRef.current,
+                  start: 'top 80%',
+                  toggleActions: 'play none none none'
+               }
+            }
+         );
+      }, contentRef);
+
+      return () => ctx.revert();
+   }, [currentModuleIndex, activeLevel]);
 
    // Handlers
    const handleLevelChange = (level) => {
@@ -96,7 +150,7 @@ const Learn = () => {
       <div className="flex flex-col lg:flex-row min-h-[calc(100vh-64px)] bg-[#FAFAFA]">
 
          {/* Sidebar Navigation */}
-         <div className="w-full lg:w-[320px] bg-white border-r border-slate-200 flex flex-col h-[calc(100vh-64px)] sticky top-16 z-30">
+         <div ref={sidebarRef} className="w-full lg:w-[320px] bg-white border-r border-slate-200 flex flex-col h-[calc(100vh-64px)] sticky top-16 z-30">
 
             {/* Level Tabs */}
             <div className="flex p-2 gap-1 bg-slate-50 border-b border-slate-200">
@@ -125,7 +179,7 @@ const Learn = () => {
                   <button
                      key={idx}
                      onClick={() => setCurrentModuleIndex(idx)}
-                     className={`
+                     className={`module-item
                     w-full text-left p-3 rounded-lg flex items-start gap-3 transition-colors group
                     ${currentModuleIndex === idx ? 'bg-[#0033A0]/5 border border-blue-100' : 'hover:bg-slate-50 border border-transparent'}
                   `}
@@ -148,12 +202,12 @@ const Learn = () => {
          </div>
 
          {/* Main Content Area */}
-         <div className="flex-1 bg-[#FAFAFA] overflow-y-auto">
+         <div ref={contentRef} className="flex-1 bg-[#FAFAFA] overflow-y-auto">
             {currentModule ? (
                <div className="max-w-4xl mx-auto px-6 py-12">
 
                   {/* Header */}
-                  <div className="mb-10">
+                  <div ref={headerRef} className="mb-10">
                      <div className="inline-flex items-center gap-2 mb-4 px-3 py-1 rounded-full bg-slate-100 text-slate-600 text-xs font-medium uppercase tracking-wider">
                         <span className="w-2 h-2 rounded-full bg-[#0033A0]"></span>
                         {activeLevel} Level
@@ -166,7 +220,7 @@ const Learn = () => {
 
                   <div className="space-y-12">
                      {currentModule.subtopics && currentModule.subtopics.map((topic, index) => (
-                        <div key={index} className="scroll-mt-24" id={`topic-${index}`}>
+                        <div key={index} className="topic-section scroll-mt-24" id={`topic-${index}`}>
 
                            {/* Topic Title */}
                            <div className="flex items-center gap-3 mb-6">

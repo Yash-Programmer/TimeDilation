@@ -1,185 +1,201 @@
-import React, { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
-import { MapPin, Mail, Linkedin, Globe, Instagram, ArrowUpRight, Sparkles } from 'lucide-react';
+import React, { useRef, useState, useEffect, useLayoutEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { gsap, ScrollTrigger } from '../hooks/useGSAP';
+import Footer from '../components/common/Footer';
+import { ArrowRight, Github, Linkedin, Mail, Twitter, ChevronRight, Globe, MapPin, Database, Award, GitCommit } from 'lucide-react';
 import teamData from '../data/teamMembers.json';
 
-// --- ANIMATIONS ---
-const containerVar = {
-   hidden: { opacity: 0 },
-   visible: {
-      opacity: 1,
-      transition: {
-         staggerChildren: 0.1,
-         delayChildren: 0.2
-      }
-   }
-};
+const useIsomorphicLayoutEffect = typeof window !== 'undefined' ? useLayoutEffect : useEffect;
 
-const cardVar = {
-   hidden: { opacity: 0, y: 40, scale: 0.98 },
-   visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] }
-   }
-};
+// ============================================
+// MANIFESTO HERO
+// ============================================
+const TeamHero = () => {
+   const containerRef = useRef(null);
+   const line1Ref = useRef(null);
+   const line2Ref = useRef(null);
 
-const MemberCard = ({ member }) => {
+   useIsomorphicLayoutEffect(() => {
+      const ctx = gsap.context(() => {
+         const tl = gsap.timeline({ delay: 0.2 });
+
+         // Split text reveal
+         const chars1 = line1Ref.current?.querySelectorAll('.char');
+         const chars2 = line2Ref.current?.querySelectorAll('.char');
+
+         if (chars1) tl.fromTo(chars1, { y: 100, opacity: 0 }, { y: 0, opacity: 1, duration: 1, stagger: 0.03, ease: 'power3.out' });
+         if (chars2) tl.fromTo(chars2, { y: 100, opacity: 0 }, { y: 0, opacity: 1, duration: 1, stagger: 0.03, ease: 'power3.out' }, "-=0.8");
+
+      }, containerRef);
+      return () => ctx.revert();
+   }, []);
+
+   const split = (text) => text.split('').map((c, i) => <span key={i} className="char inline-block">{c === ' ' ? '\u00A0' : c}</span>);
+
    return (
-      <motion.div
-         variants={cardVar}
-         className="group relative h-[480px] bg-white rounded-[40px] p-8 sm:p-10 flex flex-col justify-between overflow-hidden transition-all duration-500 hover:shadow-2xl hover:shadow-black/5"
-      >
-         {/* Hover Gradient Overlay */}
-         <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-
-         {/* Top Content */}
-         <div className="relative z-10">
-            <div className="flex justify-between items-start mb-4">
-               {/* Avatar / Initial */}
-               <div className="w-20 h-20 rounded-3xl bg-[#f5f5f7] flex items-center justify-center text-3xl font-semibold text-black/80 group-hover:scale-105 transition-transform duration-500">
-                  {member.name.charAt(0)}
-               </div>
-
-               {/* Location Badge */}
-               <div className="flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#f5f5f7] text-xs font-semibold uppercase tracking-wider text-neutral-500">
-                  <MapPin size={10} />
-                  {member.country || "Global"}
+      <section ref={containerRef} className="min-h-[80vh] flex flex-col justify-center px-6 bg-[#f5f5f7] border-b border-gray-200">
+         <div className="max-w-[90rem] mx-auto w-full">
+            <div className="mb-12">
+               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-black/10 text-xs font-mono uppercase tracking-widest text-[#86868b]">
+                  <span className="w-2 h-2 bg-black rounded-full animate-pulse" />
+                  Global Collective
                </div>
             </div>
 
-            <h3 className="text-4xl md:text-5xl font-semibold tracking-tighter text-[#1d1d1f] mb-4 leading-[0.95] group-hover:translate-x-1 transition-transform duration-500">
-               {member.name}
-            </h3>
-
-            <div className="flex flex-wrap gap-2 mb-6">
-               {member.threeWords?.map((word, i) => (
-                  <span key={i} className="text-xs font-bold text-neutral-400 uppercase tracking-wide">
-                     {word} {i < member.threeWords.length - 1 && "•"}
-                  </span>
-               ))}
-            </div>
-
-            <p className="text-lg text-neutral-500 leading-relaxed max-w-sm">
-               {member.description}
-            </p>
+            <h1 ref={line1Ref} className="text-[12vw] leading-[0.8] font-bold tracking-tighter text-[#1d1d1f] overflow-hidden">
+               {split("SCIENTIFIC")}
+            </h1>
+            <h1 ref={line2Ref} className="text-[12vw] leading-[0.8] font-bold tracking-tighter text-[#86868b] overflow-hidden">
+               {split("PERSONNEL")}
+            </h1>
          </div>
-
-         {/* Bottom / Socials */}
-         <div className="relative z-10 pt-8 border-t border-neutral-100 mt-auto flex items-center justify-between">
-            <div className="flex gap-1">
-               {member.social?.linkedin && (
-                  <a href={`https://linkedin.com/in/${member.social.linkedin}`} target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-neutral-100 hover:bg-[#0077b5] hover:text-white flex items-center justify-center text-neutral-500 transition-all duration-300">
-                     <Linkedin size={18} />
-                  </a>
-               )}
-               {member.social?.instagram && (
-                  <a href={`https://instagram.com/${member.social.instagram}`} target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-neutral-100 hover:bg-[#E1306C] hover:text-white flex items-center justify-center text-neutral-500 transition-all duration-300">
-                     <Instagram size={18} />
-                  </a>
-               )}
-               {member.social?.email && (
-                  <a href={`mailto:${member.social.email}`} className="w-10 h-10 rounded-full bg-neutral-100 hover:bg-black hover:text-white flex items-center justify-center text-neutral-500 transition-all duration-300">
-                     <Mail size={18} />
-                  </a>
-               )}
-            </div>
-            <ArrowUpRight size={24} className="text-neutral-300 group-hover:text-black group-hover:-translate-y-1 group-hover:translate-x-1 transition-all duration-500" />
-         </div>
-      </motion.div>
+      </section>
    );
 };
 
-// --- SCROLL ANIMATION WRAPPER FOR GRID ---
-const ParallaxTeamGrid = () => {
-   const containerRef = useRef(null);
-   const { scrollYProgress } = useScroll({
-      target: containerRef,
-      offset: ["start end", "end start"]
-   });
+// ============================================
+// INTERACTIVE DIRECTORY (ROSTER)
+// ============================================
+const Roster = () => {
+   const [activeId, setActiveId] = useState(null);
+   const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
+   const listRef = useRef(null);
 
-   const leftCol = teamData.team.filter((_, i) => i % 2 === 0);
-   const rightCol = teamData.team.filter((_, i) => i % 2 !== 0);
+   // Mock "Scientific Data" augmentation
+   const members = (teamData.team || []).map((m, i) => ({
+      ...m,
+      id: `OP-${100 + i}`,
+      role: m.role || "Research Fellow",
+      commits: Math.floor(Math.random() * 500) + 50,
+      papers: Math.floor(Math.random() * 10),
+      focus: ["Neutrinos", "Dark Matter", "Grid Computing"][i % 3]
+   }));
 
-   // Subtle parallax - gentle asymmetric drift
-   const yRight = useTransform(scrollYProgress, [0, 1], [0, -60]);
+   const handleMouseMove = (e) => {
+      // Update cursor tracker for minimal effect if needed
+   };
 
    return (
-      <section ref={containerRef} className="container mx-auto px-6 mb-32">
-         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-start">
+      <section className="bg-white min-h-screen py-32 px-6" onMouseMove={handleMouseMove}>
+         <div className="max-w-[90rem] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12">
 
-            {/* Left Column - Standard Flow, just stagger fade in */}
-            <div className="space-y-8">
-               {leftCol.map((member, i) => (
-                  <MemberCard key={i * 2} member={member} />
+            {/* LEFT: LIST */}
+            <div className="lg:col-span-7 space-y-0" ref={listRef} onMouseLeave={() => setActiveId(null)}>
+               <div className="flex border-b border-black text-xs font-mono uppercase tracking-widest text-gray-400 pb-4 mb-4">
+                  <span className="w-24">ID_REF</span>
+                  <span className="flex-1">Researchers</span>
+                  <span className="w-32 text-right hidden md:block">Location</span>
+               </div>
+
+               {members.map((member) => (
+                  <div
+                     key={member.id}
+                     className={`group relative flex items-center py-8 border-b border-gray-100 cursor-pointer transition-all duration-300 ${activeId === member.id ? 'opacity-100' : 'opacity-60 hover:opacity-100'}`}
+                     onMouseEnter={() => setActiveId(member.id)}
+                  >
+                     <span className="w-24 font-mono text-xs text-gray-400 group-hover:text-black transition-colors">
+                        {member.id}
+                     </span>
+                     <div className="flex-1">
+                        <h3 className="text-4xl md:text-5xl font-medium tracking-tight text-[#1d1d1f] mb-1">
+                           {member.name}
+                        </h3>
+                        <p className="text-sm text-gray-400 font-mono group-hover:text-gray-600 transition-colors">
+                           {member.role} • {member.focus}
+                        </p>
+                     </div>
+                     <div className="w-32 text-right hidden md:block">
+                        <span className="text-xs font-bold uppercase border border-gray-200 px-2 py-1 rounded">
+                           {member.country || "Global"}
+                        </span>
+                     </div>
+
+                     {/* Chevron reveal */}
+                     <ChevronRight className={`absolute right-0 text-black opacity-0 -translate-x-4 transition-all duration-300 ${activeId === member.id ? 'opacity-100 translate-x-0' : ''}`} />
+                  </div>
                ))}
             </div>
 
-            {/* Right Column - Parallaxed */}
-            <motion.div style={{ y: yRight }} className="space-y-8 pt-0 md:pt-12">
-               {rightCol.map((member, i) => (
-                  <MemberCard key={i * 2 + 1} member={member} />
-               ))}
-            </motion.div>
+            {/* RIGHT: PREVIEW PANEL (STICKY) */}
+            <div className="hidden lg:block lg:col-span-5 relative">
+               <div className="sticky top-32 w-full aspect-[3/4] bg-[#f5f5f7] rounded-lg overflow-hidden border border-gray-200">
+                  <AnimatePresence mode="wait">
+                     {activeId ? (
+                        (() => {
+                           const activeMember = members.find(m => m.id === activeId);
+                           return (
+                              <motion.div
+                                 key={activeId}
+                                 initial={{ opacity: 0, scale: 0.95 }}
+                                 animate={{ opacity: 1, scale: 1 }}
+                                 exit={{ opacity: 0 }}
+                                 transition={{ duration: 0.3 }}
+                                 className="absolute inset-0 p-8 flex flex-col justify-end"
+                              >
+                                 {/* Grayscale Portrait Mockup */}
+                                 <div className="absolute inset-0 bg-gray-200">
+                                    <div className="w-full h-full flex items-center justify-center text-9xl font-bold text-gray-300 select-none grayscale opacity-30">
+                                       {activeMember.name.charAt(0)}
+                                    </div>
+                                    {/* Noise overlay */}
+                                    <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'url("data:image/svg+xml,...")' }} />
+                                 </div>
+
+                                 {/* Data Card */}
+                                 <div className="relative z-10 bg-white/90 backdrop-blur-md p-6 rounded-xl border border-white/20 shadow-lg">
+                                    <div className="grid grid-cols-2 gap-4 mb-6">
+                                       <div>
+                                          <div className="text-[10px] text-gray-400 uppercase tracking-widest mb-1">Commits</div>
+                                          <div className="text-2xl font-mono">{activeMember.commits}</div>
+                                       </div>
+                                       <div>
+                                          <div className="text-[10px] text-gray-400 uppercase tracking-widest mb-1">Papers</div>
+                                          <div className="text-2xl font-mono">{activeMember.papers}</div>
+                                       </div>
+                                    </div>
+
+                                    <div className="space-y-3 border-t border-gray-200 pt-4">
+                                       {activeMember.social?.linkedin && (
+                                          <a href={`https://linkedin.com/in/${activeMember.social.linkedin}`} className="flex items-center gap-3 text-sm hover:underline">
+                                             <Linkedin size={16} /> linkedin.com/{activeMember.social.linkedin}
+                                          </a>
+                                       )}
+                                       {activeMember.social?.email && (
+                                          <a href={`mailto:${activeMember.social.email}`} className="flex items-center gap-3 text-sm hover:underline">
+                                             <Mail size={16} /> {activeMember.social.email}
+                                          </a>
+                                       )}
+                                    </div>
+                                 </div>
+                              </motion.div>
+                           );
+                        })()
+                     ) : (
+                        <div className="absolute inset-0 flex items-center justify-center text-center p-12">
+                           <div>
+                              <Database size={48} className="mx-auto mb-4 text-gray-300" />
+                              <p className="text-gray-400 font-mono text-sm">Select a researcher to view dossier.</p>
+                           </div>
+                        </div>
+                     )}
+                  </AnimatePresence>
+               </div>
+            </div>
 
          </div>
       </section>
    );
 };
 
+// ============================================
+// MAIN PAGE
+// ============================================
 const Team = () => {
    return (
-      <div className="min-h-screen bg-[#f5f5f7] pt-40 pb-32">
-
-         {/* HERO SECTION - Sticky Effect */}
-         <div className="container mx-auto px-6 mb-32 md:mb-48 relative h-[40vh] flex items-center">
-            <motion.div
-               initial={{ opacity: 0, y: 30 }}
-               animate={{ opacity: 1, y: 0 }}
-               transition={{ duration: 0.8 }}
-               className="max-w-4xl sticky top-32 z-0"
-            >
-               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-gray-200 shadow-sm mb-6">
-                  <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
-                  <span className="text-xs font-bold text-gray-500 uppercase tracking-wide">The Relativists</span>
-               </div>
-               <h1 className="text-7xl md:text-9xl font-semibold tracking-tighter text-[#1d1d1f] mb-8 leading-none">
-                  The <span className="text-neutral-400">Minds.</span>
-               </h1>
-               <p className="text-2xl md:text-3xl text-neutral-500 font-medium max-w-2xl leading-tight">
-                  A global collective of physicists, engineers, and visionaries pushing the boundaries of student research.
-               </p>
-            </motion.div>
-         </div>
-
-         {/* TEAM GRID - 2 BLOCKS AT A TIME */}
-         <ParallaxTeamGrid />
-
-         {/* FULL WIDTH CTA SECTION */}
-         <section className="container mx-auto px-6">
-            <div className="bg-black rounded-[40px] p-12 md:p-32 text-center relative overflow-hidden group">
-               {/* Abstract Blue Glow */}
-               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-600/20 blur-[120px] rounded-full group-hover:bg-blue-600/30 transition-colors duration-1000" />
-
-               <div className="relative z-10 max-w-3xl mx-auto">
-                  <h2 className="text-5xl md:text-7xl font-semibold text-white tracking-tight mb-8">
-                     Join the mission.
-                  </h2>
-                  <p className="text-xl text-neutral-400 mb-12">
-                     We're always looking for brilliant minds to contribute to our open-source tools and research.
-                  </p>
-                  <motion.a
-                     whileHover={{ scale: 1.05 }}
-                     whileTap={{ scale: 0.95 }}
-                     href="mailto:contact@timedilation.org"
-                     className="inline-flex items-center gap-3 px-10 py-5 bg-white text-black text-xl font-semibold rounded-full hover:shadow-[0_0_40px_-10px_rgba(255,255,255,0.3)] transition-all"
-                  >
-                     Get in Touch <ArrowUpRight size={24} />
-                  </motion.a>
-               </div>
-            </div>
-         </section>
+      <div className="bg-white min-h-screen font-sans selection:bg-black selection:text-white overflow-x-hidden">
+         <TeamHero />
+         <Roster />
+         <Footer />
       </div>
    );
 };

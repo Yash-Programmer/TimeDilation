@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect, useLayoutEffect } from 'react';
 import { motion } from 'framer-motion';
 import {
     Lock, Info, FlaskConical, Atom, Zap, Target,
@@ -8,7 +8,10 @@ import {
 import { SimulationProvider } from '../context/SimulationContext';
 import Scene3D from '../components/simulation/Scene3D';
 import { Link } from 'react-router-dom';
+import { gsap, ScrollTrigger } from '../hooks/useGSAP';
 
+// Use layout effect with SSR safety
+const useIsomorphicLayoutEffect = typeof window !== 'undefined' ? useLayoutEffect : useEffect;
 // Pre-computed results for the BL4S experiment
 const proposalResults = {
     pion: {
@@ -37,11 +40,55 @@ const ProposalContent = () => {
     const [activeParticle, setActiveParticle] = useState('pion');
     const data = proposalResults[activeParticle];
 
+    // GSAP refs
+    const headerRef = useRef(null);
+    const sidebarRef = useRef(null);
+    const gammaRef = useRef(null);
+
+    // Animate header on mount
+    useIsomorphicLayoutEffect(() => {
+        if (!headerRef.current) return;
+
+        const ctx = gsap.context(() => {
+            gsap.fromTo(headerRef.current.children,
+                { opacity: 0, y: 20 },
+                { opacity: 1, y: 0, duration: 0.6, stagger: 0.1, ease: 'power4.out' }
+            );
+        }, headerRef);
+
+        return () => ctx.revert();
+    }, []);
+
+    // Animate sidebar panels
+    useIsomorphicLayoutEffect(() => {
+        if (!sidebarRef.current) return;
+
+        const ctx = gsap.context(() => {
+            const panels = sidebarRef.current.querySelectorAll('.proposal-panel');
+            gsap.fromTo(panels,
+                { opacity: 0, x: 50 },
+                { opacity: 1, x: 0, duration: 0.7, stagger: 0.12, ease: 'power4.out' }
+            );
+        }, sidebarRef);
+
+        return () => ctx.revert();
+    }, []);
+
+    // Animate gamma value change
+    useEffect(() => {
+        if (gammaRef.current) {
+            gsap.fromTo(gammaRef.current,
+                { scale: 1.2, opacity: 0.5 },
+                { scale: 1, opacity: 1, duration: 0.4, ease: 'back.out(1.7)' }
+            );
+        }
+    }, [activeParticle]);
+
     return (
         <div className="h-[calc(100vh-64px)] flex flex-col overflow-hidden bg-slate-50">
 
             {/* Header Banner - Compact */}
-            <div className="bg-[#f5f5f7] border-b border-gray-200 text-[#1d1d1f] shrink-0">
+            <div ref={headerRef} className="bg-[#f5f5f7] border-b border-gray-200 text-[#1d1d1f] shrink-0">
                 <div className="container mx-auto px-6 py-4">
                     <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
                         <div>
@@ -142,11 +189,11 @@ const ProposalContent = () => {
                 </div>
 
                 {/* Right: Proposal Details */}
-                <div className="lg:w-[450px] bg-white border-l border-slate-200 overflow-y-auto lg:h-full">
+                <div ref={sidebarRef} className="lg:w-[450px] bg-white border-l border-slate-200 overflow-y-auto lg:h-full">
                     <div className="p-6 space-y-6">
 
                         {/* Particle Selector (Visual Only) */}
-                        <div>
+                        <div className="proposal-panel">
                             <h3 className="text-sm font-bold text-slate-500 uppercase tracking-wider mb-3 flex items-center gap-2">
                                 <Atom size={14} />
                                 Particle Comparison
@@ -171,7 +218,7 @@ const ProposalContent = () => {
                         </div>
 
                         {/* Experiment Configuration */}
-                        <div className="bg-slate-50 rounded-xl p-4 border border-slate-100">
+                        <div className="proposal-panel bg-slate-50 rounded-xl p-4 border border-slate-100">
                             <h3 className="text-sm font-bold text-slate-500 uppercase tracking-wider mb-3 flex items-center gap-2">
                                 <Target size={14} />
                                 Experiment Configuration
@@ -195,7 +242,7 @@ const ProposalContent = () => {
                         </div>
 
                         {/* Detectors */}
-                        <div>
+                        <div className="proposal-panel">
                             <h3 className="text-sm font-bold text-slate-500 uppercase tracking-wider mb-3 flex items-center gap-2">
                                 <Gauge size={14} />
                                 Detector Configuration
@@ -220,7 +267,7 @@ const ProposalContent = () => {
                         </div>
 
                         {/* Expected Results */}
-                        <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-4 border border-blue-100">
+                        <div className="proposal-panel bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-4 border border-blue-100">
                             <h3 className="text-sm font-bold text-blue-800 uppercase tracking-wider mb-3 flex items-center gap-2">
                                 <BarChart3 size={14} />
                                 Expected Results
